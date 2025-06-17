@@ -30,11 +30,21 @@ const Navigation = ({ activePage, handlePageChange, isMobileMenuOpen, toggleMobi
       {/* Mobile Hamburger Icon */}
       <button
         onClick={toggleMobileMenu}
-        className="sm:hidden p-2 rounded-md text-gradient-dark-blue hover:bg-gray-100 focus:outline-none transition-colors duration-200" /* Ensures no focus ring */
+        className="sm:hidden p-2 rounded-md text-black hover:bg-gray-100 focus:outline-none"
         aria-label="Open navigation menu"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="lucide lucide-menu">
-          <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke="currentColor" // <-- CHANGE THIS: from fill to stroke
+          strokeWidth="2"      // <-- ADD THIS: for line thickness
+          strokeLinecap="round" // <-- OPTIONAL: for rounded line caps
+          strokeLinejoin="round" // <-- OPTIONAL: for rounded line corners
+          className="lucide luciswde-menu" // You can change the class name to reflect it's a menu icon
+        >
+          <path d="M4 12h16M4 6h16M4 18h16"/>
         </svg>
       </button>
 
