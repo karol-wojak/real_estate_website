@@ -133,7 +133,7 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 font-inter text-gray-800">
-      <header className="sticky top-0 bg-white shadow-lg z-50 py-4 px-6 md:px-10 flex items-center justify-between transition-all duration-300 ease-in-out">
+      <header className="bg-white shadow-lg z-50 py-4 px-6 md:px-10 flex items-center justify-between transition-all duration-300 ease-in-out">
         <div className="flex items-center space-x-4">
           <div className="logo-container">
             <img src="/logo_placeholder.png" alt="Company Logo" className="h-10 md:h-12 w-auto rounded-md shadow-sm" />
