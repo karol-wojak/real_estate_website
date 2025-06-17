@@ -18,12 +18,7 @@ const Navigation = ({ activePage, handlePageChange, isMobileMenuOpen, toggleMobi
             <li key={item.id}>
               <button
                 onClick={() => handlePageChange(item.id)}
-                className={`
-                  relative px-3 py-2 text-lg font-medium transition-all duration-300
-                  no-underline focus:outline-none /* Ensures no underlines or focus rings */
-                  text-gradient-dark-blue /* Default to dark blue gradient always */
-                  hover:text-gradient-gold /* Only change to gold gradient on hover */
-                `}
+                className="nav-item-button relative px-3 py-2 text-lg font-medium transition-all duration-300 no-underline focus:outline-none"
               >
                 {item.name}
               </button>
@@ -65,12 +60,7 @@ const Navigation = ({ activePage, handlePageChange, isMobileMenuOpen, toggleMobi
             <li key={item.id}>
               <button
                 onClick={() => handlePageChange(item.id)}
-                className={`
-                  text-2xl font-bold py-2 transition-colors duration-300
-                  no-underline focus:outline-none /* Ensures no underlines or focus rings */
-                  text-gradient-dark-blue /* Default to dark blue gradient always */
-                  hover:text-gradient-gold /* Only change to gold gradient on hover */
-                `}
+                className="nav-item-button text-2xl font-bold py-2 transition-colors duration-300 no-underline focus:outline-none"
               >
                 {item.name}
               </button>

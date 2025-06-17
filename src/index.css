@@ -26,6 +26,25 @@
   color: transparent;
 }
 
+.nav-item-button {
+  /* Default state: Apply dark blue gradient */
+  background-image: var(--gradient-dark-blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback */
+  transition: background-image 0.3s ease-in-out; /* Smooth transition for the gradient */
+}
+
+.nav-item-button:hover {
+  /* Hover state: Apply gold gradient */
+  background-image: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback */
+}
+
 /* Global Styles */
 body {
     font-family: 'Inter', sans-serif;
