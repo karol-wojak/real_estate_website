@@ -90,11 +90,9 @@ const currentOffers = [
 ];
 
 const App = () => {
-  // activePage will now be 'main' for the combined scrolling page, or 'contact'
   const [activePage, setActivePage] = useState('main');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Effect to manage body overflow when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -110,35 +108,42 @@ const App = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  // Modified handlePageChange to switch to Contact or scroll within the main page
   const handlePageChange = (pageId) => {
-    setIsMobileMenuOpen(false); // Always close mobile menu on navigation
+    setIsMobileMenuOpen(false);
 
     if (pageId === 'contact') {
       setActivePage('contact');
-      // For instant switch, scroll to top of window to avoid previous scroll position
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      // It's one of the sections on the main page: about, portfolio, offers
-      setActivePage('main'); // Ensure the main page is visible
-      // Use a small delay to ensure the DOM has updated before attempting to scroll
+      setActivePage('main');
       setTimeout(() => {
         const section = document.getElementById(`${pageId}-section`);
         if (section) {
-          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Adjust scroll position to account for header if needed
+          const headerOffset = document.querySelector('header').offsetHeight;
+          const elementPosition = section.getBoundingClientRect().top + window.pageYOffset;
+          const offsetPosition = elementPosition - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         }
-      }, 100); // Delay helps ensure component is rendered before scroll
+      }, 100);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 font-inter text-gray-800">
-      <header className="bg-white shadow-lg z-50 py-4 px-6 md:px-10 flex items-center justify-between transition-all duration-300 ease-in-out">
+    <div className="min-h-screen bg-white font-inter text-black"> {/* Changed bg to white, text to black */}
+      {/* Header - Removed sticky, top-0, z-50 for non-sticky behavior as requested */}
+      <header className="bg-white shadow-lg py-4 px-6 md:px-10 flex items-center justify-between transition-all duration-300 ease-in-out">
         <div className="flex items-center space-x-4">
           <div className="logo-container">
+            {/* Using a placeholder logo that aligns with the new color scheme */}
             <img src="/logo_placeholder.png" alt="Company Logo" className="h-10 md:h-12 w-auto rounded-md shadow-sm" />
           </div>
-          <h1 className="text-xl md:text-2xl font-bold text-blue-700 hidden sm:block">Real Estate Co.</h1>
+          {/* Company name - applied gold gradient */}
+          <h1 className="text-xl md:text-2xl font-bold hidden sm:block text-gradient-gold">Real Estate Co.</h1>
         </div>
         <Navigation
           activePage={activePage}
@@ -149,9 +154,8 @@ const App = () => {
       </header>
 
       <main className="container mx-auto px-4 py-8 md:py-12">
-        {/* Conditionally render the main scrolling content or the Contact page */}
         {activePage === 'main' && (
-          <div className="space-y-16 md:space-y-24"> {/* Adds vertical spacing between sections */}
+          <div className="space-y-16 md:space-y-24">
             <AboutUsPage />
             <PortfolioPage projects={portfolioProjects} />
             <OffersPage offers={currentOffers} />
@@ -159,7 +163,6 @@ const App = () => {
         )}
         {activePage === 'contact' && <ContactPage />}
       </main>
-      {/* Animation keyframes are now in src/index.css */}
     </div>
   );
 };

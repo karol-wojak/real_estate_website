@@ -4,7 +4,7 @@ import React from 'react';
 const Navigation = ({ activePage, handlePageChange, isMobileMenuOpen, toggleMobileMenu }) => {
   const navItems = [
     { name: 'About Us', id: 'about' },
-    { name: 'Portfolio', id: 'portfolio' },
+    { name: 'Portfolio', 'id': 'portfolio' },
     { name: 'Offers', id: 'offers' },
     { name: 'Contact', id: 'contact' },
   ];
@@ -19,11 +19,10 @@ const Navigation = ({ activePage, handlePageChange, isMobileMenuOpen, toggleMobi
               <button
                 onClick={() => handlePageChange(item.id)}
                 className={`
-                  relative px-3 py-2 text-lg font-medium text-gray-700
-                  hover:text-blue-600 transition-all duration-300
-                  no-underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
-                  /* Added no-underline to remove any text decoration */
-                  /* Removed all 'after:' classes that created the blue underline */
+                  relative px-3 py-2 text-lg font-medium transition-all duration-300
+                  no-underline focus:outline-none /* Ensures no underlines or focus rings */
+                  text-gradient-dark-blue /* Default to dark blue gradient always */
+                  hover:text-gradient-gold /* Only change to gold gradient on hover */
                 `}
               >
                 {item.name}
@@ -36,10 +35,10 @@ const Navigation = ({ activePage, handlePageChange, isMobileMenuOpen, toggleMobi
       {/* Mobile Hamburger Icon */}
       <button
         onClick={toggleMobileMenu}
-        className="sm:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200"
+        className="sm:hidden p-2 rounded-md text-gradient-dark-blue hover:bg-gray-100 focus:outline-none transition-colors duration-200" /* Ensures no focus ring */
         aria-label="Open navigation menu"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="lucide lucide-menu">
           <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
         </svg>
       </button>
@@ -54,10 +53,10 @@ const Navigation = ({ activePage, handlePageChange, isMobileMenuOpen, toggleMobi
       >
         <button
           onClick={toggleMobileMenu}
-          className="self-end p-2 text-gray-700 hover:bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200"
+          className="self-end p-2 rounded-md text-gradient-dark-blue hover:bg-gray-100 focus:outline-none transition-colors duration-200" /* Ensures no focus ring */
           aria-label="Close navigation menu"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide luciswde-x">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" className="lucide luciswde-x">
             <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
           </svg>
         </button>
@@ -67,14 +66,10 @@ const Navigation = ({ activePage, handlePageChange, isMobileMenuOpen, toggleMobi
               <button
                 onClick={() => handlePageChange(item.id)}
                 className={`
-                  text-2xl font-bold py-2 text-gray-800 hover:text-blue-600 transition-colors duration-300
-                  ${
-                    (activePage === item.id || (activePage === 'main' && ['about', 'portfolio', 'offers'].includes(item.id)))
-                    ? 'text-blue-600'
-                    : ''
-                  }
-                  focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
-                  no-underline /* Added here too for consistency */
+                  text-2xl font-bold py-2 transition-colors duration-300
+                  no-underline focus:outline-none /* Ensures no underlines or focus rings */
+                  text-gradient-dark-blue /* Default to dark blue gradient always */
+                  hover:text-gradient-gold /* Only change to gold gradient on hover */
                 `}
               >
                 {item.name}

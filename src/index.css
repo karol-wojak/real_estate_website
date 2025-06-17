@@ -3,11 +3,37 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Add any custom global styles here if needed */
+/* Define CSS Custom Properties for Gradients and Colors */
+:root {
+  --gradient-gold: linear-gradient(204deg, #cda670 0%, #d7b27d 31%, #dfbb87 61%, #e3bf8c 100%);
+  --gradient-dark-blue: linear-gradient(204deg, rgba(9, 21, 58, 0.8) 0%, rgba(21, 36, 85, 0.8) 43%, rgba(65, 83, 140, 0.8) 100%);
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+}
 
-/* Apply Inter font globally, as loaded by CDN in public/index.html */
+/* Custom utility classes for applying gradients to text */
+.text-gradient-gold {
+  background-image: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback for browsers that don't support background-clip: text */
+}
+
+.text-gradient-dark-blue {
+  background-image: var(--gradient-dark-blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Global Styles */
 body {
     font-family: 'Inter', sans-serif;
+    /* Set default text color to black and background to white for consistency */
+    color: var(--color-black);
+    background-color: var(--color-white);
     overflow: auto; /* Managed by JS for mobile menu */
 }
 
