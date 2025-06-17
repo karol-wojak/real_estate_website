@@ -1,7 +1,5 @@
 /* src/index.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* Define CSS Custom Properties for Gradients and Colors */
 :root {
