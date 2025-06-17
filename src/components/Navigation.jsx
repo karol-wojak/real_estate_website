@@ -2,7 +2,6 @@
 import React from 'react';
 
 const Navigation = ({ activePage, handlePageChange, isMobileMenuOpen, toggleMobileMenu }) => {
-  // The 'id' here corresponds to the section IDs or the 'contact' page ID
   const navItems = [
     { name: 'About Us', id: 'about' },
     { name: 'Portfolio', id: 'portfolio' },
@@ -22,15 +21,9 @@ const Navigation = ({ activePage, handlePageChange, isMobileMenuOpen, toggleMobi
                 className={`
                   relative px-3 py-2 text-lg font-medium text-gray-700
                   hover:text-blue-600 transition-all duration-300
-                  after:content-[''] after:absolute after:left-0 after:bottom-0
-                  after:w-0 after:h-0.5 after:bg-blue-500 after:transition-all after:duration-300
-                  ${
-                    // Highlight based on current active page or if on main and it's a section
-                    (activePage === item.id || (activePage === 'main' && ['about', 'portfolio', 'offers'].includes(item.id)))
-                    ? 'text-blue-600 after:w-full'
-                    : 'after:w-0'
-                  }
-                  hover:after:w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
+                  no-underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
+                  /* Added no-underline to remove any text decoration */
+                  /* Removed all 'after:' classes that created the blue underline */
                 `}
               >
                 {item.name}
@@ -64,7 +57,7 @@ const Navigation = ({ activePage, handlePageChange, isMobileMenuOpen, toggleMobi
           className="self-end p-2 text-gray-700 hover:bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200"
           aria-label="Close navigation menu"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-x">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide luciswde-x">
             <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
           </svg>
         </button>
@@ -81,6 +74,7 @@ const Navigation = ({ activePage, handlePageChange, isMobileMenuOpen, toggleMobi
                     : ''
                   }
                   focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
+                  no-underline /* Added here too for consistency */
                 `}
               >
                 {item.name}
