@@ -12,7 +12,7 @@ const Navigation = ({ activePage, handlePageChange, isMobileMenuOpen, toggleMobi
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden sm:flex flex-grow justify-end">
+      <nav className="hidden sm:flex grow justify-end">
         <ul className="flex space-x-8 md:space-x-12">
           {navItems.map((item) => (
             <li key={item.id}>

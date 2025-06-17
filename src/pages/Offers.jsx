@@ -28,9 +28,9 @@ const OffersPage = ({ offers }) => (
               </p>
             )}
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+          <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
             {/* Button - applied gold gradient background */}
-            <button className="bg-[var(--gradient-gold)] text-white px-6 py-2 rounded-full font-semibold shadow-md hover:opacity-80 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+            <button className="bg-(--gradient-gold) text-white px-6 py-2 rounded-full font-semibold shadow-md hover:opacity-80 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
               View Details
             </button>
           </div>
