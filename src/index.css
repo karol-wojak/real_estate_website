@@ -1,0 +1,27 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add any custom global styles here if needed */
+
+/* Apply Inter font globally, as loaded by CDN in public/index.html */
+body {
+    font-family: 'Inter', sans-serif;
+    overflow: auto; /* Managed by JS for mobile menu */
+}
+
+/* Custom Keyframes for fade-in-up animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
+}
