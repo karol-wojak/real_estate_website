@@ -2,6 +2,7 @@
 import React from 'react';
 
 const Navigation = ({ activePage, handlePageChange, isMobileMenuOpen, toggleMobileMenu }) => {
+  // The 'id' here corresponds to the section IDs or the 'contact' page ID
   const navItems = [
     { name: 'About Us', id: 'about' },
     { name: 'Portfolio', id: 'portfolio' },
@@ -23,7 +24,12 @@ const Navigation = ({ activePage, handlePageChange, isMobileMenuOpen, toggleMobi
                   hover:text-blue-600 transition-all duration-300
                   after:content-[''] after:absolute after:left-0 after:bottom-0
                   after:w-0 after:h-0.5 after:bg-blue-500 after:transition-all after:duration-300
-                  ${activePage === item.id ? 'text-blue-600 after:w-full' : 'after:w-0'}
+                  ${
+                    // Highlight based on current active page or if on main and it's a section
+                    (activePage === item.id || (activePage === 'main' && ['about', 'portfolio', 'offers'].includes(item.id)))
+                    ? 'text-blue-600 after:w-full'
+                    : 'after:w-0'
+                  }
                   hover:after:w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
                 `}
               >
@@ -69,7 +75,11 @@ const Navigation = ({ activePage, handlePageChange, isMobileMenuOpen, toggleMobi
                 onClick={() => handlePageChange(item.id)}
                 className={`
                   text-2xl font-bold py-2 text-gray-800 hover:text-blue-600 transition-colors duration-300
-                  ${activePage === item.id ? 'text-blue-600' : ''}
+                  ${
+                    (activePage === item.id || (activePage === 'main' && ['about', 'portfolio', 'offers'].includes(item.id)))
+                    ? 'text-blue-600'
+                    : ''
+                  }
                   focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50
                 `}
               >

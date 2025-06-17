@@ -11,6 +11,11 @@ body {
     overflow: auto; /* Managed by JS for mobile menu */
 }
 
+/* Enable smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
 /* Custom Keyframes for fade-in-up animation */
 @keyframes fade-in-up {
   from {

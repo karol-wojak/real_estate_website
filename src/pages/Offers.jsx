@@ -2,7 +2,7 @@
 import React from 'react';
 
 const OffersPage = ({ offers }) => (
-  <section className="bg-white p-6 md:p-12 rounded-xl shadow-lg transition-all duration-500 ease-in-out transform opacity-0 translate-y-4 animate-fade-in-up">
+  <section id="offers-section" className="bg-white p-6 md:p-12 rounded-xl shadow-lg transition-all duration-500 ease-in-out transform opacity-0 translate-y-4 animate-fade-in-up">
     <h1 className="text-4xl md:text-5xl font-extrabold text-center text-blue-700 mb-10">Currently Available Real Estates</h1>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
       {offers.map((offer) => (
@@ -11,7 +11,7 @@ const OffersPage = ({ offers }) => (
             src={offer.image}
             alt={offer.name}
             className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
-            onError={(e) => { e.target.onerror = null; e.target.src = `/image_error_placeholder.png`; }} // Example local placeholder
+            onError={(e) => { e.target.onerror = null; e.target.src = `/image_error_placeholder.png`; }}
           />
           <div className="p-6">
             <h3 className="text-2xl font-semibold text-blue-700 mb-2">{offer.name}</h3>

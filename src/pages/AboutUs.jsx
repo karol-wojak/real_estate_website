@@ -2,7 +2,7 @@
 import React from 'react';
 
 const AboutUsPage = () => (
-  <section className="bg-white p-6 md:p-12 rounded-xl shadow-lg transition-all duration-500 ease-in-out transform opacity-0 translate-y-4 animate-fade-in-up">
+  <section id="about-section" className="bg-white p-6 md:p-12 rounded-xl shadow-lg transition-all duration-500 ease-in-out transform opacity-0 translate-y-4 animate-fade-in-up">
     <h1 className="text-4xl md:text-5xl font-extrabold text-center text-blue-700 mb-8 leading-tight">About Us</h1>
     <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-6 text-center max-w-3xl mx-auto">
       Welcome to <span className="font-semibold text-blue-600">[Your Company Name]</span>, where we transform visions into vibrant living and working spaces. We are a passionate team dedicated to delivering exceptional real estate solutions that blend innovative design with timeless quality.
