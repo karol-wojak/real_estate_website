@@ -4,7 +4,7 @@ import React from 'react';
 const OffersPage = ({ offers }) => (
   <section id="offers-section" className="bg-white p-6 md:p-12 rounded-xl shadow-lg transition-all duration-500 ease-in-out transform opacity-0 translate-y-4 animate-fade-in-up">
     {/* H1 Heading - applied dark blue gradient */}
-    <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gradient-dark-blue mb-10 md:pb-1">Currently Available Real Estates</h1>
+    <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gradient-dark-blue mb-10 md:pb-1">Mieszkania na sprzedaż</h1>
     {/* REPLACED: grid container with a space-y container for individual rows */}
     <div className="space-y-12">
       {offers.map((offer) => (

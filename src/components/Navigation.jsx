@@ -3,10 +3,10 @@ import React from 'react';
 
 const Navigation = ({ activePage, handlePageChange, isMobileMenuOpen, toggleMobileMenu }) => {
   const navItems = [
-    { name: 'About Us', id: 'about' },
-    { name: 'Portfolio', 'id': 'portfolio' },
-    { name: 'Offers', id: 'offers' },
-    { name: 'Contact', id: 'contact' },
+    { name: 'O Nas', id: 'about' },
+    { name: 'Realizacje', 'id': 'portfolio' },
+    { name: 'Oferty', id: 'offers' },
+    { name: 'Kontakt', id: 'contact' },
   ];
 
   return (

@@ -10,7 +10,7 @@ import ContactPage from './pages/Contact.jsx';
 const portfolioProjects = [
   {
     id: 1,
-    name: "Sunrise Residences",
+    name: "Czyżewskiego, Kraków",
     description: "Nowoczesne apartamenty w zielonej okolicy krakowskiej ulicy Czyżewskiego.",
     location: "ul. Czyżewskiego, Kraków",
     completion: "Q4 2023",
@@ -19,7 +19,7 @@ const portfolioProjects = [
   },
   {
     id: 2,
-    name: "Green Valley Office Park",
+    name: "Krowoderskich Zuchów, Kraków",
     description: "Ekologiczne przestrzenie biurowe w sercu ulicy Krowoderskich Zuchów w Krakowie.",
     location: "ul. Krowoderskich Zuchów, Kraków",
     completion: "Q2 2024",
@@ -27,7 +27,7 @@ const portfolioProjects = [
   },
   {
     id: 3,
-    name: "Coastal Breeze Villas",
+    name: "Miechowity, Kraków",
     description: "Współczesne wille miejskie w pobliżu ulicy Miechowity na północy Krakowa.",
     location: "ul. Miechowity, Kraków",
     completion: "Q1 2023",
@@ -139,12 +139,11 @@ const App = () => {
       {/* Header - Removed sticky, top-0, z-50 for non-sticky behavior as requested */}
       <header className="bg-white shadow-lg py-4 px-6 md:px-10 flex items-center justify-between transition-all duration-300 ease-in-out">
         <div className="flex items-center space-x-4">
-          <div className="logo-container">
-            {/* Using a placeholder logo that aligns with the new color scheme */}
+          {/* <div className="logo-container">
             <img src="/real-estate-project/logo_placeholder.png" alt="Company Logo" className="h-10 md:h-12 w-auto rounded-md shadow-sm" />
-          </div>
+          </div> */}
           {/* Company name - applied gold gradient */}
-          <h1 className="text-xl md:text-2xl font-bold hidden sm:block text-gradient-gold">Real Estate Co.</h1>
+          <h1 className="text-xl md:text-2xl font-bold hidden sm:block text-gradient-gold">EM HOLDING</h1>
         </div>
         <Navigation
           activePage={activePage}
