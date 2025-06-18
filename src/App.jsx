@@ -14,7 +14,7 @@ const portfolioProjects = [
     description: "A modern residential complex offering breathtaking city views and premium amenities.",
     location: "Metropolis, NY",
     completion: "Q4 2023",
-    image: "https://placehold.co/600x400/D4E6F1/0A2342?text=Project+1",
+    image: "/real-estate-project/src/assets/image_1.jpg",
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const portfolioProjects = [
     description: "Sustainable commercial spaces designed for collaboration and productivity.",
     location: "Innovation Hub, CA",
     completion: "Q2 2024",
-    image: "https://placehold.co/600x400/E1F2DE/2B5421?text=Project+2",
+    image: "/real-estate-project/src/assets/image_2.jpg",
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const portfolioProjects = [
     description: "Luxury beachfront villas with direct ocean access and private pools.",
     location: "Oceanfront, FL",
     completion: "Q1 2023",
-    image: "https://placehold.co/600x400/B0E0E6/004B8D?text=Project+3",
+    image: "/real-estate-project/src/assets/image_3.jpg",
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const portfolioProjects = [
     description: "Chic industrial lofts reimagined for modern urban living.",
     location: "Downtown, IL",
     completion: "Q3 2022",
-    image: "https://placehold.co/600x400/E5E5E5/333333?text=Project+4",
+    image: "/real-estate-project/src/assets/image_4.jpg",
   },
 ];
 
