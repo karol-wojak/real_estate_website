@@ -7,6 +7,9 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        'gold-solid': '#d7b27d', // This is the gold hex you used for icons
+      },
       // Any theme extensions (like custom colors, spacing, etc.) would go here.
       // For your gradients, they are defined directly in CSS using :root variables and custom classes.
     },

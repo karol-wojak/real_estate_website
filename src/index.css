@@ -100,3 +100,7 @@ html {
   margin-left: auto; /* Center the row horizontally */
   margin-right: auto;
 }
+
+.nav-item-button:hover {
+  color: var(--color-gold-icon); /* Apply the solid gold color on hover */
+}
