@@ -5,7 +5,13 @@ import AboutUsPage from './pages/AboutUs.jsx';
 import PortfolioPage from './pages/Portfolio.jsx';
 import OffersPage from './pages/Offers.jsx';
 import ContactPage from './pages/Contact.jsx';
-import Footer from './components/Footer.jsx'; // Make sure this import is here
+import Footer from './components/Footer.jsx';
+
+// Import portfolio images
+import czyzewskiegoMain from './assets/portfolio/czyzewskiego/main.jpg';
+import krowoderskichZuchowMain from './assets/portfolio/krowoderskich-zuchow/main.jpg';
+import miechowityMain from './assets/portfolio/miechowity/main.jpg';
+import moderatoMain from './assets/portfolio/moderato/main.jpg';
 
 // Data for Portfolio and Offers (can be moved to a separate data file if it grows larger)
 const portfolioProjects = [
@@ -15,7 +21,7 @@ const portfolioProjects = [
     description: "Nowoczesne apartamenty w zielonej okolicy krakowskiej ulicy Czyżewskiego.",
     location: "ul. Czyżewskiego, Kraków",
     completion: "Q4 2023",
-    image: "/real-estate-project/src/assets/portfolio/czyzewskiego/main.jpg",
+    image: czyzewskiegoMain,
     
   },
   {
@@ -24,7 +30,7 @@ const portfolioProjects = [
     description: "Ekologiczne przestrzenie biurowe w sercu ulicy Krowoderskich Zuchów w Krakowie.",
     location: "ul. Krowoderskich Zuchów, Kraków",
     completion: "Q2 2024",
-    image: "/real-estate-project/src/assets/portfolio/krowoderskich-zuchow/main.jpg",
+    image: krowoderskichZuchowMain,
   },
   {
     id: 3,
@@ -32,7 +38,7 @@ const portfolioProjects = [
     description: "Współczesne wille miejskie w pobliżu ulicy Miechowity na północ od Krakowa.",
     location: "ul. Miechowity, Kraków",
     completion: "Q1 2023",
-    image: "/real-estate-project/src/assets/portfolio/miechowity/main.jpg",
+    image: miechowityMain,
   },
   {
     id: 4,
@@ -40,7 +46,7 @@ const portfolioProjects = [
     description: "Nowoczesne mieszkania w spokojnej okolicy Starogardu Gdańskiego.",
     location: "Starogard Gdański",
     completion: "Q3 2022",
-    image: "/real-estate-project/src/assets/portfolio/moderato/main.jpg",
+    image: moderatoMain,
   },
 ];
 

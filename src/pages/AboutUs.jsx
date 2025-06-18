@@ -1,5 +1,8 @@
 // src/pages/AboutUs.jsx
 import React from 'react';
+// Import images
+import EdytaImage from '../assets/team/owner-edyta.jpg'; 
+import MichalImage from '../assets/team/owner-michal.jpg'; 
 
 const AboutUsPage = () => (
   <section id="about-section" className="bg-white p-6 md:p-12 rounded-xl shadow-lg transition-all duration-500 ease-in-out transform opacity-0 translate-y-4 animate-fade-in-up">
@@ -20,7 +23,7 @@ const AboutUsPage = () => (
       <div className="bg-white p-6 rounded-lg md:shadow-md md:hover:shadow-xl transition-shadow duration-300 ease-in-out">
         {/* Owner 1 Image Placeholder */}
         <img
-          src="/real-estate-project/src/assets/team/owner-edyta.jpg" // Placeholder image URL for Owner 1
+          src={EdytaImage}
           alt="Właściciel 1"
           className="w-64 h-64 rounded-full mx-auto mb-4 object-cover shadow-lg" // Styling for circular, centered image with spacing
         />
@@ -35,7 +38,7 @@ const AboutUsPage = () => (
       <div className="bg-white p-6 rounded-lg md:shadow-md md:hover:shadow-xl transition-shadow duration-300 ease-in-out">
         {/* Owner 2 Image Placeholder */}
         <img
-          src="/real-estate-project/src/assets/team/owner-michal.jpg" // Placeholder image URL for Owner 2
+          src={MichalImage}
           alt="Właściciel 2"
           className="w-64 h-64 rounded-full mx-auto mb-4 object-cover shadow-lg" // Styling for circular, centered image with spacing
         />
