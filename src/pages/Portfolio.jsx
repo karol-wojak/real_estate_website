@@ -28,8 +28,8 @@ const PortfolioPage = ({ projects }) => (
             {/* H3 Subheading - gold gradient */}
             <h3 className="text-2xl font-semibold text-gradient-gold mb-2">{project.name}</h3>
             <p className="text-gray-800 md:text-lg mb-3">{project.description}</p>
-            <p className="text-gray-800 font-medium text-sm mb-1"><span className="text-gradient-dark-blue">Location:</span> {project.location}</p>
-            <p className="text-gray-800 font-medium text-sm"><span className="text-gradient-dark-blue">Completion:</span> {project.completion}</p>
+            <p className="text-gray-800 font-medium text-sm mb-1"><span className="text-gradient-dark-blue">Lokalizacja:</span> {project.location}</p>
+            <p className="text-gray-800 font-medium text-sm"><span className="text-gradient-dark-blue">Data ukończenia:</span> {project.completion}</p>
           </div>
 
           {/* Button (Right on Desktop, Bottom on Mobile) */}
