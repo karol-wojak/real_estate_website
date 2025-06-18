@@ -4,7 +4,7 @@ import React from 'react';
 const ContactPage = () => (
   <section className="bg-white p-6 md:p-12 rounded-xl shadow-lg transition-all duration-500 ease-in-out transform opacity-0 translate-y-4 animate-fade-in-up">
     {/* H1 Heading - applied dark blue gradient */}
-    <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gradient-dark-blue mb-8">Contact Us</h1>
+    <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gradient-dark-blue mb-8 md:pb-1">Contact Us</h1>
     <p className="text-lg md:text-xl text-black leading-relaxed mb-10 text-center max-w-3xl mx-auto">
       We'd love to hear from you! Whether you have a question about our projects, current offers, or just want to connect, feel free to reach out.
     </p>
