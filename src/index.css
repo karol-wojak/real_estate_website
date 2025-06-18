@@ -45,6 +45,37 @@
   color: transparent; /* Fallback */
 }
 
+/* For Portfolio Images Aspect Ratio */
+.portfolio-image-aspect {
+  /* Calculate height based on 800/534 ratio */
+  /* This method uses aspect-ratio property, widely supported in modern browsers */
+  aspect-ratio: 800 / 534;
+  /* Older fallback (less ideal if not strictly necessary for IE/older Edge)
+     padding-bottom: (534 / 800) * 100%;
+     height: 0;
+  */
+}
+
+/* For Portfolio Buttons */
+.btn-gradient-dark-blue {
+  background-image: var(--gradient-dark-blue);
+  color: var(--color-white); /* White text on dark blue gradient */
+  border: none; /* Ensure no default button border */
+  cursor: pointer;
+}
+
+.btn-gradient-dark-blue:hover {
+  background-image: var(--gradient-gold);
+  color: var(--color-black); /* Black text on gold gradient for better contrast */
+}
+
+.portfolio-row {
+  max-width: 1120px; /* Set max width */
+  /* max-height: 234px; */
+  margin-left: auto; /* Center the row horizontally */
+  margin-right: auto;
+}
+
 /* Global Styles */
 body {
     font-family: 'Inter', sans-serif;
