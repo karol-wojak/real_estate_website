@@ -5,6 +5,7 @@ import AboutUsPage from './pages/AboutUs.jsx';
 import PortfolioPage from './pages/Portfolio.jsx';
 import OffersPage from './pages/Offers.jsx';
 import ContactPage from './pages/Contact.jsx';
+import Footer from './components/Footer.jsx'; // Make sure this import is here
 
 // Data for Portfolio and Offers (can be moved to a separate data file if it grows larger)
 const portfolioProjects = [
@@ -28,7 +29,7 @@ const portfolioProjects = [
   {
     id: 3,
     name: "Miechowity, Kraków",
-    description: "Współczesne wille miejskie w pobliżu ulicy Miechowity na północy Krakowa.",
+    description: "Współczesne wille miejskie w pobliżu ulicy Miechowity na północ od Krakowa.",
     location: "ul. Miechowity, Kraków",
     completion: "Q1 2023",
     image: "/real-estate-project/src/assets/portfolio/miechowity/main.jpg",
@@ -135,7 +136,8 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white font-inter text-black"> {/* Changed bg to white, text to black */}
+    // Added flex flex-col to enable proper footer positioning
+    <div className="min-h-screen bg-white font-inter text-black flex flex-col">
       {/* Header - Removed sticky, top-0, z-50 for non-sticky behavior as requested */}
       <header className="bg-white shadow-lg py-4 px-6 md:px-10 flex items-center justify-between transition-all duration-300 ease-in-out">
         <div className="flex items-center space-x-4">
@@ -153,7 +155,8 @@ const App = () => {
         />
       </header>
 
-      <main className="container mx-auto px-4 py-8 md:py-12">
+      {/* Main content area - Added flex-grow to push footer to bottom */}
+      <main className="container mx-auto px-4 py-8 md:py-12 flex-grow">
         {activePage === 'main' && (
           <div className="space-y-16 md:space-y-24">
             <AboutUsPage />
@@ -163,6 +166,9 @@ const App = () => {
         )}
         {activePage === 'contact' && <ContactPage />}
       </main>
+
+      {/* Passed handlePageChange to Footer */}
+      <Footer handlePageChange={handlePageChange} />
     </div>
   );
 };

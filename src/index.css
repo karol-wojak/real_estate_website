@@ -7,6 +7,9 @@
   --gradient-dark-blue: linear-gradient(204deg, rgba(9, 21, 58, 0.8) 0%, rgba(21, 36, 85, 0.8) 43%, rgba(65, 83, 140, 0.8) 100%);
   --color-black: #000000;
   --color-white: #FFFFFF;
+  --footer-pink: #eb4e6e; /* Original custom color for the footer background - no longer used but kept for reference */
+  --color-gold-icon: #d7b27d; /* Solid gold color for icons */
+  --color-dark-blue-solid: #09153a; /* NEW: A solid dark blue color for the footer background */
 }
 
 /* Custom utility classes for applying gradients to text */
@@ -26,59 +29,14 @@
   color: transparent;
 }
 
-.nav-item-button {
-  /* Default state: Apply dark blue gradient */
-  background-image: var(--gradient-dark-blue);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent; /* Fallback */
-  transition: background-image 0.3s ease-in-out; /* Smooth transition for the gradient */
-}
-
-.nav-item-button:hover {
-  /* Hover state: Apply gold gradient */
-  background-image: var(--gradient-gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent; /* Fallback */
-}
-
-/* For Portfolio Images Aspect Ratio */
-.portfolio-image-aspect {
-  /* Calculate height based on 800/534 ratio */
-  /* This method uses aspect-ratio property, widely supported in modern browsers */
-  aspect-ratio: 800 / 534;
-  /* Older fallback (less ideal if not strictly necessary for IE/older Edge)
-     padding-bottom: (534 / 800) * 100%;
-     height: 0;
-  */
-}
-
-/* For Portfolio Buttons */
-.btn-gradient-dark-blue {
-  background-image: var(--gradient-dark-blue);
-  color: var(--color-white); /* White text on dark blue gradient */
-  border: none; /* Ensure no default button border */
-  cursor: pointer;
-}
-
-.btn-gradient-dark-blue:hover {
-  background-image: var(--gradient-gold);
-  color: var(--color-black); /* Black text on gold gradient for better contrast */
-}
-
-.portfolio-row {
-  max-width: 1120px; /* Set max width */
-  margin-left: auto; /* Center the row horizontally */
-  margin-right: auto;
+/* Custom utility class for solid gold text/icons */
+.text-gold-icon {
+  color: var(--color-gold-icon);
 }
 
 /* Global Styles */
 body {
     font-family: 'Inter', sans-serif;
-    /* Set default text color to black and background to white for consistency */
     color: var(--color-black);
     background-color: var(--color-white);
     overflow: auto; /* Managed by JS for mobile menu */
@@ -102,4 +60,43 @@ html {
 }
 .animate-fade-in-up {
   animation: fade-in-up 0.5s ease-out forwards;
+}
+
+/* Custom Tailwind classes for gradients and custom colors */
+@layer utilities {
+  .bg-footer-pink { /* Original custom background - no longer used */
+    background-color: var(--footer-pink);
+  }
+  .bg-gradient-dark-blue { /* This will no longer be used for the footer background */
+    background-image: var(--gradient-dark-blue);
+  }
+  /* NEW: Solid dark blue background utility */
+  .bg-dark-blue-solid {
+    background-color: var(--color-dark-blue-solid);
+  }
+}
+
+/* For Portfolio Images Aspect Ratio */
+.portfolio-image-aspect {
+  aspect-ratio: 800 / 534;
+}
+
+/* For Portfolio Buttons */
+.btn-gradient-dark-blue {
+  background-image: var(--gradient-dark-blue);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-gradient-dark-blue:hover {
+  background-image: var(--gradient-gold);
+  color: var(--color-black);
+}
+
+/* New styles for Portfolio Row layout */
+.portfolio-row {
+  max-width: 1120px; /* Set max width */
+  margin-left: auto; /* Center the row horizontally */
+  margin-right: auto;
 }
