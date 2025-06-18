@@ -7,10 +7,10 @@ const AboutUsPage = () => (
     <h1 className="text-4xl md:text-5xl font-extrabold text-center text-gradient-dark-blue mb-8 leading-tight md:pb-1">O Nas</h1>
     {/* Text color changed to black/dark gray, span to dark blue gradient for accent */}
     <p className="text-lg md:text-xl text-black leading-relaxed mb-6 text-center max-w-3xl mx-auto">
-      Welcome to <span className="font-semibold text-gradient-dark-blue">[Your Company Name]</span>, where we transform visions into vibrant living and working spaces. We are a passionate team dedicated to delivering exceptional real estate solutions that blend innovative design with timeless quality.
+      Witamy w EM Holding, gdzie przekształcamy wizje w tętniące życiem przestrzenie mieszkalne. Jesteśmy pełnym pasji zespołem, który poświęca się dostarczaniu wyjątkowych rozwiązań w zakresie nieruchomości, łączących innowacyjny design z ponadczasową jakością.
     </p>
     <p className="text-md md:text-lg text-gray-800 leading-relaxed mb-10 text-center max-w-3xl mx-auto">
-      With years of expertise and a deep understanding of market dynamics, we specialize in crafting stunning residential and commercial properties that not only meet but exceed expectations. Our commitment to integrity, client satisfaction, and sustainable practices is at the core of every project we undertake.
+      Dzięki wieloletniemu doświadczeniu i głębokiemu zrozumieniu dynamiki rynku specjalizujemy się w tworzeniu luksusowych nieruchomości mieszkalnych, które nie tylko spełniają, ale i przewyższają oczekiwania. Nasze zaangażowanie w uczciwość, zadowolenie klienta i zrównoważone praktyki leży u podstaw każdego podejmowanego przez nas projektu.
     </p>
     {/* H2 Subheading - applied dark blue gradient */}
     <h2 className="text-3xl font-bold text-center text-gradient-dark-blue mb-8 md:pb-1">Właściciele</h2>
