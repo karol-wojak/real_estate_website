@@ -140,7 +140,7 @@ const App = () => {
         <div className="flex items-center space-x-4">
           <div className="logo-container">
             {/* Using a placeholder logo that aligns with the new color scheme */}
-            <img src="/logo_placeholder.png" alt="Company Logo" className="h-10 md:h-12 w-auto rounded-md shadow-sm" />
+            <img src="/real-estate-project/logo_placeholder.png" alt="Company Logo" className="h-10 md:h-12 w-auto rounded-md shadow-sm" />
           </div>
           {/* Company name - applied gold gradient */}
           <h1 className="text-xl md:text-2xl font-bold hidden sm:block text-gradient-gold">Real Estate Co.</h1>
