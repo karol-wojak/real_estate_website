@@ -1,14 +1,23 @@
 // src/App.jsx
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
 import Navigation from './components/Navigation.jsx';
 import AboutUsPage from './pages/AboutUs.jsx';
 import PortfolioPage from './pages/Portfolio.jsx';
 import OffersPage from './pages/Offers.jsx';
 import ContactPage from './pages/Contact.jsx';
+import ProjectDetailPage from './pages/ProjectDetailPage.jsx';
 import Footer from './components/Footer.jsx';
 
 // Import portfolio images
 import czyzewskiegoMain from './assets/portfolio/czyzewskiego/main.jpg';
+import czyzewskiegoImg1 from './assets/portfolio/czyzewskiego/image-1.jpg';
+import czyzewskiegoImg2 from './assets/portfolio/czyzewskiego/image-2.jpg';
+import czyzewskiegoImg3 from './assets/portfolio/czyzewskiego/image-3.jpg';
+import czyzewskiegoImg4 from './assets/portfolio/czyzewskiego/image-4.jpg';
+import czyzewskiegoImg5 from './assets/portfolio/czyzewskiego/image-5.jpg';
+
 import krowoderskichZuchowMain from './assets/portfolio/krowoderskich-zuchow/main.jpg';
 import miechowityMain from './assets/portfolio/miechowity/main.jpg';
 import moderatoMain from './assets/portfolio/moderato/main.jpg';
@@ -21,8 +30,15 @@ const portfolioProjects = [
     description: "Nowoczesne apartamenty w zielonej okolicy krakowskiej ulicy Czyżewskiego.",
     location: "ul. Czyżewskiego, Kraków",
     completion: "Q4 2023",
-    image: czyzewskiegoMain,
-    
+    mainImage: czyzewskiegoMain,
+    images: [
+      czyzewskiegoMain,
+      czyzewskiegoImg1,
+      czyzewskiegoImg2,
+      czyzewskiegoImg3,
+      czyzewskiegoImg4,
+      czyzewskiegoImg5,
+    ],
   },
   {
     id: 2,
@@ -30,7 +46,10 @@ const portfolioProjects = [
     description: "Ekologiczne przestrzenie biurowe w sercu ulicy Krowoderskich Zuchów w Krakowie.",
     location: "ul. Krowoderskich Zuchów, Kraków",
     completion: "Q2 2024",
-    image: krowoderskichZuchowMain,
+    mainImage: krowoderskichZuchowMain,
+    images: [
+      krowoderskichZuchowMain,
+    ],
   },
   {
     id: 3,
@@ -38,7 +57,10 @@ const portfolioProjects = [
     description: "Współczesne wille miejskie w pobliżu ulicy Miechowity na północ od Krakowa.",
     location: "ul. Miechowity, Kraków",
     completion: "Q1 2023",
-    image: miechowityMain,
+    mainImage: miechowityMain,
+    images: [
+      miechowityMain,
+    ],
   },
   {
     id: 4,
@@ -46,7 +68,10 @@ const portfolioProjects = [
     description: "Nowoczesne mieszkania w spokojnej okolicy Starogardu Gdańskiego.",
     location: "Starogard Gdański",
     completion: "Q3 2022",
-    image: moderatoMain,
+    mainImage: moderatoMain,
+    images: [
+      moderatoMain,
+    ],
   },
 ];
 
@@ -142,40 +167,47 @@ const App = () => {
   };
 
   return (
-    // Added flex flex-col to enable proper footer positioning
-    <div className="min-h-screen bg-white font-inter text-black flex flex-col">
-      {/* Header - Removed sticky, top-0, z-50 for non-sticky behavior as requested */}
-      <header className="bg-white shadow-lg py-4 px-6 md:px-10 flex items-center justify-between transition-all duration-300 ease-in-out">
-        <div className="flex items-center space-x-4">
-          {/* <div className="logo-container">
-            <img src="/real-estate-project/logo_placeholder.png" alt="Company Logo" className="h-10 md:h-12 w-auto rounded-md shadow-sm" />
-          </div> */}
-          {/* Company name - applied gold gradient */}
-          <h1 className="text-xl md:text-2xl font-bold hidden sm:block text-gradient-gold">EM HOLDING</h1>
-        </div>
-        <Navigation
-          activePage={activePage}
-          handlePageChange={handlePageChange}
-          isMobileMenuOpen={isMobileMenuOpen}
-          toggleMobileMenu={toggleMobileMenu}
-        />
-      </header>
-
-      {/* Main content area - Added flex-grow to push footer to bottom */}
-      <main className="container mx-auto px-4 py-8 md:py-12 flex-grow">
-        {activePage === 'main' && (
-          <div className="space-y-16 md:space-y-24">
-            <AboutUsPage />
-            <PortfolioPage projects={portfolioProjects} />
-            <OffersPage offers={currentOffers} />
+    <BrowserRouter basename="/real_estate_website">
+      <div className="min-h-screen bg-white font-inter text-black flex flex-col">
+        {/* Header - Removed sticky, top-0, z-50 for non-sticky behavior as requested */}
+        <header className="bg-white shadow-lg py-4 px-6 md:px-10 flex items-center justify-between transition-all duration-300 ease-in-out">
+          <div className="flex items-center space-x-4">
+            {/* <div className="logo-container">
+              <img src="/real-estate-project/logo_placeholder.png" alt="Company Logo" className="h-10 md:h-12 w-auto rounded-md shadow-sm" />
+            </div> */}
+            {/* Company name - applied gold gradient */}
+            <h1 className="text-xl md:text-2xl font-bold hidden sm:block text-gradient-gold">EM HOLDING</h1>
           </div>
-        )}
-        {activePage === 'contact' && <ContactPage />}
-      </main>
+          <Navigation
+            activePage={activePage}
+            handlePageChange={handlePageChange}
+            isMobileMenuOpen={isMobileMenuOpen}
+            toggleMobileMenu={toggleMobileMenu}
+          />
+        </header>
 
-      {/* Passed handlePageChange to Footer */}
-      <Footer handlePageChange={handlePageChange} />
-    </div>
+        {/* Main content area */}
+        <main className="container mx-auto px-4 py-8 md:py-12 flex-grow">
+            <Routes> {/* Define your routes here */}
+              {/* Main Page Route (shows all sections) */}
+              <Route path="/" element={
+                <div className="space-y-16 md:space-y-24">
+                  <AboutUsPage />
+                  <PortfolioPage projects={portfolioProjects} />
+                  <OffersPage offers={currentOffers} />
+                </div>
+              } />
+              {/* Contact Page Route */}
+              <Route path="/contact" element={<ContactPage />} />
+              {/* Project Detail Page Route - Passing projects data */}
+              <Route path="/projects/:projectId" element={<ProjectDetailPage portfolioProjects={portfolioProjects} />} />
+            </Routes>
+          </main>
+
+        {/* Passed handlePageChange to Footer */}
+        <Footer handlePageChange={handlePageChange} />
+      </div>
+    </BrowserRouter>
   );
 };
 
