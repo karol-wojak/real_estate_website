@@ -10,7 +10,7 @@ const PortfolioCard = ({ project }) => {
     // No change here for the main container width, it will now expand to the max-width of PortfolioPage's content
     <div className="relative flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden w-full">
       {/* Image Section (Left side on desktop, top on mobile) */}
-      <div className="w-full md:w-7/12 flex-shrink-0">
+      <div className="w-full md:w-1/2 flex-shrink-0">
         {/* Added aspect-w-5 aspect-h-4 to enforce a 1.25/1 width/height ratio for the image container */}
         {/* The image inside will fill this container while maintaining its aspect ratio */}
         <Link to={`/projects/${project.id}`} className="block h-full aspect-w-5 aspect-h-4">
@@ -24,7 +24,7 @@ const PortfolioCard = ({ project }) => {
       </div>
 
       {/* Details Section (Right side on desktop, bottom on mobile) */}
-      <div className="w-full md:w-5/12 p-6 flex flex-col justify-between">
+      <div className="w-full md:w-1/2 p-6 flex flex-col justify-between">
         {/* Top Right Label */}
         {project.shortName && (
           <div className="absolute top-4 right-4 bg-white border border-gray-300 px-3 py-1 text-xs font-semibold rounded-md text-gray-700">

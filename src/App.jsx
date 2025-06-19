@@ -1,7 +1,6 @@
 // src/App.jsx
 import React, { useState, useEffect } from 'react';
-// Import 'Link' from react-router-dom
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'; // <-- Added Link import
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 import logo from './assets/logo.jpg';
 
@@ -13,7 +12,6 @@ import ContactPage from './pages/Contact.jsx';
 import ProjectDetailPage from './pages/ProjectDetailPage.jsx';
 import Footer from './components/Footer.jsx';
 
-// Import portfolio images (unchanged)
 import czyzewskiegoMain from './assets/portfolio/czyzewskiego/main.jpg';
 import czyzewskiegoImg1 from './assets/portfolio/czyzewskiego/image-1.jpg';
 import czyzewskiegoImg2 from './assets/portfolio/czyzewskiego/image-2.jpg';
@@ -52,7 +50,6 @@ import moderatoImg4 from './assets/portfolio/moderato/image-4.jpg';
 import moderatoImg5 from './assets/portfolio/moderato/image-5.jpg';
 import moderatoImg6 from './assets/portfolio/moderato/image-6.jpg';
 
-// Data for Portfolio and Offers (remains unchanged)
 const portfolioProjects = [
     {
         id: 1,
@@ -200,15 +197,13 @@ const App = () => {
             <div className="min-h-screen bg-white font-inter text-black flex flex-col">
                 <header className="bg-white shadow-lg py-4 px-6 md:px-10 flex items-center justify-between transition-all duration-300 ease-in-out">
                     <div className="flex items-center space-x-4">
-                        {/* NEW: Replaced the H1 text with the logo image, wrapped in a Link */}
                         <Link to="/" className="flex items-center">
                             <img
-                                src={logo} // Path to logo.jpg in the public folder
+                                src={logo}
                                 alt="EM Holding Logo"
-                                className="h-14 md:h-24 w-auto" // Adjust size as needed
+                                className="h-14 md:h-24 w-auto"
                             />
                         </Link>
-                        {/* The space-x-4 on the parent div will provide spacing if other elements are added here */}
                     </div>
                     <Navigation
                         isMobileMenuOpen={isMobileMenuOpen}
@@ -216,9 +211,9 @@ const App = () => {
                     />
                 </header>
 
-                <main className="container mx-auto px-4 py-8 md:py-12 flex-grow">
+                {/* Applied consistent max-width to main content area for all pages */}
+                <main className="max-w-screen-2xl mx-auto px-4 lg:px-8 py-8 md:py-12 flex-grow">
                     <Routes>
-                        {/* The main page (/) now renders all three sections with their IDs */}
                         <Route path="/" element={
                             <div className="space-y-16 md:space-y-24">
                                 <div id="about-section">
@@ -227,23 +222,19 @@ const App = () => {
                                 <div id="portfolio-section">
                                     <PortfolioPage projects={portfolioProjects} />
                                 </div>
-                                <div id="offers-section">
+                                {/* <div id="offers-section">
                                     <OffersPage offers={currentOffers} />
-                                </div>
+                                </div> */}
                             </div>
                         } />
-                        {/* Contact page remains a separate route */}
                         <Route path="/contact" element={<ContactPage />} />
 
-                        {/* Project Detail Page remains a separate route */}
                         <Route path="/projects/:projectId" element={<ProjectDetailPage portfolioProjects={portfolioProjects} />} />
 
-                        {/* Fallback route for 404 Not Found */}
                         <Route path="*" element={<h2 className="text-center text-2xl mt-20">404: Strona nie znaleziona</h2>} />
                     </Routes>
                 </main>
 
-                {/* Footer no longer receives handlePageChange prop */}
                 <Footer />
             </div>
         </BrowserRouter>
