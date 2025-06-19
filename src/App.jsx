@@ -1,6 +1,9 @@
 // src/App.jsx
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// Import 'Link' from react-router-dom
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'; // <-- Added Link import
+
+import logo from './assets/logo.jpg';
 
 import Navigation from './components/Navigation.jsx';
 import AboutUsPage from './pages/AboutUs.jsx';
@@ -10,7 +13,7 @@ import ContactPage from './pages/Contact.jsx';
 import ProjectDetailPage from './pages/ProjectDetailPage.jsx';
 import Footer from './components/Footer.jsx';
 
-// Import portfolio images
+// Import portfolio images (unchanged)
 import czyzewskiegoMain from './assets/portfolio/czyzewskiego/main.jpg';
 import czyzewskiegoImg1 from './assets/portfolio/czyzewskiego/image-1.jpg';
 import czyzewskiegoImg2 from './assets/portfolio/czyzewskiego/image-2.jpg';
@@ -49,7 +52,7 @@ import moderatoImg4 from './assets/portfolio/moderato/image-4.jpg';
 import moderatoImg5 from './assets/portfolio/moderato/image-5.jpg';
 import moderatoImg6 from './assets/portfolio/moderato/image-6.jpg';
 
-// Data for Portfolio and Offers (remains unchanged from last fix)
+// Data for Portfolio and Offers (remains unchanged)
 const portfolioProjects = [
     {
         id: 1,
@@ -197,7 +200,15 @@ const App = () => {
             <div className="min-h-screen bg-white font-inter text-black flex flex-col">
                 <header className="bg-white shadow-lg py-4 px-6 md:px-10 flex items-center justify-between transition-all duration-300 ease-in-out">
                     <div className="flex items-center space-x-4">
-                        <h1 className="text-xl md:text-2xl font-bold hidden sm:block text-gradient-gold">EM HOLDING</h1>
+                        {/* NEW: Replaced the H1 text with the logo image, wrapped in a Link */}
+                        <Link to="/" className="flex items-center">
+                            <img
+                                src={logo} // Path to logo.jpg in the public folder
+                                alt="EM Holding Logo"
+                                className="h-14 md:h-24 w-auto" // Adjust size as needed
+                            />
+                        </Link>
+                        {/* The space-x-4 on the parent div will provide spacing if other elements are added here */}
                     </div>
                     <Navigation
                         isMobileMenuOpen={isMobileMenuOpen}
