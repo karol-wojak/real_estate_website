@@ -10,7 +10,7 @@ import ContactPage from './pages/Contact.jsx';
 import ProjectDetailPage from './pages/ProjectDetailPage.jsx';
 import Footer from './components/Footer.jsx';
 
-// Import portfolio images (remains unchanged)
+// Import portfolio images
 import czyzewskiegoMain from './assets/portfolio/czyzewskiego/main.jpg';
 import czyzewskiegoImg1 from './assets/portfolio/czyzewskiego/image-1.jpg';
 import czyzewskiegoImg2 from './assets/portfolio/czyzewskiego/image-2.jpg';
@@ -19,8 +19,35 @@ import czyzewskiegoImg4 from './assets/portfolio/czyzewskiego/image-4.jpg';
 import czyzewskiegoImg5 from './assets/portfolio/czyzewskiego/image-5.jpg';
 
 import krowoderskichZuchowMain from './assets/portfolio/krowoderskich-zuchow/main.jpg';
+import krowoderskichZuchowImg1 from './assets/portfolio/krowoderskich-zuchow/image-1.jpg';
+import krowoderskichZuchowImg2 from './assets/portfolio/krowoderskich-zuchow/image-2.jpg';
+import krowoderskichZuchowImg3 from './assets/portfolio/krowoderskich-zuchow/image-3.jpg';
+import krowoderskichZuchowImg4 from './assets/portfolio/krowoderskich-zuchow/image-4.jpg';
+import krowoderskichZuchowImg5 from './assets/portfolio/krowoderskich-zuchow/image-5.jpg';
+import krowoderskichZuchowImg6 from './assets/portfolio/krowoderskich-zuchow/image-6.jpg';
+import krowoderskichZuchowImg7 from './assets/portfolio/krowoderskich-zuchow/image-7.jpg';
+import krowoderskichZuchowImg8 from './assets/portfolio/krowoderskich-zuchow/image-8.jpg';
+
+
 import miechowityMain from './assets/portfolio/miechowity/main.jpg';
+import miechowityImg1 from './assets/portfolio/miechowity/image-1.jpg';
+import miechowityImg2 from './assets/portfolio/miechowity/image-2.jpg';
+import miechowityImg3 from './assets/portfolio/miechowity/image-3.jpg';
+import miechowityImg4 from './assets/portfolio/miechowity/image-4.jpg';
+import miechowityImg5 from './assets/portfolio/miechowity/image-5.jpg';
+import miechowityImg6 from './assets/portfolio/miechowity/image-6.jpg';
+import miechowityImg7 from './assets/portfolio/miechowity/image-7.jpg';
+import miechowityImg8 from './assets/portfolio/miechowity/image-8.jpg';
+import miechowityImg9 from './assets/portfolio/miechowity/image-9.jpg';
+import miechowityImg10 from './assets/portfolio/miechowity/image-10.jpg';
+
 import moderatoMain from './assets/portfolio/moderato/main.jpg';
+import moderatoImg1 from './assets/portfolio/moderato/image-1.jpg';
+import moderatoImg2 from './assets/portfolio/moderato/image-2.jpg';
+import moderatoImg3 from './assets/portfolio/moderato/image-3.jpg';
+import moderatoImg4 from './assets/portfolio/moderato/image-4.jpg';
+import moderatoImg5 from './assets/portfolio/moderato/image-5.jpg';
+import moderatoImg6 from './assets/portfolio/moderato/image-6.jpg';
 
 // Data for Portfolio and Offers (remains unchanged from last fix)
 const portfolioProjects = [
@@ -49,6 +76,14 @@ const portfolioProjects = [
         mainImage: krowoderskichZuchowMain,
         images: [
             krowoderskichZuchowMain,
+            krowoderskichZuchowImg1,
+            krowoderskichZuchowImg2,
+            krowoderskichZuchowImg3,
+            krowoderskichZuchowImg4,
+            krowoderskichZuchowImg5,
+            krowoderskichZuchowImg6,
+            krowoderskichZuchowImg7,
+            krowoderskichZuchowImg8,
         ],
     },
     {
@@ -60,7 +95,18 @@ const portfolioProjects = [
         mainImage: miechowityMain,
         images: [
             miechowityMain,
+            miechowityImg1,
+            miechowityImg2,
+            miechowityImg3,
+            miechowityImg4,
+            miechowityImg5,
+            miechowityImg6,
+            miechowityImg7,
+            miechowityImg8,
+            miechowityImg9,
+            miechowityImg10,
         ],
+
     },
     {
         id: 4,
@@ -71,6 +117,12 @@ const portfolioProjects = [
         mainImage: moderatoMain,
         images: [
             moderatoMain,
+            moderatoImg1,
+            moderatoImg2,
+            moderatoImg3,
+            moderatoImg4,
+            moderatoImg5,
+            moderatoImg6,
         ],
     },
 ];
