@@ -1,10 +1,11 @@
 // src/App.jsx
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useLocation } from 'react-router-dom'; // Keep useLocation
 
 import logo from './assets/logo.jpg';
 
 import Navigation from './components/Navigation.jsx';
+import HeroCarousel from './components/HeroCarousel.jsx';
 import AboutUsPage from './pages/AboutUs.jsx';
 import PortfolioPage from './pages/Portfolio.jsx';
 import OffersPage from './pages/Offers.jsx';
@@ -176,6 +177,8 @@ const currentOffers = [
 
 const App = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const location = useLocation(); // This will now work as App is inside BrowserRouter
+    const isHomePage = location.pathname === '/'; // Determine if current path is homepage
 
     useEffect(() => {
         if (isMobileMenuOpen) {
@@ -192,55 +195,60 @@ const App = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
+    // Header will remain static (on top of carousel) as requested for now
+    const headerClasses = "bg-white shadow-lg py-4 px-6 md:px-10 flex items-center justify-between transition-all duration-300 ease-in-out";
+
     return (
-        <BrowserRouter basename="/real_estate_website">
-            <div className="min-h-screen bg-white font-inter text-black flex flex-col">
-                <header className="bg-white shadow-lg py-4 px-6 md:px-10 flex items-center justify-between transition-all duration-300 ease-in-out">
-                    <div className="flex items-center space-x-4">
-                        <Link to="/" className="flex items-center">
-                            <img
-                                src={logo}
-                                alt="EM Holding Logo"
-                                className="h-14 md:h-24 w-auto"
-                            />
-                        </Link>
-                    </div>
-                    <Navigation
-                        isMobileMenuOpen={isMobileMenuOpen}
-                        toggleMobileMenu={toggleMobileMenu}
-                    />
-                </header>
+        // BrowserRouter removed from here, now in main.jsx
+        <div className="min-h-screen bg-white font-inter text-black flex flex-col">
+            <header className={headerClasses}>
+                <div className="flex items-center space-x-4">
+                    <Link to="/" className="flex items-center">
+                        <img
+                            src={logo}
+                            alt="EM Holding Logo"
+                            className="h-14 md:h-24 w-auto"
+                        />
+                    </Link>
+                </div>
+                <Navigation
+                    isMobileMenuOpen={isMobileMenuOpen}
+                    toggleMobileMenu={toggleMobileMenu}
+                />
+            </header>
 
-                {/* Applied consistent max-width to main content area for all pages */}
-                <main className="max-w-7xl mx-auto px-4 lg:px-8 py-8 md:py-12 flex-grow">
-                    <Routes>
-                        <Route path="/" element={
-                            <div className="space-y-16 md:space-y-24">
-                                <div id="about-section">
-                                    <AboutUsPage />
-                                </div>
-                                <div id="portfolio-section">
-                                    <PortfolioPage projects={portfolioProjects} />
-                                </div>
-                                {/* The OffersPage component was commented out in your provided code,
-                                    but it is included in the project structure.
-                                    If you want to display it on the homepage, uncomment the line below. */}
-                                {/* <div id="offers-section">
-                                    <OffersPage offers={currentOffers} />
-                                </div> */}
+            {/* Conditionally render HeroCarousel only on the homepage */}
+            {isHomePage && <HeroCarousel />}
+
+            {/* Applied consistent max-width to main content area for all pages */}
+            <main className="max-w-7xl mx-auto px-4 lg:px-8 py-8 md:py-12 flex-grow">
+                <Routes>
+                    <Route path="/" element={
+                        <div className="space-y-16 md:space-y-24">
+                            <div id="about-section">
+                                <AboutUsPage />
                             </div>
-                        } />
-                        <Route path="/contact" element={<ContactPage />} />
+                            <div id="portfolio-section">
+                                <PortfolioPage projects={portfolioProjects} />
+                            </div>
+                            {/* The OffersPage component was commented out in your provided code,
+                                but it is included in the project structure.
+                                If you want to display it on the homepage, uncomment the line below. */}
+                            {/* <div id="offers-section">
+                                <OffersPage offers={currentOffers} />
+                            </div> */}
+                        </div>
+                    } />
+                    <Route path="/contact" element={<ContactPage />} />
 
-                        <Route path="/projects/:projectId" element={<ProjectDetailPage portfolioProjects={portfolioProjects} />} />
+                    <Route path="/projects/:projectId" element={<ProjectDetailPage portfolioProjects={portfolioProjects} />} />
 
-                        <Route path="*" element={<h2 className="text-center text-2xl mt-20">404: Strona nie znaleziona</h2>} />
-                    </Routes>
-                </main>
+                    <Route path="*" element={<h2 className="text-center text-2xl mt-20">404: Strona nie znaleziona</h2>} />
+                </Routes>
+            </main>
 
-                <Footer />
-            </div>
-        </BrowserRouter>
+            <Footer />
+        </div>
     );
 };
 
