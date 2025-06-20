@@ -200,7 +200,7 @@ const App = () => {
 
     return (
         // BrowserRouter removed from here, now in main.jsx
-        <div className="min-h-screen bg-white font-inter text-black flex flex-col">
+        <div className="min-h-screen bg-white font-inter text-black flex flex-col overflow-x-hidden">
             <header className={headerClasses}>
                 <div className="flex items-center space-x-4">
                     <Link to="/" className="flex items-center">

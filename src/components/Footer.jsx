@@ -25,31 +25,33 @@ const Footer = () => {
     };
 
     return (
-        // CHANGED: text-black to text-gray-800 for general text
         <footer className="bg-gray-50 text-gray-800 py-12 px-6 md:px-10">
-            <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+            {/* CHANGED: grid-cols-2 to grid-cols-1 for mobile, added sm:grid-cols-2 for tablets,
+                       and kept md:grid-cols-3 for larger screens. */}
+            <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
                 {/* Column 1: Kontakt Information */}
                 <div className="flex flex-col items-start text-left space-y-4">
-                    {/* CHANGED: text-black to text-gray-800 */}
-                    <h3 className="text-xl font-semibold mb-2 text-gray-800">Kontakt</h3>
-                    <p className="flex items-center space-x-2 text-gray-800"> {/* CHANGED: text-black to text-gray-800 */}
-                        <Phone className="w-5 h-5" color={iconDarkGrayColor} /> {/* CHANGED: color="black" to color={iconDarkGrayColor} */}
+                    {/* CHANGED: h3 font size for mobile, then scales up */}
+                    <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 text-gray-800">Kontakt</h3>
+                    {/* CHANGED: p font size to text-sm for all contact info */}
+                    <p className="flex items-center space-x-2 text-sm text-gray-800">
+                        <Phone className="w-4 h-4 sm:w-5 sm:h-5" color={iconDarkGrayColor} /> {/* Reduced icon size for mobile */}
                         <span>+48 885 985 999</span>
                     </p>
-                    <p className="flex items-center space-x-2 text-gray-800"> {/* CHANGED: text-black to text-gray-800 */}
-                        <Mail className="w-5 h-5" color={iconDarkGrayColor} /> {/* CHANGED: color="black" to color={iconDarkGrayColor} */}
+                    <p className="flex items-center space-x-2 text-sm text-gray-800">
+                        <Mail className="w-4 h-4 sm:w-5 sm:h-5" color={iconDarkGrayColor} /> {/* Reduced icon size for mobile */}
                         <span>julia@yourholidays.pl</span>
                     </p>
-                    <p className="flex items-center space-x-2 text-gray-800"> {/* CHANGED: text-black to text-gray-800 */}
-                        <MapPin className="w-5 h-5" color={iconDarkGrayColor} /> {/* CHANGED: color="black" to color={iconDarkGrayColor} */}
+                    <p className="flex items-center space-x-2 text-sm text-gray-800">
+                        <MapPin className="w-4 h-4 sm:w-5 sm:h-5" color={iconDarkGrayColor} /> {/* Reduced icon size for mobile */}
                         <span>ul. Promenada Gwiazd 28/5,<br/>72-500 Międzyzdroje</span>
                     </p>
                 </div>
 
                 {/* Column 2: Menu */}
                 <div className="flex flex-col items-start text-left">
-                    {/* CHANGED: text-black to text-gray-800 */}
-                    <h3 className="text-xl font-semibold mb-4 text-gray-800">Menu</h3>
+                    {/* CHANGED: h3 font size for mobile, then scales up */}
+                    <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-4 text-gray-800">Menu</h3>
                     <ul className="space-y-2">
                         {menuItems.map((item) => (
                             <li key={item.path}>
@@ -58,8 +60,8 @@ const Footer = () => {
                                         to={item.path}
                                         smooth
                                         scroll={scrollWithOffset}
-                                        // CHANGED: text-black to text-gray-800
-                                        className="hover:underline text-gray-800 transition-colors duration-200 text-left"
+                                        // CHANGED: text size to text-sm for menu items
+                                        className="hover:underline text-gray-800 transition-colors duration-200 text-left text-sm"
                                         style={{ backgroundColor: 'transparent', border: 'none', cursor: 'pointer', padding: 0 }}
                                     >
                                         {item.name}
@@ -67,8 +69,8 @@ const Footer = () => {
                                 ) : (
                                     <Link
                                         to={item.path}
-                                        // CHANGED: text-black to text-gray-800
-                                        className="hover:underline text-gray-800 transition-colors duration-200 text-left"
+                                        // CHANGED: text size to text-sm for menu items
+                                        className="hover:underline text-gray-800 transition-colors duration-200 text-left text-sm"
                                         style={{ backgroundColor: 'transparent', border: 'none', cursor: 'pointer', padding: 0 }}
                                     >
                                         {item.name}
@@ -80,24 +82,25 @@ const Footer = () => {
                 </div>
 
                 {/* Column 3: Social Media */}
-                <div className="flex flex-col items-start text-left sm:col-span-2 md:col-span-1">
-                    {/* CHANGED: text-black to text-gray-800 */}
-                    <h3 className="text-xl font-semibold mb-4 text-gray-800">Social Media</h3>
-                    {/* CHANGED: text-black to text-gray-800 */}
-                    <p className="mb-4 text-gray-800">Bądź na bieżąco i zobacz jak prężnie działamy.</p>
+                {/* Changed sm:col-span-2 to remove the span on smaller screens, allowing it to naturally fall into its column */}
+                <div className="flex flex-col items-start text-left md:col-span-1">
+                    {/* CHANGED: h3 font size for mobile, then scales up */}
+                    <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-4 text-gray-800">Social Media</h3>
+                    {/* CHANGED: p font size to text-sm */}
+                    <p className="mb-4 text-sm text-gray-800">Bądź na bieżąco i zobacz jak prężnie działamy.</p>
                     <div className="flex space-x-4">
                         <a href="#" target="_blank" aria-label="Facebook" className="hover:opacity-75 transition-opacity duration-200">
-                            <Facebook className="w-8 h-8" color={iconDarkGrayColor} /> {/* CHANGED: color="black" to color={iconDarkGrayColor} */}
+                            <Facebook className="w-6 h-6 sm:w-8 sm:h-8" color={iconDarkGrayColor} /> {/* Reduced icon size for mobile */}
                         </a>
                         <a href="#" target="_blank" aria-label="Instagram" className="hover:opacity-75 transition-opacity duration-200">
-                            <Instagram className="w-8 h-8" color={iconDarkGrayColor} /> {/* CHANGED: color="black" to color={iconDarkGrayColor} */}
+                            <Instagram className="w-6 h-6 sm:w-8 sm:h-8" color={iconDarkGrayColor} /> {/* Reduced icon size for mobile */}
                         </a>
                     </div>
                 </div>
             </div>
             {/* Copyright */}
-            {/* CHANGED: text-black to text-gray-800 */}
-            <div className="mt-10 pt-6 text-center border-t border-gray-300 text-sm text-gray-800">
+            {/* CHANGED: p font size to text-xs for copyright */}
+            <div className="mt-10 pt-6 text-center border-t border-gray-300 text-xs text-gray-800">
                 <p>&copy; {new Date().getFullYear()} EM Holding. Wszelkie prawa zastrzeżone.</p>
             </div>
         </footer>
