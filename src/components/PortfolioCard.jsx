@@ -3,13 +3,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Home, Building, CalendarCheck } from 'lucide-react';
 
-const PortfolioCard = ({ project }) => {
+// Accept 'idx' as a prop
+const PortfolioCard = ({ project, idx }) => {
   const buttonColor = '#EE2A7B';
 
   return (
-    // No change here for the main container width, it will now expand to the max-width of PortfolioPage's content
-    <div className="relative flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden w-full">
-      {/* Image Section (Left side on desktop, top on mobile) */}
+    // Conditionally apply 'md:flex-row-reverse' based on the index
+    <div className={`relative flex flex-col bg-white rounded-lg shadow-lg overflow-hidden w-full ${idx % 2 == 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+      {/* Image Section (Left side on desktop, top on mobile - when not reversed) */}
       <div className="w-full md:w-1/2 flex-shrink-0">
         {/* Added aspect-w-5 aspect-h-4 to enforce a 1.25/1 width/height ratio for the image container */}
         {/* The image inside will fill this container while maintaining its aspect ratio */}
@@ -23,7 +24,7 @@ const PortfolioCard = ({ project }) => {
         </Link>
       </div>
 
-      {/* Details Section (Right side on desktop, bottom on mobile) */}
+      {/* Details Section (Right side on desktop, bottom on mobile - when not reversed) */}
       <div className="w-full md:w-1/2 p-6 flex flex-col justify-between">
         {/* Top Right Label */}
         {project.shortName && (
