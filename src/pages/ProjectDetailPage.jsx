@@ -56,8 +56,7 @@ const ProjectDetailPage = ({ portfolioProjects }) => {
     }));
 
     return (
-        <div className="container mx-auto px-4 py-8 md:py-12">
-            {/* --- NEW: Breadcrumbs Navigation --- */}
+        <div className="container mx-auto">
             <nav className="text-sm font-medium mb-8" aria-label="Breadcrumb">
                 <ol className="list-none p-0 inline-flex items-center">
                     <li>
@@ -66,14 +65,14 @@ const ProjectDetailPage = ({ portfolioProjects }) => {
                             to="/#portfolio-section" // Target the div with id="portfolio-section" on the main page
                             smooth // Enable smooth scrolling
                             scroll={scrollWithOffset} // Use your custom offset function
-                            className="text-blue-800 hover:text-yellow-500 transition-colors font-semibold"
+                            className="text-black hover:text-yellow-500 transition-colors font-semibold"
                         >
                             Realizacje
                         </HashLink>
                     </li>
                     <li>
                         {/* Separator icon (Font Awesome chevron right) */}
-                        <svg className="fill-current w-3 h-3 mx-2 text-blue-800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <svg className="fill-current w-3 h-3 mx-2 text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                             <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.357-24.522 0-33.879L223.535 256 34.528 67.234c-9.357-9.357-9.357-24.522 0-33.879l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.029c9.373 9.373 24.569 0 33.942z"/>
                         </svg>
                     </li>
@@ -85,7 +84,7 @@ const ProjectDetailPage = ({ portfolioProjects }) => {
             </nav>
 
             {/* Title (3rem font size) */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[3rem] font-extrabold text-center text-gradient-dark-blue mb-8 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-[3rem] font-extrabold text-center mb-8 leading-tight">
                 {project.name}
             </h1>
 
@@ -97,7 +96,7 @@ const ProjectDetailPage = ({ portfolioProjects }) => {
             {/* Images Grid - Uses your original Tailwind CSS grid classes */}
             <div className="grid grid-cols-1 gap-4
                             sm:grid-cols-2
-                            lg:grid-cols-4 {/* Your desired 4 columns for larger screens */}
+                            lg:grid-cols-3
                             max-w-6xl mx-auto">
                 {project.images.map((imgSrc, idx) => (
                     <div
