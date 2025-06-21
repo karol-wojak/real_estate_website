@@ -1,5 +1,4 @@
 // src/pages/AboutUs.jsx
-import React from 'react';
 import EdytaImage from '../assets/team/owner-edyta.jpg';
 import MichalImage from '../assets/team/owner-michal.jpg';
 
