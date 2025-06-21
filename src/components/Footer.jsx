@@ -9,7 +9,7 @@ const Footer = () => {
     // Define menu items based on your website's navigation with paths/hashes
     const menuItems = [
         { name: 'O Nas', path: '/#about-section', type: 'hash' },
-        { name: 'Portfolio', path: '/#portfolio-section', type: 'hash' },
+        { name: 'Realizacje', path: '/#portfolio-section', type: 'hash' },
         { name: 'Oferty', path: '/#offers-section', type: 'hash' },
         { name: 'Kontakt', path: '/contact', type: 'link' },
     ];

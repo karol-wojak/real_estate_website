@@ -20,7 +20,7 @@ const HeroCarousel = () => {
     // Set up an interval to change the image every 4 seconds
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 4000);
+    }, 3000);
 
     // Clean up the interval when the component unmounts
     return () => clearInterval(interval);
