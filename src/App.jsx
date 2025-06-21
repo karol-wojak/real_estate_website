@@ -1,11 +1,11 @@
 // src/App.jsx
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link, useLocation } from 'react-router-dom'; // Keep useLocation
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 
 import logo from './assets/logo.jpg';
 
 import Navigation from './components/Navigation.jsx';
-import HeroCarousel from './components/HeroCarousel.jsx';
+import HeroCarousel from './components/HeroCarousel.jsx'; //
 import AboutUsPage from './pages/AboutUs.jsx';
 import PortfolioPage from './pages/Portfolio.jsx';
 import OffersPage from './pages/Offers.jsx';
@@ -107,7 +107,6 @@ const portfolioProjects = [
             miechowityImg9,
             miechowityImg10,
         ],
-
     },
     {
         id: 4,
@@ -137,90 +136,70 @@ const currentOffers = [
         location: "City Center, NY",
         price: "$2,500,000",
         bedrooms: 4,
-        bathrooms: 3.5,
-        image: "https://placehold.co/600x400/FFDDC1/8B4513?text=Offer+1",
+        bathrooms: 3,
+        image: "https://via.placeholder.com/600x400/FF0000/FFFFFF?text=Penthouse"
     },
     {
         id: 2,
-        name: "Suburban Family Home",
+        name: "Riverside Villa",
         type: "House",
-        description: "Spacious single-family home with a large backyard, perfect for families.",
-        location: "Maplewood, NJ",
-        price: "$750,000",
+        description: "A spacious villa located by the river, perfect for families.",
+        location: "Riverbend, CA",
+        price: "$1,800,000",
         bedrooms: 5,
-        bathrooms: 3,
-        image: "https://placehold.co/600x400/C1FFC1/1C7C54?text=Offer+2",
+        bathrooms: 4,
+        image: "https://via.placeholder.com/600x400/0000FF/FFFFFF?text=Villa"
     },
     {
         id: 3,
-        name: "Lakeside Retreat",
-        type: "Cottage",
-        description: "Charming cottage by the lake, ideal for weekend getaways.",
-        location: "Serene Lake, WI",
-        price: "$450,000",
-        bedrooms: 3,
-        bathrooms: 2,
-        image: "https://placehold.co/600x400/BEE9F7/005A7B?text=Offer+3",
+        name: "Urban Loft",
+        type: "Apartment",
+        description: "Modern loft in the bustling urban area, ideal for young professionals.",
+        location: "Downtown, IL",
+        price: "$750,000",
+        bedrooms: 1,
+        bathrooms: 1,
+        image: "https://via.placeholder.com/600x400/00FF00/FFFFFF?text=Loft"
     },
     {
         id: 4,
-        name: "Commercial Retail Space",
-        type: "Commercial",
-        description: "Prime retail location in a bustling shopping district, high foot traffic.",
-        location: "Market Square, TX",
-        price: "$1,200,000",
-        bedrooms: null,
-        bathrooms: null,
-        image: "https://placehold.co/600x400/F0F0F0/666666?text=Offer+4",
-    },
+        name: "Suburban Family Home",
+        type: "House",
+        description: "A comfortable family home in a quiet suburban neighborhood with a large backyard.",
+        location: "Suburbia, GA",
+        price: "$450,000",
+        bedrooms: 3,
+        bathrooms: 2,
+        image: "https://via.placeholder.com/600x400/FFA500/FFFFFF?text=Family+Home"
+    }
 ];
+
 
 const App = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const location = useLocation(); // This will now work as App is inside BrowserRouter
-    const isHomePage = location.pathname === '/'; // Determine if current path is homepage
+    const location = useLocation(); // To get current path for conditional rendering
 
-    useEffect(() => {
-        if (isMobileMenuOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-        return () => {
-            document.body.style.overflow = '';
-        };
-    }, [isMobileMenuOpen]);
-
+    // Toggle mobile menu visibility
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
-    // Header will remain static (on top of carousel) as requested for now
-    const headerClasses = "bg-white shadow-lg py-4 px-6 md:px-10 flex items-center justify-between transition-all duration-300 ease-in-out";
+    // Close mobile menu when navigating to a new page
+    useEffect(() => {
+        setIsMobileMenuOpen(false);
+    }, [location.pathname, location.hash]); // Close on path or hash change
 
     return (
-        // BrowserRouter removed from here, now in main.jsx
-        <div className="min-h-screen bg-white font-inter text-black flex flex-col overflow-x-hidden">
-            <header className={headerClasses}>
-                <div className="flex items-center space-x-4">
-                    <Link to="/" className="flex items-center">
-                        <img
-                            src={logo}
-                            alt="EM Holding Logo"
-                            className="h-14 md:h-24 w-auto"
-                        />
-                    </Link>
-                </div>
-                <Navigation
-                    isMobileMenuOpen={isMobileMenuOpen}
-                    toggleMobileMenu={toggleMobileMenu}
-                />
-            </header>
+        <div className="min-h-screen flex flex-col">
+            {/* Navigation component, passed logo and mobile menu state/toggle */}
+            <Navigation
+                isMobileMenuOpen={isMobileMenuOpen}
+                toggleMobileMenu={toggleMobileMenu}
+                logo={logo} // Pass the logo down to Navigation
+            />
+            {/* Hero Carousel - now rendered conditionally, but generally on home */}
+            {location.pathname === '/' && <HeroCarousel />} {/* */}
 
-            {/* Conditionally render HeroCarousel only on the homepage */}
-            {isHomePage && <HeroCarousel />}
-
-            {/* Applied consistent max-width to main content area for all pages */}
             <main className="max-w-7xl mx-auto px-4 lg:px-8 py-8 md:py-12 flex-grow">
                 <Routes>
                     <Route path="/" element={
