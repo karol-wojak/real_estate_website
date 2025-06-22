@@ -35,19 +35,15 @@ const Navigation = ({ isMobileMenuOpen, toggleMobileMenu, logo }) => {
                                 {item.type === 'hash' ? (
                                     <HashLink
                                         to={item.path}
-                                        scroll={el => scrollWithOffset(el)}
-                                        className={`
-                                            nav-item-button text-xl font-normal no-underline focus:outline-none hover:scale-[1.02]
-                                        `}
+                                        scroll={scrollWithOffset}
+                                        className="nav-item-button text-xl font-normal no-underline focus:outline-none hover:scale-[1.02]"
                                     >
                                         {item.name}
                                     </HashLink>
                                 ) : (
                                     <Link
                                         to={item.path}
-                                        className={`
-                                            nav-item-button text-xl font-normal no-underline focus:outline-none hover:scale-[1.02]
-                                        `}
+                                        className="nav-item-button text-xl font-normal no-underline focus:outline-none hover:scale-[1.02]"
                                     >
                                         {item.name}
                                     </Link>
@@ -57,48 +53,41 @@ const Navigation = ({ isMobileMenuOpen, toggleMobileMenu, logo }) => {
                     </ul>
                 </nav>
 
-                <div className="md:hidden">
-                    <button onClick={toggleMobileMenu} className="focus:outline-none text-gray-800">
+                <div className="md:hidden relative">
+                    <button onClick={toggleMobileMenu} className="focus:outline-none text-gray-800 z-50 relative">
                         {isMobileMenuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
                     </button>
+
+                    {isMobileMenuOpen && (
+                        <div className="absolute right-0 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden w-48">
+                            <ul className="flex flex-col divide-y divide-gray-200">
+                                {navItems.map((item) => (
+                                    <li key={item.name}>
+                                        {item.type === 'hash' ? (
+                                            <HashLink
+                                                to={item.path}
+                                                scroll={scrollWithOffset}
+                                                onClick={toggleMobileMenu}
+                                                className="block px-4 py-3 text-gray-800 text-center hover:bg-gray-100"
+                                            >
+                                                {item.name}
+                                            </HashLink>
+                                        ) : (
+                                            <Link
+                                                to={item.path}
+                                                onClick={toggleMobileMenu}
+                                                className="block px-4 py-3 text-gray-800 text-center hover:bg-gray-100"
+                                            >
+                                                {item.name}
+                                            </Link>
+                                        )}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
                 </div>
             </div>
-
-            {isMobileMenuOpen && (
-                <div className="md:hidden fixed inset-0 bg-white/90 backdrop-blur-lg z-40 flex flex-col items-center justify-center space-y-8 py-20">
-                    <button onClick={toggleMobileMenu} className="absolute top-4 right-4 focus:outline-none text-gray-800">
-                        <X className="w-8 h-8" />
-                    </button>
-                    <ul className="flex flex-col items-center space-y-6">
-                        {navItems.map((item) => (
-                            <li key={item.name}>
-                                {item.type === 'hash' ? (
-                                    <HashLink
-                                        to={item.path}
-                                        scroll={el => scrollWithOffset(el)}
-                                        onClick={toggleMobileMenu}
-                                        className={`
-                                            nav-item-button text-2xl font-normal py-2 no-underline focus:outline-none hover:scale-[1.02]
-                                        `}
-                                    >
-                                        {item.name}
-                                    </HashLink>
-                                ) : (
-                                    <Link
-                                        to={item.path}
-                                        onClick={toggleMobileMenu}
-                                        className={`
-                                            nav-item-button text-2xl font-normal py-2 no-underline focus:outline-none hover:scale-[1.02]
-                                        `}
-                                    >
-                                        {item.name}
-                                    </Link>
-                                )}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
         </header>
     );
 };
