@@ -2,11 +2,16 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-// Import your carousel images
 import carousel1 from '../assets/carousel/image-1.jpg';
 import carousel2 from '../assets/carousel/image-2.jpg';
 import carousel3 from '../assets/carousel/image-3.jpg';
 import contact from '../assets/carousel/contact-page.jpg';
+
+// Import your project main images
+import czyzewskiegoMain from '../assets/portfolio/czyzewskiego/main.jpg';
+import krowoderskichZuchowMain from '../assets/portfolio/krowoderskich-zuchow/main.jpg';
+import miechowityMain from '../assets/portfolio/miechowity/main.jpg';
+import moderatoMain from '../assets/portfolio/moderato/main.jpg';
 
 const HeroCarousel = () => {
   const location = useLocation();
@@ -14,23 +19,27 @@ const HeroCarousel = () => {
 
   const isHome = path === '/';
 
-  const homeImages = [
-    carousel1,
-    carousel2,
-    carousel3,
-  ];
+  const homeImages = [carousel1, carousel2, carousel3];
 
+  // Map static routes and specific project detail pages to their images
   const staticHeroImages = {
     '/contact': contact,
-    '/projects': carousel3,
-    // Add more routes and images as needed
+    '/projects/1': czyzewskiegoMain,
+    '/projects/2': krowoderskichZuchowMain,
+    '/projects/3': miechowityMain,
+    '/projects/4': moderatoMain,
   };
 
-  let staticImage = carousel1; // default fallback
-  for (const route in staticHeroImages) {
-    if (path.startsWith(route)) {
-      staticImage = staticHeroImages[route];
-      break;
+  // Default image fallback
+  let staticImage = carousel1;
+
+  // Try to match exact path
+  if (!isHome) {
+    for (const route in staticHeroImages) {
+      if (path.startsWith(route)) {
+        staticImage = staticHeroImages[route];
+        break;
+      }
     }
   }
 
