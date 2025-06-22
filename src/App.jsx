@@ -197,8 +197,8 @@ const App = () => {
                 toggleMobileMenu={toggleMobileMenu}
                 logo={logo} // Pass the logo down to Navigation
             />
-            {/* Hero Carousel - now rendered conditionally, but generally on home */}
-            {location.pathname === '/' && <HeroCarousel />} {/* */}
+            
+            <HeroCarousel location={location} />  {/* <-- always rendered */}
 
             <main className="max-w-7xl mx-auto px-4 lg:px-8 py-8 md:py-12 flex-grow">
                 <Routes>
