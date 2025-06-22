@@ -36,14 +36,14 @@ const Navigation = ({ isMobileMenuOpen, toggleMobileMenu, logo }) => {
                                     <HashLink
                                         to={item.path}
                                         scroll={scrollWithOffset}
-                                        className="nav-item-button text-xl font-medium text-white no-underline focus:outline-none hover:scale-[1.02]"
+                                        className="nav-item-button text-xl font-medium text-white no-underline focus:outline-none hover:scale-[1.02] inline-block transform transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105"
                                     >
                                         {item.name}
                                     </HashLink>
                                 ) : (
                                     <Link
                                         to={item.path}
-                                        className="nav-item-button text-xl font-medium text-white no-underline focus:outline-none hover:scale-[1.02]"
+                                        className="nav-item-button text-xl font-medium text-white no-underline focus:outline-none hover:scale-[1.02] inline-block transform transition-all duration-300 ease-out hover:-translate-y-1 hover:scale-105"
                                     >
                                         {item.name}
                                     </Link>

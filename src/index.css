@@ -49,12 +49,7 @@ html {
 
 /* Base style for navigation items: ensure consistent color and smooth transitions for hover effects */
 .nav-item-button {
-  color: #1F2937; /* Tailwind's gray-800 for a consistent dark text */
+  color: #ffffff; /* Tailwind's gray-800 for a consistent dark text */
   transition: transform 0.3s ease-out, text-shadow 0.3s ease-out; /* Smooth transitions for scale and text-shadow */
   text-shadow: 0 0 0px rgba(0, 0, 0, 0); /* Start with no shadow (transparent) to reserve space */
-}
-
-.nav-item-button:hover {
-  transform: scale(1.02);
-  text-shadow: 0 0 1px currentColor;
 }
