@@ -204,15 +204,12 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={
                         <div className="space-y-16 md:space-y-24">
-                            <div id="about-section">
-                                <AboutUsPage />
-                            </div>
                             <div id="portfolio-section">
                                 <PortfolioPage projects={portfolioProjects} />
                             </div>
-                            {/* The OffersPage component was commented out in your provided code,
-                                but it is included in the project structure.
-                                If you want to display it on the homepage, uncomment the line below. */}
+                            <div id="about-section">
+                                <AboutUsPage />
+                            </div>
                             {/* <div id="offers-section">
                                 <OffersPage offers={currentOffers} />
                             </div> */}

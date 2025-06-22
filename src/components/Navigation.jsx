@@ -8,8 +8,8 @@ const Navigation = ({ isMobileMenuOpen, toggleMobileMenu, logo }) => {
     const location = useLocation();
 
     const navItems = [
-        { name: 'O Nas', path: '/#about-section', type: 'hash' },
         { name: 'Realizacje', path: '/#portfolio-section', type: 'hash' },
+        { name: 'O Nas', path: '/#about-section', type: 'hash' },
         { name: 'Oferty', path: '/#offers-section', type: 'hash' },
         { name: 'Kontakt', path: '/contact', type: 'link' },
     ];
@@ -36,14 +36,14 @@ const Navigation = ({ isMobileMenuOpen, toggleMobileMenu, logo }) => {
                                     <HashLink
                                         to={item.path}
                                         scroll={scrollWithOffset}
-                                        className="nav-item-button text-xl font-normal no-underline focus:outline-none hover:scale-[1.02]"
+                                        className="nav-item-button text-xl font-medium text-white no-underline focus:outline-none hover:scale-[1.02]"
                                     >
                                         {item.name}
                                     </HashLink>
                                 ) : (
                                     <Link
                                         to={item.path}
-                                        className="nav-item-button text-xl font-normal no-underline focus:outline-none hover:scale-[1.02]"
+                                        className="nav-item-button text-xl font-medium text-white no-underline focus:outline-none hover:scale-[1.02]"
                                     >
                                         {item.name}
                                     </Link>
