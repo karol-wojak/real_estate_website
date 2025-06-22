@@ -3,7 +3,7 @@ import EdytaImage from '../assets/team/owner-edyta.jpg';
 import MichalImage from '../assets/team/owner-michal.jpg';
 
 const AboutUsPage = () => (
-    <section id="about-section" className="transition-all duration-500 ease-in-out transform opacity-0 translate-y-4 animate-fade-in-up py-12">
+    <section id="about-section" className="transition-all duration-500 ease-in-out transform opacity-0 translate-y-4 animate-fade-in-up">
         <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-8 leading-tight md:pb-1">O Nas</h1>
         <p className="text-lg md:text-xl text-black leading-relaxed mb-6 text-justify">
             Witamy w EM Holding, gdzie przekształcamy wizje w tętniące życiem przestrzenie mieszkalne. Jesteśmy pełnym pasji zespołem, który poświęca się dostarczaniu wyjątkowych rozwiązań w zakresie nieruchomości, łączących innowacyjny design z ponadczasową jakością.
