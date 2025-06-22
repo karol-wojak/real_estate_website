@@ -6,8 +6,9 @@ import logo from './assets/logo.jpg';
 
 import Navigation from './components/Navigation.jsx';
 import HeroCarousel from './components/HeroCarousel.jsx'; //
-import AboutUsPage from './pages/AboutUs.jsx';
 import PortfolioPage from './pages/Portfolio.jsx';
+import AboutUsPage from './pages/AboutUs.jsx';
+import FAQ from './components/FAQ.jsx';
 import OffersPage from './pages/Offers.jsx';
 import ContactPage from './pages/Contact.jsx';
 import ProjectDetailPage from './pages/ProjectDetailPage.jsx';
@@ -210,15 +211,17 @@ const App = () => {
                             <div id="about-section">
                                 <AboutUsPage />
                             </div>
+                            <div id="faq-section">
+                                <FAQ />
+                            </div>
                             {/* <div id="offers-section">
                                 <OffersPage offers={currentOffers} />
                             </div> */}
                         </div>
                     } />
                     <Route path="/contact" element={<ContactPage />} />
-
                     <Route path="/projects/:projectId" element={<ProjectDetailPage portfolioProjects={portfolioProjects} />} />
-
+                    <Route path="/faq" element={<FAQ />} />
                     <Route path="*" element={<h2 className="text-center text-2xl mt-20">404: Strona nie znaleziona</h2>} />
                 </Routes>
             </main>

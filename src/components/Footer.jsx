@@ -10,7 +10,8 @@ const Footer = () => {
     const menuItems = [
         { name: 'Realizacje', path: '/#portfolio-section', type: 'hash' },
         { name: 'O Nas', path: '/#about-section', type: 'hash' },
-        { name: 'Oferty', path: '/#offers-section', type: 'hash' },
+        { name: 'FAQ', path: '/#faq-section', type: 'hash' },
+        // { name: 'Oferty', path: '/#offers-section', type: 'hash' },
         { name: 'Kontakt', path: '/contact', type: 'link' },
     ];
 
@@ -89,10 +90,10 @@ const Footer = () => {
                     {/* CHANGED: p font size to text-sm */}
                     <p className="mb-4 text-sm text-gray-800">Bądź na bieżąco i zobacz jak prężnie działamy.</p>
                     <div className="flex space-x-4">
-                        <a href="#" target="_blank" aria-label="Facebook" className="hover:opacity-75 transition-opacity duration-200">
+                        <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook" className="hover:opacity-75 transition-opacity duration-200">
                             <Facebook className="w-6 h-6 sm:w-8 sm:h-8" color={iconDarkGrayColor} /> {/* Reduced icon size for mobile */}
                         </a>
-                        <a href="#" target="_blank" aria-label="Instagram" className="hover:opacity-75 transition-opacity duration-200">
+                        <a href="https://www.instagram.com/" target="_blank" aria-label="Instagram" className="hover:opacity-75 transition-opacity duration-200">
                             <Instagram className="w-6 h-6 sm:w-8 sm:h-8" color={iconDarkGrayColor} /> {/* Reduced icon size for mobile */}
                         </a>
                     </div>

@@ -10,7 +10,8 @@ const Navigation = ({ isMobileMenuOpen, toggleMobileMenu, logo }) => {
     const navItems = [
         { name: 'Realizacje', path: '/#portfolio-section', type: 'hash' },
         { name: 'O Nas', path: '/#about-section', type: 'hash' },
-        { name: 'Oferty', path: '/#offers-section', type: 'hash' },
+        // { name: 'Oferty', path: '/#offers-section', type: 'hash' },
+        { name: 'FAQ', path: '/#faq-section', type: 'hash' },
         { name: 'Kontakt', path: '/contact', type: 'link' },
     ];
 
