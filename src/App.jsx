@@ -201,7 +201,11 @@ const App = () => {
             
             <HeroCarousel location={location} />  {/* <-- always rendered */}
 
-            <main className="max-w-7xl mx-auto px-4 lg:px-8 py-8 md:py-12 flex-grow">
+            <main
+                className={`max-w-7xl mx-auto px-4 lg:px-8 flex-grow ${
+                    location.pathname.startsWith('/projects/') ? 'py-0' : 'py-8 md:py-12'
+                }`}
+                >
                 <Routes>
                     <Route path="/" element={
                         <div className="space-y-16 md:space-y-24">
