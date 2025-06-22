@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import carousel1 from '../assets/carousel/image-1.jpg';
 import carousel2 from '../assets/carousel/image-2.jpg';
 import carousel3 from '../assets/carousel/image-3.jpg';
+import contact from '../assets/carousel/contact-page.jpg';
 
 const HeroCarousel = () => {
   const location = useLocation();
@@ -20,7 +21,7 @@ const HeroCarousel = () => {
   ];
 
   const staticHeroImages = {
-    '/contact': carousel2,
+    '/contact': contact,
     '/projects': carousel3,
     // Add more routes and images as needed
   };
@@ -46,7 +47,7 @@ const HeroCarousel = () => {
   }, [isHome]);
 
   return (
-    <div className="w-full h-[600px] sm:h-[700px] md:h-[800px] lg:h-[900px] xl:h-[1000px] overflow-hidden relative">
+    <div className="w-full h-[620px] sm:h-[630px] md:h-[640px] lg:h-[650px] xl:h-[660px] overflow-hidden relative mb-8">
       {isHome ? (
         homeImages.map((image, index) => (
           <img
