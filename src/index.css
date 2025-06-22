@@ -3,43 +3,16 @@
 
 /* Define CSS Custom Properties for Gradients and Colors */
 :root {
-  --gradient-gold: linear-gradient(204deg, #cda670 0%, #d7b27d 31%, #dfbb87 61%, #e3bf8c 100%);
-  --gradient-dark-blue: linear-gradient(204deg, rgba(9, 21, 58, 0.8) 0%, rgba(21, 36, 85, 0.8) 43%, rgba(65, 83, 140, 0.8) 100%);
   --color-black: #000000;
   --color-white: #FFFFFF;
-  --footer-pink: #eb4e6e; /* Original custom color for the footer background - no longer used but kept for reference */
-  --color-gold-icon: #d7b27d; /* Solid gold color for icons */
-  --color-dark-blue-solid: #09153a; /* NEW: A solid dark blue color for the footer background */
-}
-
-/* Custom utility classes for applying gradients to text */
-.text-gradient-gold {
-  background-image: var(--gradient-gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent; /* Fallback for browsers that don't support background-clip: text */
-}
-
-.text-gradient-dark-blue {
-  background-image: var(--gradient-dark-blue);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-}
-
-/* Custom utility class for solid gold text/icons */
-.text-gold-icon {
-  color: var(--color-gold-icon);
 }
 
 /* Global Styles */
 body {
-    font-family: 'Inter', sans-serif;
-    color: var(--color-black);
-    background-color: var(--color-white);
-    overflow: auto; /* Managed by JS for mobile menu */
+  font-family: 'Inter', sans-serif;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  overflow: auto; /* Managed by JS for mobile menu */
 }
 
 /* Enable smooth scrolling for anchor links */
@@ -62,36 +35,9 @@ html {
   animation: fade-in-up 0.5s ease-out forwards;
 }
 
-/* Custom Tailwind classes for gradients and custom colors */
-@layer utilities {
-  .bg-footer-pink { /* Original custom background - no longer used */
-    background-color: var(--footer-pink);
-  }
-  .bg-gradient-dark-blue { /* This will no longer be used for the footer background */
-    background-image: var(--gradient-dark-blue);
-  }
-  /* NEW: Solid dark blue background utility */
-  .bg-dark-blue-solid {
-    background-color: var(--color-dark-blue-solid);
-  }
-}
-
 /* For Portfolio Images Aspect Ratio */
 .portfolio-image-aspect {
   aspect-ratio: 800 / 534;
-}
-
-/* For Portfolio Buttons */
-.btn-gradient-dark-blue {
-  background-image: var(--gradient-dark-blue);
-  color: var(--color-white);
-  border: none;
-  cursor: pointer;
-}
-
-.btn-gradient-dark-blue:hover {
-  background-image: var(--gradient-gold);
-  color: var(--color-black);
 }
 
 /* New styles for Portfolio Row layout */
@@ -101,6 +47,14 @@ html {
   margin-right: auto;
 }
 
+/* Base style for navigation items: ensure consistent color and smooth transitions for hover effects */
+.nav-item-button {
+  color: #1F2937; /* Tailwind's gray-800 for a consistent dark text */
+  transition: transform 0.3s ease-out, text-shadow 0.3s ease-out; /* Smooth transitions for scale and text-shadow */
+  text-shadow: 0 0 0px rgba(0, 0, 0, 0); /* Start with no shadow (transparent) to reserve space */
+}
+
 .nav-item-button:hover {
-  color: var(--color-gold-icon); /* Apply the solid gold color on hover */
+  transform: scale(1.02);
+  text-shadow: 0 0 1px currentColor;
 }

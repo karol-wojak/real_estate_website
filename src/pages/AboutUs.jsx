@@ -18,7 +18,7 @@ const AboutUsPage = () => (
                     alt="Właściciel 1"
                     className="w-full h-auto mb-4"
                 />
-                <h3 className="text-2xl font-semibold text-gradient-gold mb-3 text-center">Edyta Augustyńczyk</h3>
+                <h3 className="text-2xl font-semibold mb-3 text-center">Edyta Augustyńczyk</h3>
                 <p className="text-black font-serif text-justify leading-relaxed">
                     <span className="font-medium text-black">Founder & CEO:</span> With over two decades in real estate development, Edyta brings unparalleled expertise in architectural innovation and strategic project management. Their vision has shaped our most iconic properties.
                 </p>
@@ -29,7 +29,7 @@ const AboutUsPage = () => (
                     alt="Właściciel 2"
                     className="w-full h-auto mb-4"
                 />
-                <h3 className="text-2xl font-semibold text-gradient-gold mb-3 text-center">Michał Wojak</h3>
+                <h3 className="text-2xl font-semibold mb-3 text-center">Michał Wojak</h3>
                 <p className="text-black font-serif text-justify leading-relaxed">
                     <span className="font-medium text-black">Co-founder & Head of Sales:</span> A market maestro with a keen eye for emerging trends, Michał Wojak excels in client relations and ensuring our properties connect with the right buyers. Their passion drives our success in the market.
                 </p>
