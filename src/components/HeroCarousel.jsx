@@ -56,7 +56,7 @@ const HeroCarousel = () => {
   }, [isHome]);
 
   return (
-    <div className="w-full h-[620px] sm:h-[630px] md:h-[640px] lg:h-[650px] xl:h-[660px] overflow-hidden relative mb-8">
+    <div className="w-full aspect-[16/9] relative mb-8">
       {isHome ? (
         homeImages.map((image, index) => (
           <img
