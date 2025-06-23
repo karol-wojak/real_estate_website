@@ -5,8 +5,6 @@ import { Home, Building, CalendarCheck } from 'lucide-react';
 
 // Accept 'idx' as a prop
 const PortfolioCard = ({ project, idx }) => {
-  const buttonColor = '#EE2A7B';
-
   return (
     // Conditionally apply 'md:flex-row-reverse' based on the index
     <div className={`relative flex flex-col bg-white rounded-lg shadow-lg overflow-hidden w-full ${idx % 2 == 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
@@ -61,8 +59,7 @@ const PortfolioCard = ({ project, idx }) => {
         {/* "Zobacz" Button */}
         <Link
           to={`/projects/${project.id}`}
-          className="inline-block self-start px-8 py-3 rounded-md text-white font-semibold transition-colors duration-200 hover:opacity-90"
-          style={{ backgroundColor: buttonColor }}
+          className="inline-block self-start px-8 py-3 rounded-md font-semibold bg-yellow-400 text-black hover:bg-yellow-500 transition-colors duration-300"
         >
           Zobacz
         </Link>
