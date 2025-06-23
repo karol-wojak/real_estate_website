@@ -8,6 +8,7 @@ import Navigation from './components/Navigation.jsx';
 import HeroCarousel from './components/HeroCarousel.jsx'; //
 import PortfolioPage from './pages/Portfolio.jsx';
 import AboutUsPage from './pages/AboutUs.jsx';
+import ReviewsCarousel from './components/ReviewsCarousel.jsx';
 import FAQ from './components/FAQ.jsx';
 import OffersPage from './pages/Offers.jsx';
 import ContactPage from './pages/Contact.jsx';
@@ -212,12 +213,19 @@ const App = () => {
                             <div id="portfolio-section">
                                 <PortfolioPage projects={portfolioProjects} />
                             </div>
+                            
                             <div id="about-section">
                                 <AboutUsPage />
                             </div>
+
+                            <div id="reviews-section">
+                                <ReviewsCarousel />
+                            </div>
+
                             <div id="faq-section">
                                 <FAQ />
                             </div>
+
                             {/* <div id="offers-section">
                                 <OffersPage offers={currentOffers} />
                             </div> */}
