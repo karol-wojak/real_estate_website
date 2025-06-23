@@ -9,10 +9,10 @@ const ContactPage = () => (
     </p>
 
     <div className="flex justify-center space-x-6 mb-10 md:mb-12">
-      <a href="#" target="_blank" aria-label="Facebook" className="text-[#cda670] hover:opacity-75 transition-opacity duration-200">
+      <a href="https://www.facebook.com/people/EM-Holding/61566959755802/" target="_blank" aria-label="Facebook" className="text-[#cda670] hover:opacity-75 transition-opacity duration-200">
         <Facebook className="w-8 h-8" />
       </a>
-      <a href="#" target="_blank" aria-label="Instagram" className="text-[#cda670] hover:opacity-75 transition-opacity duration-200">
+      <a href="https://www.instagram.com/edyta_augustynczyk?igsh=MXNtdGF2dmtzMDJvNw==/" target="_blank" aria-label="Instagram" className="text-[#cda670] hover:opacity-75 transition-opacity duration-200">
         <Instagram className="w-8 h-8" />
       </a>
     </div>
