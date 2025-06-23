@@ -199,21 +199,19 @@ const App = () => {
                 toggleMobileMenu={toggleMobileMenu}
                 logo={logo} // Pass the logo down to Navigation
             />
-            
-            <HeroCarousel location={location} />  {/* <-- always rendered */}
 
             <main
-                className={`max-w-7xl mx-auto px-4 lg:px-8 flex-grow ${
-                    location.pathname.startsWith('/projects/') ? 'py-0' : 'py-8 md:py-12'
-                }`}
-                >
+                className="max-w-7xl mx-auto px-4 lg:px-8 flex-grow py-0">
+                <div className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 mb-8">
+                    <HeroCarousel location={location} />
+                </div>
                 <Routes>
                     <Route path="/" element={
                         <div className="space-y-16 md:space-y-24">
                             <div id="portfolio-section">
                                 <PortfolioPage projects={portfolioProjects} />
                             </div>
-                            
+
                             <div id="about-section">
                                 <AboutUsPage />
                             </div>
