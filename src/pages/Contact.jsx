@@ -18,39 +18,39 @@ const ContactPage = () => (
     </div>
 
     {/* Adjusted grid for better responsiveness */}
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6"> {/* Changed md:grid-cols-3 to lg:grid-cols-3 */}
-      <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out flex items-center text-left">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out flex items-center text-left min-w-0">
         <div className="mr-4 flex-shrink-0">
-          <MapPin className="text-[#cda670] w-12 h-12" />
+          <MapPin className="text-[#cda670] w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
         </div>
-        <div className="flex-1"> {/* Added flex-1 here to make the text content flexible */}
-          <h3 className="text-2xl font-semibold text-gray-900 mb-2">Lokalizacja</h3>
-          <p className="text-gray-700 text-lg break-words">
+        <div className="flex-1 min-w-0">
+          <h3 className="text-lg md:text-2xl font-semibold text-gray-900 mb-2 break-words">Lokalizacja</h3>
+          <p className="text-gray-700 text-base md:text-lg break-words">
             Rynek Główny 28,<br/>
             31-010 Kraków
           </p>
         </div>
       </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out flex items-center text-left">
+      <div className="bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out flex items-center text-left min-w-0">
         <div className="mr-4 flex-shrink-0">
-          <Phone className="text-[#cda670] w-12 h-12" />
+          <Phone className="text-[#cda670] w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
         </div>
-        <div className="flex-1"> {/* Added flex-1 here */}
-          <h3 className="text-2xl font-semibold text-gray-900 mb-2">Zadzwoń</h3>
-          <p className="text-gray-700 text-lg break-words">
+        <div className="flex-1 min-w-0">
+          <h3 className="text-lg md:text-2xl font-semibold text-gray-900 mb-2 break-words">Zadzwoń</h3>
+          <p className="text-gray-700 text-base md:text-lg break-words">
             +48 123 456 789
           </p>
         </div>
       </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out flex items-center text-left">
+      <div className="bg-white p-4 md:p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 ease-in-out flex items-center text-left min-w-0">
         <div className="mr-4 flex-shrink-0">
-          <Mail className="text-[#cda670] w-12 h-12" />
+          <Mail className="text-[#cda670] w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
         </div>
-        <div className="flex-1"> {/* Added flex-1 here */}
-          <h3 className="text-2xl font-semibold text-gray-900 mb-2">Napisz</h3>
-          <p className="text-gray-700 text-lg break-words">
+        <div className="flex-1 min-w-0">
+          <h3 className="text-lg md:text-2xl font-semibold text-gray-900 mb-2 break-words">Napisz</h3>
+          <p className="text-gray-700 text-base md:text-lg break-words">
             example@gmail.com
           </p>
         </div>
