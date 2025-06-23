@@ -7,6 +7,11 @@
   --color-white: #FFFFFF;
 }
 
+#root {
+  width: 100%;
+  position: relative;
+}
+
 /* Global Styles */
 body {
   font-family: 'Inter', sans-serif;
@@ -18,6 +23,12 @@ body {
 /* Enable smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
 }
 
 /* Custom Keyframes for fade-in-up animation */
