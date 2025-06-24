@@ -21,9 +21,9 @@ body {
 }
 
 /* Enable smooth scrolling for anchor links */
-html {
+/* html {
   scroll-behavior: smooth;
-}
+} */
 
 html, body {
   width: 100%;
