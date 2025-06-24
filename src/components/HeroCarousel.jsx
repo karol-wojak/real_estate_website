@@ -56,7 +56,7 @@ const HeroCarousel = () => {
   }, [isHome]);
 
   return (
-    <div className="w-full relative mb-8" style={{ height: '50vh', minHeight: '450px' }}>
+    <div className="w-full relative mb-8" style={{ height: '70vh', minHeight: '450px' }}>
       {isHome ? (
         homeImages.map((image, index) => (
           <img
