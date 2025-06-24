@@ -1,6 +1,8 @@
 // src/pages/AboutUs.jsx
 import EdytaImage from '../assets/team/owner-edyta.jpg';
 import MichalImage from '../assets/team/owner-michal.jpg';
+import testImage from '../assets/review-image.png';
+import testImage2 from '../assets/review-image2.png';
 
 const AboutUsPage = () => (
     <section id="about-section" className="transition-all duration-500 ease-in-out transform opacity-0 translate-y-4 animate-fade-in-up">
@@ -13,23 +15,27 @@ const AboutUsPage = () => (
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-32">
             <div className="flex flex-col items-center">
-                <img
-                    src={EdytaImage}
-                    alt="Właściciel 1"
-                    className="w-full h-auto mb-4"
-                />
-                <h3 className="text-2xl font-semibold mb-3 text-center">Edyta Augustyńczyk</h3>
+                <div className="w-full rounded-xl bg-gradient-to-b from-[#cda670] via-[#ffe9b0] to-[#fffbe8]  flex items-center justify-center">
+                    <img
+                        src={testImage}
+                        alt="Właściciel 1"
+                        className="w-full h-auto"
+                    />
+                </div>
+                <h3 className="text-2xl font-semibold mb-3 mt-3 text-center">Edyta Augustyńczyk</h3>
                 <p className="text-black font-serif text-justify leading-relaxed">
                     <span className="font-medium text-black">Founder & CEO:</span> With over two decades in real estate development, Edyta brings unparalleled expertise in architectural innovation and strategic project management. Their vision has shaped our most iconic properties.
                 </p>
             </div>
             <div className="flex flex-col items-center">
-                <img
-                    src={MichalImage}
-                    alt="Właściciel 2"
-                    className="w-full h-auto mb-4"
-                />
-                <h3 className="text-2xl font-semibold mb-3 text-center">Michał Wojak</h3>
+                <div className="w-full rounded-xl bg-gradient-to-b from-[#cda670] via-[#ffe9b0] to-[#fffbe8] flex items-center justify-center">
+                    <img
+                        src={testImage2}
+                        alt="Właściciel 2"
+                        className="w-full h-auto"
+                    />
+                </div>
+                <h3 className="text-2xl font-semibold mb-3 mt-3 text-center">Michał Wojak</h3>
                 <p className="text-black font-serif text-justify leading-relaxed">
                     <span className="font-medium text-black">Co-founder & Head of Sales:</span> A market maestro with a keen eye for emerging trends, Michał Wojak excels in client relations and ensuring our properties connect with the right buyers. Their passion drives our success in the market.
                 </p>
