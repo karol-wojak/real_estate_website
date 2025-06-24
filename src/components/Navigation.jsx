@@ -24,9 +24,17 @@ const Navigation = ({ isMobileMenuOpen, toggleMobileMenu, logo }) => {
 
     return (
         <header className="absolute top-0 left-0 w-full z-20 pt-10 px-4 md:px-8">
-            <div className="max-w-7xl mx-auto py-4 bg-black/10 backdrop-blur-sm rounded-xl flex justify-between items-center px-8">
-                <Link to="/" className="flex items-center">
-                    <img src={logo} alt="Company Logo" className="h-12 sm:h-20" />
+            <div className="max-w-7xl mx-auto py-4 px-8 flex justify-between items-center rounded-xl"
+                style={{
+                    background: 'rgba(255, 255, 255, 0.18)',
+                    boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)',
+                    border: '1px solid rgba(255, 255, 255, 0.25)'
+                }}
+            >
+                <Link to="/" className="flex items-center group">
+                    <img src={logo} alt="Company Logo" className="h-12 sm:h-20 transition-transform duration-300 group-hover:scale-105" />
                 </Link>
 
                 <nav className="hidden md:flex justify-center flex-grow">
