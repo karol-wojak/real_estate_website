@@ -73,6 +73,7 @@ const Footer = () => {
                                         // CHANGED: text size to text-sm for menu items
                                         className="hover:underline text-gray-800 transition-colors duration-200 text-left text-sm"
                                         style={{ backgroundColor: 'transparent', border: 'none', cursor: 'pointer', padding: 0 }}
+                                        onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}
                                     >
                                         {item.name}
                                     </Link>
