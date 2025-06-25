@@ -15,16 +15,12 @@ const AboutUsPage = () => (
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-32">
             <div className="flex flex-col items-center">
-                <div
-                    className="w-full rounded-xl flex items-center justify-center"
-                    style={{
-                        background: 'linear-gradient(204deg, #cda670 0%, #d7b27d 31%, #dfbb87 61%, #e3bf8c 100%)'
-                    }}
-                >
+                <div className="w-full flex items-center justify-center mb-4 relative">
                     <img
                         src={testImage}
                         alt="Właściciel 1"
-                        className="w-full h-auto"
+                        className="w-64 h-64 object-cover rounded-2xl border-white shadow-[0_0_40px_0_rgba(205,166,112,0.5)] bg-white"
+                        style={{zIndex: 1}}
                     />
                 </div>
                 <h3 className="text-2xl font-semibold mb-3 mt-3 text-center">Edyta Augustyńczyk</h3>
@@ -33,16 +29,12 @@ const AboutUsPage = () => (
                 </p>
             </div>
             <div className="flex flex-col items-center">
-                <div
-                    className="w-full rounded-xl flex items-center justify-center"
-                    style={{
-                        background: 'linear-gradient(204deg, #cda670 0%, #d7b27d 31%, #dfbb87 61%, #e3bf8c 100%)'
-                    }}
-                >
+                <div className="w-full flex items-center justify-center mb-4 relative">
                     <img
                         src={testImage2}
                         alt="Właściciel 2"
-                        className="w-full h-auto"
+                        className="w-64 h-64 object-cover rounded-2xl border-white shadow-[0_0_40px_0_rgba(205,166,112,0.5)] bg-white"
+                        style={{zIndex: 1}}
                     />
                 </div>
                 <h3 className="text-2xl font-semibold mb-3 mt-3 text-center">Michał Wojak</h3>
