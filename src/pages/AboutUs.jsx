@@ -19,28 +19,32 @@ const AboutUsPage = () => (
                     <img
                         src={testImage}
                         alt="Właściciel 1"
-                        className="w-64 h-64 object-cover rounded-2xl border-white shadow-[0_0_40px_0_rgba(205,166,112,0.5)] bg-white"
+                        className="max-w-xs w-full aspect-square object-cover rounded-2xl shadow-[0_0_40px_0_rgba(205,166,112,0.5)] bg-white"
                         style={{zIndex: 1}}
                     />
                 </div>
-                <h3 className="text-2xl font-semibold mb-3 mt-3 text-center">Edyta Augustyńczyk</h3>
-                <p className="text-black font-serif text-justify leading-relaxed">
-                    <span className="font-medium text-black">Founder & CEO:</span> With over two decades in real estate development, Edyta brings unparalleled expertise in architectural innovation and strategic project management. Their vision has shaped our most iconic properties.
-                </p>
+                <div className="max-w-xs w-full">
+                    <h3 className="text-3xl font-semibold mb-3 mt-3 text-center">Edyta Augustyńczyk</h3>
+                    <p className="text-black font-serif text-justify leading-relaxed">
+                        <span className="font-medium text-black">Founder & CEO:</span> With over two decades in real estate development, Edyta brings unparalleled expertise in architectural innovation and strategic project management. Their vision has shaped our most iconic properties.
+                    </p>
+                </div>
             </div>
             <div className="flex flex-col items-center">
                 <div className="w-full flex items-center justify-center mb-4 relative">
                     <img
                         src={testImage2}
                         alt="Właściciel 2"
-                        className="w-64 h-64 object-cover rounded-2xl border-white shadow-[0_0_40px_0_rgba(205,166,112,0.5)] bg-white"
+                        className="max-w-xs w-full aspect-square object-cover rounded-2xl shadow-[0_0_40px_0_rgba(205,166,112,0.5)] bg-white"
                         style={{zIndex: 1}}
                     />
                 </div>
-                <h3 className="text-2xl font-semibold mb-3 mt-3 text-center">Michał Wojak</h3>
-                <p className="text-black font-serif text-justify leading-relaxed">
-                    <span className="font-medium text-black">Co-founder & Head of Sales:</span> A market maestro with a keen eye for emerging trends, Michał Wojak excels in client relations and ensuring our properties connect with the right buyers. Their passion drives our success in the market.
-                </p>
+                <div className="max-w-xs w-full">
+                    <h3 className="text-3xl font-semibold mb-3 mt-3 text-center">Michał Wojak</h3>
+                    <p className="text-black font-serif text-justify leading-relaxed">
+                        <span className="font-medium text-black">Co-founder & Head of Sales:</span> A market maestro with a keen eye for emerging trends, Michał Wojak excels in client relations and ensuring our properties connect with the right buyers. Their passion drives our success in the market.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
