@@ -59,7 +59,7 @@ const PortfolioCard = ({ project, idx }) => {
         {/* "Zobacz" Button */}
         <Link
           to={`/projects/${project.id}`}
-          className="inline-block self-start px-8 py-3 rounded-md font-semibold bg-yellow-400 text-black hover:bg-yellow-500 transition-colors duration-300"
+          className="inline-block self-start px-8 py-3 rounded-md font-semibold bg-black text-white hover:bg-neutral-700 transition-colors duration-300"
         >
           Zobacz
         </Link>
