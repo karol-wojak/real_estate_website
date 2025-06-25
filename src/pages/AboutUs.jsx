@@ -15,7 +15,12 @@ const AboutUsPage = () => (
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-32">
             <div className="flex flex-col items-center">
-                <div className="w-full rounded-xl bg-gradient-to-b from-[#cda670] via-[#ffe9b0] to-[#fffbe8]  flex items-center justify-center">
+                <div
+                    className="w-full rounded-xl flex items-center justify-center"
+                    style={{
+                        background: 'linear-gradient(204deg, #cda670 0%, #d7b27d 31%, #dfbb87 61%, #e3bf8c 100%)'
+                    }}
+                >
                     <img
                         src={testImage}
                         alt="Właściciel 1"
@@ -28,7 +33,12 @@ const AboutUsPage = () => (
                 </p>
             </div>
             <div className="flex flex-col items-center">
-                <div className="w-full rounded-xl bg-gradient-to-b from-[#cda670] via-[#ffe9b0] to-[#fffbe8] flex items-center justify-center">
+                <div
+                    className="w-full rounded-xl flex items-center justify-center"
+                    style={{
+                        background: 'linear-gradient(204deg, #cda670 0%, #d7b27d 31%, #dfbb87 61%, #e3bf8c 100%)'
+                    }}
+                >
                     <img
                         src={testImage2}
                         alt="Właściciel 2"
