@@ -69,6 +69,17 @@ Zawsze działamy transparentnie – już na początku jasno określamy zasady, z
 Zależy nam, aby każda złotówka wydana na współpracę z nami przyniosła realną wartość – czy to w postaci wyższej ceny sprzedaży, szybszego wynajmu, bezpiecznego zakupu czy zyskownej inwestycji.
 Nie bierzemy pieniędzy za nic – nasi klienci płacą za konkretny efekt.`,
   },
+  {
+    question: "Czy możecie pomóc również w finansowaniu zakupu lub wykończenia mieszkania?",
+    answer: `Tak – współpracujemy ze sprawdzonymi specjalistami, dzięki którym możemy zaproponować wsparcie także w zakresie:
+🏦 kredytów hipotecznych,
+🛡 ubezpieczeń,
+📐 projektowania wnętrz,
+🧰 wykończeń pod klucz.
+
+Jeśli chcesz – skoordynujemy dla Ciebie cały proces, od pomysłu po odbiór.
+U nas załatwisz wszystko w jednym miejscu – bez stresu i bez zbędnych pośredników.`,
+  },
 ];
 
 const FAQ = () => {
