@@ -6,6 +6,7 @@ import logo from './assets/logo.jpg';
 
 import Navigation from './components/Navigation.jsx';
 import HeroCarousel from './components/HeroCarousel.jsx'; //
+import Services from './pages/Services.jsx';
 import PortfolioPage from './pages/Portfolio.jsx';
 import AboutUsPage from './pages/AboutUs.jsx';
 import ReviewsCarousel from './components/ReviewsCarousel.jsx';
@@ -208,6 +209,10 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={
                         <div className="w-full space-y-16 md:space-y-24">
+                            <div id="services">
+                                <Services />
+                            </div>
+
                             <div id="portfolio-section">
                                 <PortfolioPage projects={portfolioProjects} />
                             </div>
