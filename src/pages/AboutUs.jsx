@@ -1,39 +1,56 @@
 // src/pages/AboutUs.jsx
-import EdytaImage from '../assets/team/owner-edyta.jpg';
-import MichalImage from '../assets/team/owner-michal.jpg';
-import testImage from '../assets/review-image.png';
-import testImage2 from '../assets/review-image2.png';
+import EdytaImage from '../assets/team/edyta.png';
+import MichalImage from '../assets/team/michal.png';
 
 const AboutUsPage = () => (
     <section id="about-section" className="transition-all duration-500 ease-in-out transform opacity-0 translate-y-4 animate-fade-in-up">
         <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-8 leading-tight md:pb-1">O Nas</h1>
-        <p className="text-lg md:text-xl text-black leading-relaxed mb-6 text-justify">
-            Witamy w EM Holding, gdzie przekształcamy wizje w tętniące życiem przestrzenie mieszkalne. Jesteśmy pełnym pasji zespołem, który poświęca się dostarczaniu wyjątkowych rozwiązań w zakresie nieruchomości, łączących innowacyjny design z ponadczasową jakością.
-        </p>
-        <p className="text-md md:text-lg text-black leading-relaxed mb-10 text-justify">
-            Dzięki wieloletniemu doświadczeniu i głębokiemu zrozumieniu dynamiki rynku specjalizujemy się w tworzeniu luksusowych nieruchomości mieszkalnych, które nie tylko spełniają, ale i przewyższają oczekiwania. Nasze zaangażowanie w uczciwość, zadowolenie klienta i zrównoważone praktyki leży u podstaw każdego podejmowanego przez nas projektu.
-        </p>
+        <div className="text-lg md:text-xl text-black leading-relaxed mb-10 text-justify space-y-4">
+            <p>EM Holding to zespół ludzi, którzy od lat działają na rynku nieruchomości w Krakowie.</p>
+            <p>Zaczynaliśmy od własnych inwestycji – kupowaliśmy mieszkania pod wynajem, remontowaliśmy je, urządzaliśmy, sprzedawaliśmy.<br/>Krok po kroku, projekt po projekcie, przechodziliśmy przez wszystkie etapy, zdobywaliśmy doświadczenie i budowaliśmy relacje.</p>
+            <p>Dziś robimy to samo dla naszych klientów.</p>
+            <p>Dzięki latom praktyki wiemy, jak skutecznie kupić, wynająć i sprzedać nieruchomość.<br/>Ponieważ sami również inwestujemy, znamy ten proces od podszewki – i potrafimy wczuć się w rolę właściciela, inwestora, osoby kupującej pierwsze mieszkanie.</p>
+            <p>Dlatego tak dobrze rozumiemy potrzeby naszych klientów.</p>
+            <p>Dla nas każda nieruchomość to nowy projekt – wyjątkowy i wymagający indywidualnego podejścia.<br/>Podchodzimy do niego z pełnym zaangażowaniem, niezależnie od tego, czy chodzi o sprzedaż, zakup, wynajem czy doradztwo.</p>
+            <p className="font-semibold mt-6">To, co nas wyróżnia?</p>
+            <ul className="list-none pl-0 mb-4">
+                <li className="flex items-start gap-2"><span>🔸</span><span>Jesteśmy praktykami, inwestorami i strategami.</span></li>
+                <li className="flex items-start gap-2"><span>🔸</span><span>Nie wrzucamy ogłoszenia i nie czekamy, aż “coś się wydarzy”.</span></li>
+                <li className="flex items-start gap-2"><span>🔸</span><span>Działamy aktywnie – pozyskujemy klientów, analizujemy rynek, planujemy i realizujemy.</span></li>
+                <li className="flex items-start gap-2"><span>🔸</span><span>Na każdym etapie procesu jesteśmy Twoim partnerem, nie tylko pośrednikiem.</span></li>
+            </ul>
+            <p>Powiedz, czego potrzebujesz – a my znajdziemy najlepsze rozwiązanie.</p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-32">
             <div className="flex flex-col items-center">
                 <div className="w-full flex items-center justify-center mb-4 relative">
                     <img
-                        src={testImage}
+                        src={EdytaImage}
                         alt="Właściciel 1"
                         className="max-w-xs w-full aspect-square object-cover rounded-2xl shadow-[0_0_40px_0_rgba(205,166,112,0.5)] bg-white"
                         style={{zIndex: 1}}
                     />
                 </div>
                 <div className="max-w-xs w-full">
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 mt-3 text-center break-words">Edyta Augustyńczyk</h3>
-                    <p className="text-black font-serif text-justify leading-relaxed">
-                        <span className="font-medium text-black">Founder & CEO:</span> With over two decades in real estate development, Edyta brings unparalleled expertise in architectural innovation and strategic project management. Their vision has shaped our most iconic properties.
-                    </p>
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 mt-3 text-center break-words">Edyta Augustynczyk-Repska
+</h3>
+                    <p className="text-black font-serif text-justify leading-relaxed space-y-2">
+  Współzałożycielka EM Holding, strateg, inwestorka i agentka nieruchomości z wieloletnim doświadczeniem w sprzedaży i marketingu.<br/><br/>
+  “Zanim weszłam na rynek nieruchomości, przez wiele lat pracowałam w strukturach sprzedażowych i trade marketingowych w międzynarodowych firmach – co dziś przekłada się na skuteczność w działaniach, które przynoszą  realne rezultaty.
+  <br/><br/>
+  Specjalizuję się w analizie rynku, wyszukiwaniu mieszkań z potencjałem oraz dopasowywaniu ofert do indywidualnych potrzeb klientów.<br/>
+  Prowadzę procesy zakupu i sprzedaży – od pierwszej rozmowy, przez negocjacje, aż po bezpieczne domknięcie transakcji.
+  <br/><br/>
+  Zajmuję się również estetyką wnętrz i koncepcjami wykończenia – wiem, jak przygotować nieruchomość, by działała zarówno wizualnie, jak i inwestycyjnie.<br/><br/>
+  Łączę wiedzę rynkową z praktyką inwestorską – potrafię myśleć jak kupujący, jak właściciel i jak inwestor jednocześnie.<br/><br/>
+  Działam z wyczuciem, planem i zaangażowaniem – bo wiem, że zaufanie klientów buduje się działaniem, nie słowami”.
+</p>
                 </div>
             </div>
             <div className="flex flex-col items-center">
                 <div className="w-full flex items-center justify-center mb-4 relative">
                     <img
-                        src={testImage2}
+                        src={MichalImage}
                         alt="Właściciel 2"
                         className="max-w-xs w-full aspect-square object-cover rounded-2xl shadow-[0_0_40px_0_rgba(205,166,112,0.5)] bg-white"
                         style={{zIndex: 1}}
@@ -41,9 +58,16 @@ const AboutUsPage = () => (
                 </div>
                 <div className="max-w-xs w-full">
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 mt-3 text-center break-words">Michał Wojak</h3>
-                    <p className="text-black font-serif text-justify leading-relaxed">
-                        <span className="font-medium text-black">Co-founder & Head of Sales:</span> A market maestro with a keen eye for emerging trends, Michał Wojak excels in client relations and ensuring our properties connect with the right buyers. Their passion drives our success in the market.
-                    </p>
+                    <p className="text-black font-serif text-justify leading-relaxed space-y-2">
+  Współzałożyciel EM Holding, agent nieruchomości, inwestor i osoba, która dba o to, by każda nieruchomość była dopracowana w szczegółach.<br/><br/>
+  „Zanim wszedłem w świat nieruchomości, przez wiele lat pracowałem w sprzedaży i zarządzaniu – w różnych firmach, zespołach i warunkach. To nauczyło mnie, jak planować, jak rozmawiać z ludźmi i jak dowozić konkretny efekt.
+  <br/><br/>
+  Dziś wykorzystuję to w codziennej pracy – pomagam klientom kupować i sprzedawać mieszkania, wspieram ich w podejmowaniu decyzji, analizuję, podpowiadam, liczę.
+  <br/><br/>
+  Zajmuję się też koordynacją remontów – wiem, na co zwrócić uwagę technicznie, jak rozplanować prace, co warto zrobić, a co będzie tylko generować niepotrzebne koszty.
+  <br/><br/>
+  Lubię działać konkretnie i skutecznie. Mieszkanie to nie tylko ściany – to strategia, liczby i emocje. A ja dbam o to, żeby wszystko się w tym zgadzało.”
+</p>
                 </div>
             </div>
         </div>
