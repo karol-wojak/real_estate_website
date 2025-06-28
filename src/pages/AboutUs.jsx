@@ -34,7 +34,7 @@ const AboutUsPage = () => (
                 <div className="max-w-xs w-full">
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 mt-3 text-center break-words">Edyta Augustynczyk-Repska
 </h3>
-                    <p className="text-black font-serif text-justify leading-relaxed space-y-2">
+                    <p className="text-black font-serif text-justify leading-relaxed space-y-2 break-words hyphens-auto">
   Współzałożycielka EM Holding, strateg, inwestorka i agentka nieruchomości z wieloletnim doświadczeniem w sprzedaży i marketingu.<br/><br/>
   “Zanim weszłam na rynek nieruchomości, przez wiele lat pracowałam w strukturach sprzedażowych i trade marketingowych w międzynarodowych firmach – co dziś przekłada się na skuteczność w działaniach, które przynoszą  realne rezultaty.
   <br/><br/>
@@ -58,7 +58,7 @@ const AboutUsPage = () => (
                 </div>
                 <div className="max-w-xs w-full">
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 mt-3 text-center break-words">Michał Wojak</h3>
-                    <p className="text-black font-serif text-justify leading-relaxed space-y-2">
+                    <p className="text-black font-serif text-justify leading-relaxed space-y-2 break-words hyphens-auto">
   Współzałożyciel EM Holding, agent nieruchomości, inwestor i osoba, która dba o to, by każda nieruchomość była dopracowana w szczegółach.<br/><br/>
   „Zanim wszedłem w świat nieruchomości, przez wiele lat pracowałem w sprzedaży i zarządzaniu – w różnych firmach, zespołach i warunkach. To nauczyło mnie, jak planować, jak rozmawiać z ludźmi i jak dowozić konkretny efekt.
   <br/><br/>
