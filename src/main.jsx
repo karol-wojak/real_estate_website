@@ -8,7 +8,7 @@ import './index.css';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* Wrap the App component with BrowserRouter */}
-    <BrowserRouter basename="/real_estate_website">
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>,
