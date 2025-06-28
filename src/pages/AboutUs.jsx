@@ -19,7 +19,7 @@ const AboutUsPage = () => (
                 <li className="flex items-start gap-2"><span>🔸</span><span>Działamy aktywnie – pozyskujemy klientów, analizujemy rynek, planujemy i realizujemy.</span></li>
                 <li className="flex items-start gap-2"><span>🔸</span><span>Na każdym etapie procesu jesteśmy Twoim partnerem, nie tylko pośrednikiem.</span></li>
             </ul>
-            <p>Powiedz, czego potrzebujesz – a my znajdziemy najlepsze rozwiązanie.</p>
+            <p>Powiedz, czego potrzebujesz – a my znajdziemy najlepsze&nbsp;rozwiązanie.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-32">
             <div className="flex flex-col items-center">
@@ -32,19 +32,20 @@ const AboutUsPage = () => (
                     />
                 </div>
                 <div className="max-w-xs w-full">
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 mt-3 text-center break-words">Edyta Augustynczyk-Repska
-</h3>
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 mt-3 text-center break-words">Edyta Augustynczyk-Repska</h3>
                     <p className="text-black font-serif text-justify leading-relaxed space-y-2 break-words hyphens-auto">
-  Współzałożycielka EM Holding, strateg, inwestorka i agentka nieruchomości z wieloletnim doświadczeniem w sprzedaży i marketingu.<br/><br/>
-  “Zanim weszłam na rynek nieruchomości, przez wiele lat pracowałam w strukturach sprzedażowych i trade marketingowych w międzynarodowych firmach – co dziś przekłada się na skuteczność w działaniach, które przynoszą  realne rezultaty.
-  <br/><br/>
-  Specjalizuję się w analizie rynku, wyszukiwaniu mieszkań z potencjałem oraz dopasowywaniu ofert do indywidualnych potrzeb klientów.<br/>
-  Prowadzę procesy zakupu i sprzedaży – od pierwszej rozmowy, przez negocjacje, aż po bezpieczne domknięcie transakcji.
-  <br/><br/>
-  Zajmuję się również estetyką wnętrz i koncepcjami wykończenia – wiem, jak przygotować nieruchomość, by działała zarówno wizualnie, jak i inwestycyjnie.<br/><br/>
-  Łączę wiedzę rynkową z praktyką inwestorską – potrafię myśleć jak kupujący, jak właściciel i jak inwestor jednocześnie.<br/><br/>
-  Działam z wyczuciem, planem i zaangażowaniem – bo wiem, że zaufanie klientów buduje się działaniem, nie słowami”.
-</p>
+                        Współzałożycielka EM Holding, strateg, inwestorka i agentka nieruchomości z wieloletnim doświadczeniem w sprzedaży i marketingu.<br/><br/>
+                        <span className="italic text-[#cda670] border-l-4 border-[#cda670] pl-4 mt-2 block">
+                            “Zanim weszłam na rynek nieruchomości, przez wiele lat pracowałam w strukturach sprzedażowych i trade marketingowych w międzynarodowych firmach – co dziś przekłada się na skuteczność w działaniach, które przynoszą realne rezultaty.
+                        </span>
+                        <br/><br/>
+                        Specjalizuję się w analizie rynku, wyszukiwaniu mieszkań z potencjałem oraz dopasowywaniu ofert do indywidualnych potrzeb klientów.<br/>
+                        Prowadzę procesy zakupu i sprzedaży – od pierwszej rozmowy, przez negocjacje, aż po bezpieczne domknięcie transakcji.
+                        <br/><br/>
+                        Zajmuję się również estetyką wnętrz i koncepcjami wykończenia – wiem, jak przygotować nieruchomość, by działała zarówno wizualnie, jak i inwestycyjnie.<br/><br/>
+                        Łączę wiedzę rynkową z praktyką inwestorską – potrafię myśleć jak kupujący, jak właściciel i jak inwestor jednocześnie.<br/><br/>
+                        Działam z wyczuciem, planem i zaangażowaniem – bo wiem, że zaufanie klientów buduje się działaniem,&nbsp;nie&nbsp;słowami”.
+                    </p>
                 </div>
             </div>
             <div className="flex flex-col items-center">
@@ -59,15 +60,17 @@ const AboutUsPage = () => (
                 <div className="max-w-xs w-full">
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 mt-3 text-center break-words">Michał Wojak</h3>
                     <p className="text-black font-serif text-justify leading-relaxed space-y-2 break-words hyphens-auto">
-  Współzałożyciel EM Holding, agent nieruchomości, inwestor i osoba, która dba o to, by każda nieruchomość była dopracowana w szczegółach.<br/><br/>
-  „Zanim wszedłem w świat nieruchomości, przez wiele lat pracowałem w sprzedaży i zarządzaniu – w różnych firmach, zespołach i warunkach. To nauczyło mnie, jak planować, jak rozmawiać z ludźmi i jak dowozić konkretny efekt.
-  <br/><br/>
-  Dziś wykorzystuję to w codziennej pracy – pomagam klientom kupować i sprzedawać mieszkania, wspieram ich w podejmowaniu decyzji, analizuję, podpowiadam, liczę.
-  <br/><br/>
-  Zajmuję się też koordynacją remontów – wiem, na co zwrócić uwagę technicznie, jak rozplanować prace, co warto zrobić, a co będzie tylko generować niepotrzebne koszty.
-  <br/><br/>
-  Lubię działać konkretnie i skutecznie. Mieszkanie to nie tylko ściany – to strategia, liczby i emocje. A ja dbam o to, żeby wszystko się w tym zgadzało.”
-</p>
+                        Współzałożyciel EM Holding, agent nieruchomości, inwestor i osoba, która dba o to, by każda nieruchomość była dopracowana w szczegółach.<br/><br/>
+                        <span className="italic text-[#cda670] border-l-4 border-[#cda670] pl-4 mt-2 block">
+                            „Zanim wszedłem w świat nieruchomości, przez wiele lat pracowałem w sprzedaży i zarządzaniu – w różnych firmach, zespołach i warunkach. To nauczyło mnie, jak planować, jak rozmawiać z ludźmi i jak dowozić konkretny efekt.
+                        </span>
+                        <br/><br/>
+                        Dziś wykorzystuję to w codziennej pracy – pomagam klientom kupować i sprzedawać mieszkania, wspieram ich w podejmowaniu decyzji, analizuję, podpowiadam, liczę.
+                        <br/><br/>
+                        Zajmuję się też koordynacją remontów – wiem, na co zwrócić uwagę technicznie, jak rozplanować prace, co warto zrobić, a co będzie tylko generować niepotrzebne koszty.
+                        <br/><br/>
+                        Lubię działać konkretnie i skutecznie. Mieszkanie to nie tylko ściany – to strategia, liczby i emocje. A ja dbam o to, żeby wszystko się w&nbsp;tym&nbsp;zgadzało.”
+                    </p>
                 </div>
             </div>
         </div>
