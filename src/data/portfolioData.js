@@ -1,19 +1,15 @@
 // src/date/portfolioData.js
+
 export const importProjectImages = (projectName) => {
-    // The glob pattern must be a static string literal. We'll use a map to associate project names with their patterns.
     const globImports = {
         'czyzewskiego': import.meta.glob('../assets/portfolio/czyzewskiego/*.{jpg,jpeg,webp}', { eager: false }),
         'krowoderskich-zuchow': import.meta.glob('../assets/portfolio/krowoderskich-zuchow/*.{jpg,jpeg,webp}', { eager: false }),
         'miechowity': import.meta.glob('../assets/portfolio/miechowity/*.{jpg,jpeg,webp}', { eager: false }),
         'moderato': import.meta.glob('../assets/portfolio/moderato/*.{jpg,jpeg,webp}', { eager: false }),
     };
-
-    // Return the glob object for the specified project. If not found, return an empty object to prevent errors.
     return globImports[projectName] || {};
 };
 
-// --- Portfolio Projects Metadata ---
-// We now use a string to reference the image folder instead of importing all images here.
 export const portfolioProjects = [
     {
         id: 1,
@@ -21,8 +17,8 @@ export const portfolioProjects = [
         description: "Nowoczesne apartamenty w zielonej okolicy krakowskiej ulicy Czyżewskiego.",
         location: "ul. Czyżewskiego, Kraków",
         completion: "Q4 2023",
-        // This key links the project to its images via the dynamic import function.
         imageFolder: 'czyzewskiego', 
+        mainImage: './assets/portfolio/czyzewskiego/main.jpg',
     },
     {
         id: 2,
@@ -31,6 +27,7 @@ export const portfolioProjects = [
         location: "ul. Krowoderskich Zuchów, Kraków",
         completion: "Q2 2024",
         imageFolder: 'krowoderskich-zuchow',
+        mainImage: './assets/portfolio/krowoderskich-zuchow/main.jpg',
     },
     {
         id: 3,
@@ -39,6 +36,7 @@ export const portfolioProjects = [
         location: "ul. Miechowity, Kraków",
         completion: "Q1 2023",
         imageFolder: 'miechowity',
+        mainImage: './assets/portfolio/miechowity/main.jpg',
     },
     {
         id: 4,
@@ -47,9 +45,9 @@ export const portfolioProjects = [
         location: "Starogard Gdański",
         completion: "Q3 2022",
         imageFolder: 'moderato',
+        mainImage: './assets/portfolio/moderato/main.jpg',
     },
 ];
-
 
 export const currentOffers = [
     {
