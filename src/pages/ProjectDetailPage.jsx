@@ -1,58 +1,122 @@
 import React, { useEffect, useState} from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link'; // <-- NEW: Import HashLink
+import { HashLink } from 'react-router-hash-link';
 
 // Yet Another React Lightbox (YARL) imports
 import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css"; // Base styles for the lightbox
+import "yet-another-react-lightbox/styles.css";
 
 // Optional: Import additional YARL plugins and their styles for desired features
-import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen"; // Fullscreen button
-import Slideshow from "yet-another-react-lightbox/plugins/slideshow";   // Auto-play slideshow
-import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails"; // Thumbnail strip at the bottom
-import Zoom from "yet-another-react-lightbox/plugins/zoom";         // Zoom functionality
-import "yet-another-react-lightbox/plugins/thumbnails.css"; // Styles specifically for thumbnails plugin
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
 
+import { importProjectImages } from '../data/portfolioData';
 
 const ProjectDetailPage = ({ portfolioProjects }) => {
     const { projectId } = useParams();
+    // NEW: Use state for the selected project, images, loading, and error
     const [project, setProject] = useState(null);
+    const [images, setImages] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     // State to control the lightbox: -1 means closed, 0 or higher is the index of the currently viewed slide
     const [index, setIndex] = useState(-1);
 
+    // NEW: useEffect hook to fetch images dynamically
     useEffect(() => {
-        if (portfolioProjects) {
-            const foundProject = portfolioProjects.find(p => p.id === parseInt(projectId));
-            setProject(foundProject);
-        }
-        window.scrollTo(0, 0); // Scroll to top when the page loads
-    }, [projectId, portfolioProjects]);
+        const fetchProjectImages = async () => {
+            setLoading(true);
+            setError(null);
+            
+            // Find the project data from the lightweight array passed as a prop
+            const selectedProject = portfolioProjects.find(p => p.id === parseInt(projectId));
+            
+            if (!selectedProject) {
+                setLoading(false);
+                setError('Project not found!');
+                return;
+            }
+
+            setProject(selectedProject);
+
+            try {
+                // Get the glob import object for the specific project folder
+                // This triggers the dynamic import only for the images in this folder!
+                const imageModules = importProjectImages(selectedProject.imageFolder);
+                
+                if (Object.keys(imageModules).length === 0) {
+                    throw new Error('Image imports not found for this project.');
+                }
+
+                // Use Promise.all to load all the image modules at once
+                const imagePromises = Object.values(imageModules).map(importFn => importFn());
+                const loadedImageModules = await Promise.all(imagePromises);
+
+                // Extract the default export (the image URL) from each module
+                const imageUrls = loadedImageModules.map(module => module.default);
+                
+                // Sort the images by filename to ensure consistent order (e.g., image-1.jpg, image-2.jpg)
+                imageUrls.sort();
+
+                setImages(imageUrls);
+            } catch (err) {
+                setError(`Failed to load project images: ${err.message}`);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        // Scroll to the top of the page when the component first renders
+        window.scrollTo(0, 0); 
+        
+        // Execute the async function to fetch images
+        fetchProjectImages();
+        
+    }, [projectId, portfolioProjects]); // Re-run effect when the project ID or portfolio data changes
 
     // NEW: Define the scrollWithOffset function for consistent scrolling
     const scrollWithOffset = (el) => {
         const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
-        const headerElement = document.querySelector('header'); // Assuming your header has a 'header' tag or a specific class/ID
-        const headerOffset = headerElement ? headerElement.offsetHeight : 0; // Get header height
-        // Adjust scroll position by header height + a little extra padding (e.g., 20px)
+        const headerElement = document.querySelector('header');
+        const headerOffset = headerElement ? headerElement.offsetHeight : 0;
         window.scrollTo({ top: yCoordinate - headerOffset - 20, behavior: 'smooth' });
     };
 
-    if (!project) {
+    // NEW: Conditional rendering for loading, error, and not found states
+    if (loading) {
         return (
             <div className="min-h-screen flex items-center justify-center container mx-auto px-4 py-8 md:py-12">
                 <p className="text-xl text-gray-700">Ładowanie szczegółów projektu...</p>
             </div>
         );
     }
+    
+    if (error) {
+        return (
+            <div className="min-h-screen flex items-center justify-center container mx-auto px-4 py-8 md:py-12">
+                <p className="text-xl text-red-600">Błąd: {error}</p>
+            </div>
+        );
+    }
+
+    if (!project) {
+        return (
+            <div className="min-h-screen flex items-center justify-center container mx-auto px-4 py-8 md:py-12">
+                <p className="text-xl text-gray-700">Nie znaleziono projektu.</p>
+            </div>
+        );
+    }
 
     // Prepare slides array for Yet Another React Lightbox
-    const slides = project.images.map((imgSrc) => ({
+    const slides = images.map((imgSrc) => ({
         src: imgSrc,
-        width: 800,  // Placeholder: *** Strongly recommend replacing with actual image width ***
-        height: 600, // Placeholder: *** Strongly recommend replacing with actual image height ***
-        // You can also add other properties like 'alt', 'title', etc., if available in your data
-        // alt: "Description for SEO and accessibility",
+        // The sizes here are placeholders. You should get the real sizes if possible for a better lightbox experience.
+        width: 1200,
+        height: 800,
     }));
 
     return (
@@ -60,70 +124,57 @@ const ProjectDetailPage = ({ portfolioProjects }) => {
             <nav className="text-sm font-medium mb-8" aria-label="Breadcrumb">
                 <ol className="list-none p-0 inline-flex items-center">
                     <li>
-                        {/* CHANGE HERE: Use HashLink to point to the portfolio section */}
                         <HashLink
-                            to="/#portfolio-section" // Target the div with id="portfolio-section" on the main page
-                            smooth // Enable smooth scrolling
-                            scroll={scrollWithOffset} // Use your custom offset function
+                            to="/#portfolio-section"
+                            smooth
+                            scroll={scrollWithOffset}
                             className="text-black hover:text-yellow-500 transition-colors font-semibold"
                         >
                             Realizacje
                         </HashLink>
                     </li>
                     <li>
-                        {/* Separator icon (Font Awesome chevron right) */}
                         <svg className="fill-current w-3 h-3 mx-2 text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                             <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.357-24.522 0-33.879L223.535 256 34.528 67.234c-9.357-9.357-9.357-24.522 0-33.879l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.029c9.373 9.373 24.569 0 33.942z"/>
                         </svg>
                     </li>
                     <li>
-                        {/* Current project name (styled in gold) */}
                         <span className="text-yellow-500 font-semibold">{project.name}</span>
                     </li>
                 </ol>
             </nav>
 
-            {/* Title (3rem font size) */}
             <h1 className="text-4xl sm:text-5xl lg:text-[3rem] font-extrabold text-center mb-8 leading-tight">
                 {project.name}
             </h1>
 
-            {/* Short Description (3 short sentences) */}
             <p className="text-lg md:text-xl text-gray-800 leading-relaxed mb-10 text-center max-w-4xl mx-auto">
                 {project.description}
             </p>
 
-            {/* Images Grid - Uses your original Tailwind CSS grid classes */}
-            <div className="grid grid-cols-1 gap-4
-                            sm:grid-cols-2
-                            lg:grid-cols-3
-                            max-w-6xl mx-auto mb-12">
-                {project.images.map((imgSrc, idx) => (
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto mb-12">
+                {images.map((imgSrc, idx) => (
                     <div
                         key={idx}
                         className="w-full h-auto overflow-hidden rounded-lg shadow-md cursor-pointer"
-                        // When an image in the grid is clicked, open the lightbox at that image's index
                         onClick={() => setIndex(idx)}
                     >
                         <img
-                            src={imgSrc} // This directly uses imgSrc
+                            src={imgSrc}
                             alt={`${project.name} - Obraz ${idx + 1}`}
                             className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                            loading="lazy" // Add lazy loading for better performance
                         />
                     </div>
                 ))}
             </div>
 
-            {/* Yet Another React Lightbox Component */}
-            {/* It will be rendered conditionally when 'index' is 0 or higher */}
             <Lightbox
-                slides={slides} // Pass the prepared array of slides
-                open={index >= 0} // 'true' to open the lightbox, 'false' to close
-                index={index} // Set the initial slide index
-                close={() => setIndex(-1)} // Function to call when the lightbox is closed
-                // Optional: Add desired plugins for additional features (e.g., fullscreen, thumbnails, zoom)
+                slides={slides}
+                open={index >= 0}
+                index={index}
+                close={() => setIndex(-1)}
                 plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
-                // Customize various controller options (e.g., close on backdrop click)
                 controller={{ closeOnBackdropClick: true }}
             />
         </div>
