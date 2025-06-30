@@ -1,7 +1,7 @@
 // src/components/PortfolioCard.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Building, CalendarCheck } from 'lucide-react';
+import { Grid2x2 } from 'lucide-react';
 
 // Accept 'idx' as a prop
 const PortfolioCard = ({ project, idx }) => {
@@ -35,22 +35,11 @@ const PortfolioCard = ({ project, idx }) => {
         <h2 className="text-3xl font-bold text-gray-800 mb-4 mt-8 md:mt-0">{project.name}</h2>
 
         {/* Stat Row */}
-        <div className="grid grid-cols-3 gap-4 mb-6 text-gray-600 text-sm">
-          <div className="flex flex-col items-center text-center">
-            <Home className="w-5 h-5 mb-1 text-gray-500" />
-            <span className="font-semibold">{project.units}</span>
-            <span>Mieszkania</span>
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <Building className="w-5 h-5 mb-1 text-gray-500" />
-            <span className="font-semibold">{project.buildings}</span>
-            <span>Budynki</span>
-          </div>
-          <div className="flex flex-col items-center text-center">
-            <CalendarCheck className="w-5 h-5 mb-1 text-gray-500" />
-            <span className="font-semibold">4 kw. {project.completion.split(' ')[1]}</span>
-            <span>Zakończenie</span>
-          </div>
+        <div className="flex items-center gap-2 mb-6">
+          <Grid2x2 className="w-6 h-6 text-[#e0bc88]" />
+          <span className="ml-2 text-lg font-semibold text-gray-800">
+            {project.area ? `${project.area} m²` : ''}
+          </span>
         </div>
 
         {/* Description */}
