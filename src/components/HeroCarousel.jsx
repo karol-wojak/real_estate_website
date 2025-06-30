@@ -32,19 +32,19 @@ const HeroCarousel = () => {
   // Map static routes and specific project detail pages to their images
   const staticHeroImages = {
     '/contact': contact,
-    // Map each project ID to its corresponding main image
-    '/projects/1': bajecznaMain,
-    '/projects/2': czyzewskiegoMain,
-    '/projects/3': imperialMain,
-    '/projects/4': jagiellonskieMain,
-    '/projects/5': krowoderskichZuchowMain,
-    '/projects/6': miechowityMain,
-    '/projects/7': pachonskiegoMain,
-    '/projects/8': radzikowskiegoMain,
-    '/projects/9': strusiaMain,
-    '/projects/10': wieliczkaMain,
-    '/projects/11': wilenskaMain,
-    '/projects/12': zagonczykaMain,
+    // Map each project ID to its corresponding main image (portfolioData.js order)
+    '/projects/1': imperialMain,
+    '/projects/2': krowoderskichZuchowMain,
+    '/projects/3': wilenskaMain,
+    '/projects/4': radzikowskiegoMain,
+    '/projects/5': miechowityMain,
+    '/projects/6': pachonskiegoMain,
+    '/projects/7': wieliczkaMain,
+    '/projects/8': jagiellonskieMain,
+    '/projects/9': bajecznaMain,
+    '/projects/10': strusiaMain,
+    '/projects/11': zagonczykaMain,
+    '/projects/12': czyzewskiegoMain,
   };
 
   // Default image fallback
