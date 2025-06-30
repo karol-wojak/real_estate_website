@@ -7,7 +7,7 @@ const AboutUsPage = () => (
         <h1 className="text-4xl md:text-5xl font-extrabold text-center mb-8 leading-tight md:pb-1">O Nas</h1>
         <div className="text-lg md:text-xl text-black leading-relaxed mb-10 text-justify space-y-4 w-full px-4 md:px-8">
             <p className="text-justify">EM Holding to zespół ludzi, którzy od lat działają na rynku nieruchomości w Krakowie.</p>
-            <p className="text-justify">Zaczynaliśmy od własnych inwestycji – kupowaliśmy mieszkania pod wynajem, remontowaliśmy je, urządzaliśmy, sprzedawaliśmy.<br/>Krok po kroku, projekt po projekcie, przechodziliśmy przez wszystkie etapy, zdobywaliśmy doświadczenie i budowaliśmy relacje.</p>
+            <p className="text-justify">Zaczynaliśmy od własnych inwestycji – kupowaliśmy mieszkania pod wynajem, remontowaliśmy je, urządzaliśmy, sprzedawaliśmy. Krok po kroku, projekt po projekcie, przechodziliśmy przez wszystkie etapy, zdobywaliśmy doświadczenie i budowaliśmy relacje.</p>
             <p className="text-justify">Dziś robimy to samo dla naszych klientów.</p>
             <p className="text-justify">Dzięki latom praktyki wiemy, jak skutecznie kupić, wynająć i sprzedać nieruchomość.<br/>Ponieważ sami również inwestujemy, znamy ten proces od podszewki – i potrafimy wczuć się w rolę właściciela, inwestora, osoby kupującej pierwsze mieszkanie.</p>
             <p className="text-justify">Dlatego tak dobrze rozumiemy potrzeby naszych klientów.</p>
