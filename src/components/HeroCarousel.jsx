@@ -2,10 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import carousel1 from '../assets/carousel/image-1.jpg';
-import carousel2 from '../assets/carousel/image-2.jpg';
-import carousel3 from '../assets/carousel/image-3.jpg';
-import contact from '../assets/carousel/contact-page.jpg';
+import carousel1 from '../assets/carousel/img2.webp';
+import carousel2 from '../assets/carousel/img3.webp';
+import carousel3 from '../assets/carousel/img4.webp';
+import contact from '../assets/carousel/img1.webp';
 
 // Import all project main images
 import bajecznaMain from '../assets/portfolio/bajeczna/main.webp';
