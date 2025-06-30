@@ -1,57 +1,148 @@
 // src/data/portfolioData.js
 
-import czyzewskiegoMain from '../assets/portfolio/czyzewskiego/main.jpg';
-import krowoderskichZuchowMain from '../assets/portfolio/krowoderskich-zuchow/main.jpg';
-import miechowityMain from '../assets/portfolio/miechowity/main.jpg';
-import moderatoMain from '../assets/portfolio/moderato/main.jpg';
+// --- Statically import the main image for each project ---
+import bajecznaMain from '../assets/portfolio/bajeczna/main.webp';
+import czyzewskiegoMain from '../assets/portfolio/czyzewskiego/main.webp';
+import imperialMain from '../assets/portfolio/imperial/main.webp';
+import jagiellonskieMain from '../assets/portfolio/jagiellonskie/main.webp';
+import krowoderskichZuchowMain from '../assets/portfolio/krowoderskich-zuchow/main.webp';
+import miechowityMain from '../assets/portfolio/miechowity/main.webp';
+import pachonskiegoMain from '../assets/portfolio/pachonskiego/main.webp';
+import radzikowskiegoMain from '../assets/portfolio/radzikowskiego/main.webp';
+import strusiaMain from '../assets/portfolio/strusia/main.webp';
+import wieliczkaMain from '../assets/portfolio/wieliczka/main.webp';
+import wilenskaMain from '../assets/portfolio/wilenska/main.webp';
+import zagonczykaMain from '../assets/portfolio/zagonczyka/main.webp';
+
 
 export const importProjectImages = (projectName) => {
-    const globImports = {
-        'czyzewskiego': import.meta.glob('../assets/portfolio/czyzewskiego/*.{jpg,jpeg,webp}', { eager: false }),
-        'krowoderskich-zuchow': import.meta.glob('../assets/portfolio/krowoderskich-zuchow/*.{jpg,jpeg,webp}', { eager: false }),
-        'miechowity': import.meta.glob('../assets/portfolio/miechowity/*.{jpg,jpeg,webp}', { eager: false }),
-        'moderato': import.meta.glob('../assets/portfolio/moderato/*.{jpg,jpeg,webp}', { eager: false }),
-    };
-    return globImports[projectName] || {};
+    const globImports = {
+        'bajeczna': import.meta.glob('../assets/portfolio/bajeczna/*.webp', { eager: false }),
+        'czyzewskiego': import.meta.glob('../assets/portfolio/czyzewskiego/*.webp', { eager: false }),
+        'imperial': import.meta.glob('../assets/portfolio/imperial/*.webp', { eager: false }),
+        'jagiellonskie': import.meta.glob('../assets/portfolio/jagiellonskie/*.webp', { eager: false }),
+        'krowoderskich-zuchow': import.meta.glob('../assets/portfolio/krowoderskich-zuchow/*.webp', { eager: false }),
+        'miechowity': import.meta.glob('../assets/portfolio/miechowity/*.webp', { eager: false }),
+        'pachonskiego': import.meta.glob('../assets/portfolio/pachonskiego/*.webp', { eager: false }),
+        'radzikowskiego': import.meta.glob('../assets/portfolio/radzikowskiego/*.webp', { eager: false }),
+        'strusia': import.meta.glob('../assets/portfolio/strusia/*.webp', { eager: false }),
+        'wieliczka': import.meta.glob('../assets/portfolio/wieliczka/*.webp', { eager: false }),
+        'wilenska': import.meta.glob('../assets/portfolio/wilenska/*.webp', { eager: false }),
+        'zagonczyka': import.meta.glob('../assets/portfolio/zagonczyka/*.webp', { eager: false }),
+    };
+    return globImports[projectName] || {};
 };
 
+
 export const portfolioProjects = [
-    {
-        id: 1,
-        name: "Czyżewskiego, Kraków",
-        description: "Nowoczesne apartamenty w zielonej okolicy krakowskiej ulicy Czyżewskiego.",
-        location: "ul. Czyżewskiego, Kraków",
-        completion: "Q4 2023",
-        imageFolder: 'czyzewskiego', 
-        mainImage: czyzewskiegoMain,
-    },
-    {
-        id: 2,
-        name: "Krowoderskich Zuchów, Kraków",
-        description: "Ekologiczne przestrzenie biurowe w sercu ulicy Krowoderskich Zuchów w Krakowie.",
-        location: "ul. Krowoderskich Zuchów, Kraków",
-        completion: "Q2 2024",
-        imageFolder: 'krowoderskich-zuchow',
-        mainImage: krowoderskichZuchowMain,
-    },
-    {
-        id: 3,
-        name: "Miechowity, Kraków",
-        description: "Współczesne wille miejskie w pobliżu ulicy Miechowity na północ od Krakowa.",
-        location: "ul. Miechowity, Kraków",
-        completion: "Q1 2023",
-        imageFolder: 'miechowity',
-        mainImage: miechowityMain,
-    },
-    {
-        id: 4,
-        name: "Moderato",
-        description: "Nowoczesne mieszkania w spokojnej okolicy Starogardu Gdańskiego.",
-        location: "Starogard Gdański",
-        completion: "Q3 2022",
-        imageFolder: 'moderato',
-        mainImage: moderatoMain,
-    },
+    {
+        id: 1,
+        name: "Bajeczna, Kraków",
+        description: "Opis projektu Bajeczna.",
+        location: "Kraków",
+        completion: "Q2 2025",
+        imageFolder: 'bajeczna',
+        mainImage: bajecznaMain,
+    },
+    {
+        id: 2,
+        name: "Czyżewskiego, Kraków",
+        description: "Opis projektu Czyżewskiego.",
+        location: "Kraków",
+        completion: "Q4 2023",
+        imageFolder: 'czyzewskiego',
+        mainImage: czyzewskiegoMain,
+    },
+    {
+        id: 3,
+        name: "Imperial, Kraków",
+        description: "Opis projektu Imperial.",
+        location: "Kraków",
+        completion: "Q3 2024",
+        imageFolder: 'imperial',
+        mainImage: imperialMain,
+    },
+    {
+        id: 4,
+        name: "Jagiellonskie, Kraków",
+        description: "Opis projektu Jagiellonskie.",
+        location: "Kraków",
+        completion: "Q1 2024",
+        imageFolder: 'jagiellonskie',
+        mainImage: jagiellonskieMain,
+    },
+    {
+        id: 5,
+        name: "Krowoderskich Zuchów, Kraków",
+        description: "Opis projektu Krowoderskich Zuchów.",
+        location: "Kraków",
+        completion: "Q2 2024",
+        imageFolder: 'krowoderskich-zuchow',
+        mainImage: krowoderskichZuchowMain,
+    },
+    {
+        id: 6,
+        name: "Miechowity, Kraków",
+        description: "Opis projektu Miechowity.",
+        location: "Kraków",
+        completion: "Q1 2023",
+        imageFolder: 'miechowity',
+        mainImage: miechowityMain,
+    },
+    {
+        id: 7,
+        name: "Pachonskiego, Kraków",
+        description: "Opis projektu Pachonskiego.",
+        location: "Kraków",
+        completion: "Q3 2025",
+        imageFolder: 'pachonskiego',
+        mainImage: pachonskiegoMain,
+    },
+    {
+        id: 8,
+        name: "Radzikowskiego, Kraków",
+        description: "Opis projektu Radzikowskiego.",
+        location: "Kraków",
+        completion: "Q4 2024",
+        imageFolder: 'radzikowskiego',
+        mainImage: radzikowskiegoMain,
+    },
+    {
+        id: 9,
+        name: "Strusia, Kraków",
+        description: "Opis projektu Strusia.",
+        location: "Kraków",
+        completion: "Q2 2023",
+        imageFolder: 'strusia',
+        mainImage: strusiaMain,
+    },
+    {
+        id: 10,
+        name: "Wieliczka",
+        description: "Opis projektu Wieliczka.",
+        location: "Wieliczka",
+        completion: "Q3 2023",
+        imageFolder: 'wieliczka',
+        mainImage: wieliczkaMain,
+    },
+    {
+        id: 11,
+        name: "Wilenska, Kraków",
+        description: "Opis projektu Wilenska.",
+        location: "Kraków",
+        completion: "Q4 2025",
+        imageFolder: 'wilenska',
+        mainImage: wilenskaMain,
+    },
+    {
+        id: 12,
+        name: "Zagonczyka, Kraków",
+        description: "Opis projektu Zagonczyka.",
+        location: "Kraków",
+        completion: "Q1 2026",
+        imageFolder: 'zagonczyka',
+        mainImage: zagonczykaMain,
+    },
 ];
 
 export const currentOffers = [
