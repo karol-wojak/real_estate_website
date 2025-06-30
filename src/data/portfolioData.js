@@ -1,4 +1,9 @@
-// src/date/portfolioData.js
+// src/data/portfolioData.js
+
+import czyzewskiegoMain from '../assets/portfolio/czyzewskiego/main.jpg';
+import krowoderskichZuchowMain from '../assets/portfolio/krowoderskich-zuchow/main.jpg';
+import miechowityMain from '../assets/portfolio/miechowity/main.jpg';
+import moderatoMain from '../assets/portfolio/moderato/main.jpg';
 
 export const importProjectImages = (projectName) => {
     const globImports = {
@@ -18,7 +23,7 @@ export const portfolioProjects = [
         location: "ul. Czyżewskiego, Kraków",
         completion: "Q4 2023",
         imageFolder: 'czyzewskiego', 
-        mainImage: './assets/portfolio/czyzewskiego/main.jpg',
+        mainImage: czyzewskiegoMain,
     },
     {
         id: 2,
@@ -27,7 +32,7 @@ export const portfolioProjects = [
         location: "ul. Krowoderskich Zuchów, Kraków",
         completion: "Q2 2024",
         imageFolder: 'krowoderskich-zuchow',
-        mainImage: './assets/portfolio/krowoderskich-zuchow/main.jpg',
+        mainImage: krowoderskichZuchowMain,
     },
     {
         id: 3,
@@ -36,7 +41,7 @@ export const portfolioProjects = [
         location: "ul. Miechowity, Kraków",
         completion: "Q1 2023",
         imageFolder: 'miechowity',
-        mainImage: './assets/portfolio/miechowity/main.jpg',
+        mainImage: miechowityMain,
     },
     {
         id: 4,
@@ -45,7 +50,7 @@ export const portfolioProjects = [
         location: "Starogard Gdański",
         completion: "Q3 2022",
         imageFolder: 'moderato',
-        mainImage: './assets/portfolio/moderato/main.jpg',
+        mainImage: moderatoMain,
     },
 ];
 
