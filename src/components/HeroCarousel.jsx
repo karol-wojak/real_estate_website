@@ -53,7 +53,7 @@ const HeroCarousel = () => {
   // Try to match exact path
   if (!isHome) {
     for (const route in staticHeroImages) {
-      if (path.startsWith(route)) {
+      if (path === route) {
         staticImage = staticHeroImages[route];
         break;
       }
