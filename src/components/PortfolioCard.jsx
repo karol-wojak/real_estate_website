@@ -9,7 +9,19 @@ const PortfolioCard = ({ project, idx }) => {
     // Conditionally apply 'md:flex-row-reverse' based on the index
     <div className={`relative flex flex-col bg-white rounded-lg shadow-lg overflow-hidden w-full ${idx % 2 == 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
       {/* Image Section (Left side on desktop, top on mobile - when not reversed) */}
-      <div className="w-full md:w-1/2 flex-shrink-0">
+      <div className="w-full md:w-1/2 flex-shrink-0 relative">
+        {/* On Sale Badge */}
+        {project.description && project.description.includes('Na sprzedaż') && (
+          <div className="absolute top-3 left-3 z-20 bg-[#e0bc88] text-black font-bold px-4 py-1 rounded shadow-lg text-xs uppercase tracking-wider">
+            NA SPRZEDAŻ
+          </div>
+        )}
+        {/* For Rent Badge */}
+        {project.description && /najem/i.test(project.description) && (
+          <div className={`absolute ${project.description.includes('Na sprzedaż') ? 'top-12' : 'top-3'} left-3 z-10 bg-[#e0bc88] text-black font-bold px-4 py-1 rounded shadow-lg text-xs uppercase tracking-wider`}>
+            NA WYNAJEM
+          </div>
+        )}
         {/* Added aspect-w-5 aspect-h-4 to enforce a 1.25/1 width/height ratio for the image container */}
         {/* The image inside will fill this container while maintaining its aspect ratio */}
         <Link to={`/projects/${project.id}`} className="block h-full aspect-w-5 aspect-h-4">
