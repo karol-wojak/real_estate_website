@@ -7,8 +7,8 @@ const Services = () => (
     <section id="services" className="w-full px-4 md:px-8 mb-16">
         <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">EM Holding – Pośrednicy nieruchomości nowej generacji</h2>
-            <p className="text-lg md:text-xl text-gray-700 mb-2 text-justify mx-auto max-w-4xl">Działamy jako agenci, doradcy i inwestorzy. Łączymy wiedzę rynkową z praktyką, byś mógł bezpiecznie i skutecznie kupić, sprzedać lub wynająć swoją nieruchomość. Nie jesteśmy zwykłą agencją – działamy strategicznie, kompleksowo i z pełnym zaangażowaniem.</p>
-            <p className="text-base md:text-lg text-gray-600 mt-4 text-center mx-auto max-w-3xl">Masz konkretny cel? A może dopiero szukasz rozwiązania?<br/>Zobacz, co możemy dla Ciebie zrobić:</p>
+            <p className="text-lg md:text-xl text-gray-700 mb-2 text-left md:text-justify mx-auto max-w-4xl">Działamy jako agenci, doradcy i inwestorzy. Łączymy wiedzę rynkową z praktyką, byś mógł bezpiecznie i skutecznie kupić, sprzedać lub wynająć swoją nieruchomość. Nie jesteśmy zwykłą agencją – działamy strategicznie, kompleksowo i z pełnym zaangażowaniem.</p>
+            <p className="text-base md:text-lg text-gray-600 mt-4 text-left md:text-center mx-auto max-w-3xl">Masz konkretny cel? A może dopiero szukasz rozwiązania?<br/>Zobacz, co możemy dla Ciebie zrobić:</p>
         </div>
         <div className="flex flex-col md:flex-row gap-8 md:gap-6 w-full">
             {/* Kupujesz */}
