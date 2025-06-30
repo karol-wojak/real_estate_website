@@ -101,7 +101,7 @@ const FAQ = () => {
           >
             <h3 className="text-xl font-semibold text-gray-900 flex justify-between items-center">
               {item.question}
-              <span className="text-yellow-500 font-bold">{openIndex === index ? '-' : '+'}</span>
+              <span className="font-bold" style={{ color: '#e0bc88' }}>{openIndex === index ? '-' : '+'}</span>
             </h3>
             {openIndex === index && (
               <p className="mt-2 text-gray-700 whitespace-pre-line">{item.answer}</p>

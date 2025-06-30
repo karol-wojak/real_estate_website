@@ -128,7 +128,7 @@ const ProjectDetailPage = ({ portfolioProjects }) => {
                             to="/#portfolio-section"
                             smooth
                             scroll={scrollWithOffset}
-                            className="text-black hover:text-yellow-500 transition-colors font-semibold"
+                            className="text-black hover:text-[#e0bc88] transition-colors font-semibold"
                         >
                             Realizacje
                         </HashLink>
@@ -139,7 +139,7 @@ const ProjectDetailPage = ({ portfolioProjects }) => {
                         </svg>
                     </li>
                     <li>
-                        <span className="text-yellow-500 font-semibold">{project.name}</span>
+                        <span className="font-semibold" style={{ color: '#e0bc88' }}>{project.name}</span>
                     </li>
                 </ol>
             </nav>
