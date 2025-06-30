@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist -r https://github.com/karol-wojak/karol-wojak.github.io.git -b main"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
