@@ -8,10 +8,11 @@ import { HashLink } from 'react-router-hash-link'; // Import HashLink
 const Footer = () => {
     // Define menu items based on your website's navigation with paths/hashes
     const menuItems = [
+        { name: 'Usługi', path: '/#services', type: 'hash' },
         { name: 'Realizacje', path: '/#portfolio-section', type: 'hash' },
         { name: 'O Nas', path: '/#about-section', type: 'hash' },
+        { name: 'Opinie', path: '/#reviews-section', type: 'hash' },
         { name: 'FAQ', path: '/#faq-section', type: 'hash' },
-        // { name: 'Oferty', path: '/#offers-section', type: 'hash' },
         { name: 'Kontakt', path: '/contact', type: 'link' },
     ];
 
