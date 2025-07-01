@@ -7,14 +7,17 @@ const Services = () => (
     <section id="services" className="w-full max-w-5xl mx-auto mb-16 px-4">
         <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">EM Holding – Twój Partner w nieruchomościach, któremu możesz zaufać</h2>
-            <p className="text-lg md:text-xl text-gray-700 mb-2">Działamy jako agenci, inwestorzy i doradcy. Nie szablonowo, nie przypadkowo – tylko strategicznie, kompleksowo i z myślą o efekcie.<br/><br/>
+            <p className="text-left md:text-center text-lg md:text-xl text-gray-800 font-medium leading-relaxed mb-4 max-w-3xl mx-auto">
+                Działamy jako agenci, inwestorzy i doradcy. Nie szablonowo, nie przypadkowo – tylko strategicznie, kompleksowo i z myślą o efekcie.<br/><br/>
                 Łączymy doświadczenie zdobyte przy kilkudziesięciu własnych inwestycjach z wiedzą o rynku i realnymi potrzebami naszych klientów.
                 Pomagamy kupić, sprzedać, wynająć lub zainwestować – skutecznie, bezpiecznie i z korzyścią. <br/><br/>
                 Nie jesteśmy typową agencją. <br/>
                 Działamy na zlecenie. Z planem. Z zaangażowaniem.
             </p>
-            <p className="text-base md:text-lg text-gray-600 mt-4">Masz konkretny cel? A może dopiero szukasz najlepszego rozwiązania?<br/>
-                Zobacz, co możemy dla Ciebie zrobić ↓</p>
+            <p className="text-left md:text-center text-base md:text-lg text-gray-600 leading-relaxed mt-2 mb-2 max-w-2xl mx-auto">
+                Masz konkretny cel? A może dopiero szukasz najlepszego rozwiązania?<br/>
+                <span className="font-semibold text-[#e0bc88]">Zobacz, co możemy dla Ciebie zrobić ↓</span>
+            </p>
         </div>
         <div className="flex flex-col md:flex-row gap-8 md:gap-6">
             {/* Kupujesz */}
