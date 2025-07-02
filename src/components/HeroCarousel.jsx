@@ -8,18 +8,20 @@ import carousel3 from '../assets/carousel/img4.webp';
 import contact from '../assets/carousel/img1.webp';
 
 // Import all project main images
-import bajecznaMain from '../assets/portfolio/bajeczna/main.webp';
-import czyzewskiegoMain from '../assets/portfolio/czyzewskiego/main.webp';
 import imperialMain from '../assets/portfolio/imperial/main.webp';
-import jagiellonskieMain from '../assets/portfolio/jagiellonskie/main.webp';
 import krowoderskichZuchowMain from '../assets/portfolio/krowoderskich-zuchow/main.webp';
+import wilenskaMain from '../assets/portfolio/wilenska/main.webp';
+import radzikowskiegoMain from '../assets/portfolio/radzikowskiego/main.webp';
 import miechowityMain from '../assets/portfolio/miechowity/main.webp';
 import pachonskiegoMain from '../assets/portfolio/pachonskiego/main.webp';
-import radzikowskiegoMain from '../assets/portfolio/radzikowskiego/main.webp';
-import strusiaMain from '../assets/portfolio/strusia/main.webp';
 import wieliczkaMain from '../assets/portfolio/wieliczka/main.webp';
-import wilenskaMain from '../assets/portfolio/wilenska/main.webp';
+import jagiellonskieMain from '../assets/portfolio/jagiellonskie/main.webp';
+import bajecznaMain from '../assets/portfolio/bajeczna/main.webp';
+import strusiaMain from '../assets/portfolio/strusia/main.webp';
+import aviaMain from '../assets/portfolio/avia/main.webp';
+import moderatoMain from '../assets/portfolio/moderato/main.webp';
 import zagonczykaMain from '../assets/portfolio/zagonczyka/main.webp';
+import czyzewskiegoMain from '../assets/portfolio/czyzewskiego/main.webp';
 
 const HeroCarousel = () => {
   const location = useLocation();
@@ -32,7 +34,6 @@ const HeroCarousel = () => {
   // Map static routes and specific project detail pages to their images
   const staticHeroImages = {
     '/contact': contact,
-    // Map each project ID to its corresponding main image (portfolioData.js order)
     '/projects/1': imperialMain,
     '/projects/2': krowoderskichZuchowMain,
     '/projects/3': wilenskaMain,
@@ -43,8 +44,10 @@ const HeroCarousel = () => {
     '/projects/8': jagiellonskieMain,
     '/projects/9': bajecznaMain,
     '/projects/10': strusiaMain,
-    '/projects/11': zagonczykaMain,
-    '/projects/12': czyzewskiegoMain,
+    '/projects/11': aviaMain,
+    '/projects/12': moderatoMain,
+    '/projects/13': zagonczykaMain,
+    '/projects/14': czyzewskiegoMain,
   };
 
   // Default image fallback
