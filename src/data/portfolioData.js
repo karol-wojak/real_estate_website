@@ -9,6 +9,8 @@ import krowoderskichZuchowMain from '../assets/portfolio/krowoderskich-zuchow/ma
 import miechowityMain from '../assets/portfolio/miechowity/main.webp';
 import pachonskiegoMain from '../assets/portfolio/pachonskiego/main.webp';
 import radzikowskiegoMain from '../assets/portfolio/radzikowskiego/main.webp';
+import aviaMain from '../assets/portfolio/avia/main.webp';
+import moderatoMain from '../assets/portfolio/moderato/main.webp';
 import strusiaMain from '../assets/portfolio/strusia/main.webp';
 import wieliczkaMain from '../assets/portfolio/wieliczka/main.webp';
 import wilenskaMain from '../assets/portfolio/wilenska/main.webp';
@@ -25,6 +27,8 @@ export const importProjectImages = (projectName) => {
         'miechowity': import.meta.glob('../assets/portfolio/miechowity/*.webp', { eager: false }),
         'pachonskiego': import.meta.glob('../assets/portfolio/pachonskiego/*.webp', { eager: false }),
         'radzikowskiego': import.meta.glob('../assets/portfolio/radzikowskiego/*.webp', { eager: false }),
+        'avia': import.meta.glob('../assets/portfolio/avia/*.webp', { eager: false }),
+        'moderato': import.meta.glob('../assets/portfolio/moderato/*.webp', { eager: false }),
         'strusia': import.meta.glob('../assets/portfolio/strusia/*.webp', { eager: false }),
         'wieliczka': import.meta.glob('../assets/portfolio/wieliczka/*.webp', { eager: false }),
         'wilenska': import.meta.glob('../assets/portfolio/wilenska/*.webp', { eager: false }),
