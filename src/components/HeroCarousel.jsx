@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import carousel1 from '../assets/carousel/img2.webp';
 import carousel2 from '../assets/carousel/img3.webp';
 import carousel3 from '../assets/carousel/img4.webp';
+import carousel4 from '../assets/carousel/img5.webp';
 import contact from '../assets/carousel/img1.webp';
 
 // Import all project main images
@@ -29,7 +30,7 @@ const HeroCarousel = () => {
 
   const isHome = path === '/';
 
-  const homeImages = [carousel1, carousel2, carousel3];
+  const homeImages = [carousel1, carousel2, carousel3, carousel4];
 
   // Map static routes and specific project detail pages to their images
   const staticHeroImages = {
