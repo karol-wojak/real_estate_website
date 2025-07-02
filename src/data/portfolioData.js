@@ -1,39 +1,48 @@
 // src/data/portfolioData.js
 
 // --- Statically import the main image for each project ---
-import bajecznaMain from '../assets/portfolio/bajeczna/main.webp';
-import czyzewskiegoMain from '../assets/portfolio/czyzewskiego/main.webp';
 import imperialMain from '../assets/portfolio/imperial/main.webp';
-import jagiellonskieMain from '../assets/portfolio/jagiellonskie/main.webp';
 import krowoderskichZuchowMain from '../assets/portfolio/krowoderskich-zuchow/main.webp';
+import wilenskaMain from '../assets/portfolio/wilenska/main.webp';
+import radzikowskiegoMain from '../assets/portfolio/radzikowskiego/main.webp';
 import miechowityMain from '../assets/portfolio/miechowity/main.webp';
 import pachonskiegoMain from '../assets/portfolio/pachonskiego/main.webp';
-import radzikowskiegoMain from '../assets/portfolio/radzikowskiego/main.webp';
+import wieliczkaMain from '../assets/portfolio/wieliczka/main.webp';
+import jagiellonskieMain from '../assets/portfolio/jagiellonskie/main.webp';
+import bajecznaMain from '../assets/portfolio/bajeczna/main.webp';
+import strusiaMain from '../assets/portfolio/strusia/main.webp';
 import aviaMain from '../assets/portfolio/avia/main.webp';
 import moderatoMain from '../assets/portfolio/moderato/main.webp';
-import strusiaMain from '../assets/portfolio/strusia/main.webp';
-import wieliczkaMain from '../assets/portfolio/wieliczka/main.webp';
-import wilenskaMain from '../assets/portfolio/wilenska/main.webp';
 import zagonczykaMain from '../assets/portfolio/zagonczyka/main.webp';
+import czyzewskiegoMain from '../assets/portfolio/czyzewskiego/main.webp';
 
 
 export const importProjectImages = (projectName) => {
     const globImports = {
-        'bajeczna': import.meta.glob('../assets/portfolio/bajeczna/*.webp', { eager: false }),
-        'czyzewskiego': import.meta.glob('../assets/portfolio/czyzewskiego/*.webp', { eager: false }),
         'imperial': import.meta.glob('../assets/portfolio/imperial/*.webp', { eager: false }),
-        'jagiellonskie': import.meta.glob('../assets/portfolio/jagiellonskie/*.webp', { eager: false }),
         'krowoderskich-zuchow': import.meta.glob('../assets/portfolio/krowoderskich-zuchow/*.webp', { eager: false }),
+        'wilenska': import.meta.glob('../assets/portfolio/wilenska/*.webp', { eager: false }),
+        'radzikowskiego': import.meta.glob('../assets/portfolio/radzikowskiego/*.webp', { eager: false }),
         'miechowity': import.meta.glob('../assets/portfolio/miechowity/*.webp', { eager: false }),
         'pachonskiego': import.meta.glob('../assets/portfolio/pachonskiego/*.webp', { eager: false }),
-        'radzikowskiego': import.meta.glob('../assets/portfolio/radzikowskiego/*.webp', { eager: false }),
+        'wieliczka': import.meta.glob('../assets/portfolio/wieliczka/*.webp', { eager: false }),
+        'jagiellonskie': import.meta.glob('../assets/portfolio/jagiellonskie/*.webp', { eager: false }),
+        'bajeczna': import.meta.glob('../assets/portfolio/bajeczna/*.webp', { eager: false }),
+        'strusia': import.meta.glob('../assets/portfolio/strusia/*.webp', { eager: false }),
         'avia': import.meta.glob('../assets/portfolio/avia/*.webp', { eager: false }),
         'moderato': import.meta.glob('../assets/portfolio/moderato/*.webp', { eager: false }),
-        'strusia': import.meta.glob('../assets/portfolio/strusia/*.webp', { eager: false }),
-        'wieliczka': import.meta.glob('../assets/portfolio/wieliczka/*.webp', { eager: false }),
-        'wilenska': import.meta.glob('../assets/portfolio/wilenska/*.webp', { eager: false }),
         'zagonczyka': import.meta.glob('../assets/portfolio/zagonczyka/*.webp', { eager: false }),
+        'czyzewskiego': import.meta.glob('../assets/portfolio/czyzewskiego/*.webp', { eager: false }),
     };
+    if (projectName === 'avia') {
+        // Exclude main.webp from Avia
+        const all = globImports['avia'];
+        const filtered = {};
+        for (const key in all) {
+            if (!key.endsWith('/main.webp')) filtered[key] = all[key];
+        }
+        return filtered;
+    }
     return globImports[projectName] || {};
 };
 
@@ -141,6 +150,26 @@ export const portfolioProjects = [
     },
     {
         id: 11,
+        name: "Avia, Kraków",
+        description: "Pod najem | Urządzenie ze stanu deweloperskiego\nWynajęte pierwszemu najemcy po zakończeniu prac.",
+        location: "Kraków",
+        completion: "Q2 2024",
+        imageFolder: 'avia',
+        mainImage: aviaMain,
+        area: 36,
+    },
+    {
+        id: 12,
+        name: "Moderato, Starogard Gdański",
+        description: "Pod najem krótkoterminowy | Urządzenie ze stanu deweloperskiego\nPrzestrzeń zaprojektowana z myślą o maksymalnym komforcie – gotowa do wynajmu od pierwszego dnia.",
+        location: "Starogard Gdański",
+        completion: "Q3 2024",
+        imageFolder: 'moderato',
+        mainImage: moderatoMain,
+        area: 38,
+    },
+    {
+        id: 13,
         name: "Zagończyka, Starogard Gdański",
         description: "Pod najem | Urządzenie ze stanu deweloperskiego\nNieruchomość dostosowana do potrzeb lokalnego rynku.",
         location: "Starogard Gdański",
@@ -150,7 +179,7 @@ export const portfolioProjects = [
         area: 37,
     },
     {
-        id: 12,
+        id: 14,
         name: "Czyżewskiego, Kraków",
         description: "Pod najem | Urządzenie ze stanu deweloperskiego\nProjekt zrealizowany w pełnym zakresie – od odbioru do gotowości do najmu.",
         location: "Kraków",
@@ -172,38 +201,5 @@ export const currentOffers = [
         bedrooms: 4,
         bathrooms: 3,
         image: "https://via.placeholder.com/600x400/FF0000/FFFFFF?text=Penthouse"
-    },
-    {
-        id: 2,
-        name: "Riverside Villa",
-        type: "House",
-        description: "A spacious villa located by the river, perfect for families.",
-        location: "Riverbend, CA",
-        price: "$1,800,000",
-        bedrooms: 5,
-        bathrooms: 4,
-        image: "https://via.placeholder.com/600x400/0000FF/FFFFFF?text=Villa"
-    },
-    {
-        id: 3,
-        name: "Urban Loft",
-        type: "Apartment",
-        description: "Modern loft in the bustling urban area, ideal for young professionals.",
-        location: "Downtown, IL",
-        price: "$750,000",
-        bedrooms: 1,
-        bathrooms: 1,
-        image: "https://via.placeholder.com/600x400/00FF00/FFFFFF?text=Loft"
-    },
-    {
-        id: 4,
-        name: "Suburban Family Home",
-        type: "House",
-        description: "A comfortable family home in a quiet suburban neighborhood with a large backyard.",
-        location: "Suburbia, GA",
-        price: "$450,000",
-        bedrooms: 3,
-        bathrooms: 2,
-        image: "https://via.placeholder.com/600x400/FFA500/FFFFFF?text=Family+Home"
     }
 ];
