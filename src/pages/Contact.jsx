@@ -1,5 +1,6 @@
 // src/pages/Contact.jsx
 import { MapPin, Mail, Facebook, Instagram, Phone } from 'lucide-react';
+import ContactForm from '../components/ContactForm';
 
 const ContactPage = () => (
   <section className="bg-white rounded-xl transition-all duration-500 ease-in-out transform opacity-0 translate-y-4 animate-fade-in-up">
@@ -76,6 +77,11 @@ const ContactPage = () => (
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       ></iframe>
+    </div>
+
+    {/* The Contact Form component rendered below the map */}
+    <div className="mt-12 max-w-lg mx-auto">
+      <ContactForm />
     </div>
   </section>
 );
