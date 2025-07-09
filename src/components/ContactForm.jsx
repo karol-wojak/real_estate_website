@@ -6,7 +6,7 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',     // Corresponds to input name="name"
     surname: '',  // Corresponds to input name="surname"
-    phone: '',    // Corresponds to input name="phone"
+    phone: '',    // Corresponds to input name="phone" - will store formatted 9 digits
     email: '',    // Corresponds to input name="email"
     request: '',  // Corresponds to input name="request"
   });
@@ -16,8 +16,8 @@ const ContactForm = () => {
   const [message, setMessage] = useState('');
   const [isError, setIsError] = useState(false);
 
-  // State for validation errors, now including phone
-  const [fieldErrors, setFieldErrors] = useState({ name: '', surname: '', phone: '' });
+  // State for validation errors, now including phone and email
+  const [fieldErrors, setFieldErrors] = useState({ name: '', surname: '', phone: '', email: '' });
 
   // Web3Forms public access key
   const WEB3FORMS_ACCESS_KEY = "8a9c6fd6-14cc-403c-a7b6-5deb46d22fa5";
@@ -46,14 +46,47 @@ const ContactForm = () => {
       processedValue = processedValue.replace(/[^a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\s-]/g, '');
       currentFieldErrors[name] = errorMsg; // Update error for this field
     }
-    // For phone, allow only digits, spaces, +, - and parentheses
+    // For phone, allow only digits, spaces, +, - and parentheses, and validate format
     else if (name === 'phone') {
-      // Check for invalid characters in the original input value for error message
-      if (/[^0-9+\-() ]/.test(value)) {
-        errorMsg = 'Dozwolone są tylko cyfry, spacje, myślniki, nawiasy i znak plus.';
+      // 1. Remove all non-digit characters for internal processing
+      const digitsOnly = value.replace(/\D/g, ''); // Keep only digits
+
+      // 2. Limit to 9 digits
+      const limitedDigits = digitsOnly.substring(0, 9);
+
+      // 3. Format with spaces: XXX XXX XXX
+      let formattedPhone = '';
+      for (let i = 0; i < limitedDigits.length; i++) {
+        if (i > 0 && i % 3 === 0) {
+          formattedPhone += ' ';
+        }
+        formattedPhone += limitedDigits[i];
       }
-      // Sanitize the value for state: keep only allowed characters
-      processedValue = processedValue.replace(/[^0-9+\-() ]/g, '');
+      processedValue = formattedPhone; // This is what goes into the input field
+
+      // 4. Validate the length for error message
+      if (limitedDigits.length > 0 && limitedDigits.length < 9) {
+        errorMsg = 'Numer telefonu musi składać się z 9 cyfr.';
+      } else if (limitedDigits.length > 9) {
+        // This case should ideally not be hit due to substring, but as a safeguard
+        errorMsg = 'Numer telefonu może składać się maksymalnie z 9 cyfr.';
+      } else if (limitedDigits.length === 0 && value.length > 0) {
+        errorMsg = 'Numer telefonu może zawierać tylko cyfry.';
+      } else if (limitedDigits.length === 9) {
+          // No error if it's exactly 9 digits
+          errorMsg = '';
+      }
+
+      currentFieldErrors[name] = errorMsg; // Update error for this field
+    }
+    // For email, allow standard email characters (letters, numbers, @, ., _, -, +)
+    else if (name === 'email') {
+      // This regex allows letters, numbers, and common email symbols like @ . _ - +
+      if (/[^a-zA-Z0-9@._\-+]/.test(value)) {
+        errorMsg = 'Dozwolone są tylko litery, cyfry oraz znaki: @ . _ - +';
+      }
+      // Sanitize the value for state: keep only allowed email characters
+      processedValue = processedValue.replace(/[^a-zA-Z0-9@._\-+]/g, '');
       currentFieldErrors[name] = errorMsg; // Update error for this field
     }
 
@@ -77,6 +110,16 @@ const ContactForm = () => {
       return; // Prevent submission if there are errors
     }
 
+    // Final check for phone number length before submission
+    const digitsOnlyPhone = formData.phone.replace(/\s/g, '');
+    if (digitsOnlyPhone.length !== 9) {
+        setMessage('Numer telefonu musi składać się z 9 cyfr.');
+        setIsError(true);
+        setFieldErrors(prev => ({ ...prev, phone: 'Numer telefonu musi składać się z 9 cyfr.' }));
+        return;
+    }
+
+
     setIsSubmitting(true);
     setMessage('Wysyłanie....'); // Show sending message immediately
     setIsError(false);
@@ -85,8 +128,9 @@ const ContactForm = () => {
     const sanitizedData = {
       name: sanitizeInput(formData.name).replace(/[^a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\s-]/g, '').trim(),
       surname: sanitizeInput(formData.surname).replace(/[^a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\s-]/g, '').trim(),
-      phone: sanitizeInput(formData.phone).replace(/[^\d+\-() ]/g, '').trim(),
-      email: sanitizeInput(formData.email).trim(),
+      // For phone, prepend +48 to the cleaned 9 digits
+      phone: '+48' + formData.phone.replace(/\s/g, '').trim(),
+      email: sanitizeInput(formData.email).trim(), // Trim email as well
       request: sanitizeInput(formData.request).trim(),
     };
 
@@ -96,7 +140,7 @@ const ContactForm = () => {
     formDataToSend.append("access_key", WEB3FORMS_ACCESS_KEY);
     formDataToSend.append("Imię", sanitizedData.name);
     formDataToSend.append("Nazwisko", sanitizedData.surname);
-    formDataToSend.append("Telefon", sanitizedData.phone);
+    formDataToSend.append("Telefon", sanitizedData.phone); // Send the +48 prefixed number
     formDataToSend.append("E-mail", sanitizedData.email);
     formDataToSend.append("Twoje Zapytanie", sanitizedData.request);
 
@@ -120,7 +164,7 @@ const ContactForm = () => {
           email: '',
           request: '',
         });
-        setFieldErrors({ name: '', surname: '', phone: '' }); // Clear field errors on success
+        setFieldErrors({ name: '', surname: '', phone: '', email: '' }); // Clear all field errors on success
       } else {
         console.error("Error", data); // Log the error for debugging
         setMessage(data.message || 'Wystąpił błąd podczas wysyłania zapytania. Spróbuj ponownie.');
@@ -186,15 +230,21 @@ const ContactForm = () => {
           <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
             Telefon
           </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-200 ease-in-out"
-            placeholder="Twój numer telefonu"
-          />
+          <div className="flex items-center mt-1">
+            <span className="inline-flex items-center px-3 py-2 rounded-l-lg border border-r-0 border-gray-300 bg-gray-50 text-gray-500 sm:text-sm">
+              +48
+            </span>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              className="block w-full px-4 py-2 border border-gray-300 rounded-r-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-200 ease-in-out"
+              placeholder="XXX XXX XXX" // Updated placeholder
+              maxLength="11" // 9 digits + 2 spaces
+            />
+          </div>
           {fieldErrors.phone && (
             <p className="text-red-600 text-xs mt-1">{fieldErrors.phone}</p>
           )}
@@ -215,6 +265,9 @@ const ContactForm = () => {
             className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-200 ease-in-out"
             placeholder="Twój adres e-mail"
           />
+          {fieldErrors.email && (
+            <p className="text-red-600 text-xs mt-1">{fieldErrors.email}</p>
+          )}
         </div>
 
         {/* Twoje Zapytanie */}
