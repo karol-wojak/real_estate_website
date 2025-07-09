@@ -20,7 +20,7 @@ const ContactForm = () => {
   const [fieldErrors, setFieldErrors] = useState({ name: '', surname: '', phone: '', email: '' });
 
   // Web3Forms public access key
-  const WEB3FORMS_ACCESS_KEY = "8a9c6fd6-14cc-403c-a7b6-5deb46d22fa5";
+  const WEB3FORMS_ACCESS_KEY = "3e6c466d-ab57-4063-8782-eb6f7c96cc30";
 
   // Helper function to sanitize input (only removes HTML tags, no trimming here)
   const sanitizeInput = (value) => {
