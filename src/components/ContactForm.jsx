@@ -81,7 +81,7 @@ const ContactForm = () => {
 
   return (
     <div className="bg-white p-8 rounded-xl shadow-2xl w-full max-w-lg mx-auto"> {/* Added mx-auto for centering */}
-      <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">Skontaktuj się z nami</h2>
+      {/* <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">Skontaktuj się z nami</h2> */}
       <p className="text-gray-600 mb-8 text-center">Wypełnij poniższy formularz, a skontaktujemy się z Tobą najszybciej jak to możliwe.</p>
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -131,7 +131,7 @@ const ContactForm = () => {
             value={formData.phone} // Controlled component
             onChange={handleChange}
             className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-200 ease-in-out"
-            placeholder="Twój numer telefonu (opcjonalnie)"
+            placeholder="Twój numer telefonu"
           />
         </div>
 
@@ -174,9 +174,8 @@ const ContactForm = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-lg font-semibold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300 ease-in-out ${
-              isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
+            className={`w-full flex justify-center px-8 py-3 rounded-md font-semibold text-lg transition-colors duration-300 bg-black text-white hover:bg-neutral-700 active:bg-neutral-700
+              ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
             {isSubmitting ? 'Wysyłanie...' : 'Wyślij Zapytanie'}
           </button>

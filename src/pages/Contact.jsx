@@ -18,70 +18,74 @@ const ContactPage = () => (
       </a>
     </div>
 
-    {/* Adjusted grid for better responsiveness */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <a
-        href="https://maps.google.com/?q=Rynek%20G%C5%82%C3%B3wny%2028%2C%2031-010%20Krak%C3%B3w"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="bg-white p-4 md:p-6 rounded-lg shadow-md transition-shadow duration-300 ease-in-out flex items-center text-left min-w-0 group outline-none border-2 border-white hover:border-[#cda670] active:border-[#cda670]"
-        aria-label="Otwórz lokalizację w Google Maps"
-      >
-        <div className="mr-4 flex-shrink-0">
-          <MapPin className="text-[#cda670] w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 group-hover:opacity-80 group-active:opacity-80 transition" />
+    {/* Responsive grid: info blocks (left), contact form (right) */}
+    <div className="flex flex-col md:flex-row gap-10 md:gap-16 mt-12 mb-12">
+      {/* Info blocks and map column */}
+      <div className="flex flex-col gap-6 md:w-1/2 md:max-w-xs flex-shrink-0">
+        {/* Zadzwoń */}
+        <div className="bg-white rounded-xl shadow-lg p-5 flex items-start gap-4 border border-gray-100 transition-all duration-200 hover:border-[#e0bc88] hover:shadow-[0_4px_24px_0_rgba(224,188,136,0.18)]">
+          <span className="inline-block text-[#e0bc88] text-2xl mt-1">
+            <Phone className="w-7 h-7 md:w-8 md:h-8" />
+          </span>
+          <div>
+            <div className="font-bold text-lg mb-1">Zadzwoń</div>
+            <a href="tel:+48515235550" className="text-gray-700 text-sm leading-relaxed hover:underline">+48 515 235 550</a>
+          </div>
         </div>
-        <div className="flex-1 min-w-0">
-          <h3 className="text-lg md:text-2xl font-semibold text-gray-900 mb-2 break-words">Lokalizacja</h3>
-          <span className="text-gray-700 text-base md:text-lg break-words select-text">Rynek Główny 28,<br />31-010 Kraków</span>
+        {/* Napisz */}
+        <div className="bg-white rounded-xl shadow-lg p-5 flex items-start gap-4 border border-gray-100 transition-all duration-200 hover:border-[#e0bc88] hover:shadow-[0_4px_24px_0_rgba(224,188,136,0.18)]">
+          <span className="inline-block text-[#e0bc88] text-2xl mt-1">
+            <Mail className="w-7 h-7 md:w-8 md:h-8" />
+          </span>
+          <div>
+            <div className="font-bold text-lg mb-1">Napisz</div>
+            <a href="mailto:kontakt@emholding.pl" className="text-gray-700 text-sm leading-relaxed hover:underline">kontakt@emholding.pl</a>
+          </div>
         </div>
-      </a>
-
-      <a
-        href="tel:+48515235550"
-        className="bg-white p-4 md:p-6 rounded-lg shadow-md transition-shadow duration-300 ease-in-out flex items-center text-left min-w-0 group outline-none border-2 border-white hover:border-[#cda670] active:border-[#cda670]"
-        aria-label="Zadzwoń pod numer +48 515 235 550"
-      >
-        <div className="mr-4 flex-shrink-0">
-          <Phone className="text-[#cda670] w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 group-hover:opacity-80 group-active:opacity-80 transition" />
+        {/* Lokalizacja */}
+        <div className="bg-white rounded-xl shadow-lg p-5 flex items-start gap-4 border border-gray-100 transition-all duration-200 hover:border-[#e0bc88] hover:shadow-[0_4px_24px_0_rgba(224,188,136,0.18)]">
+          <span className="inline-block text-[#e0bc88] text-2xl mt-1">
+            <MapPin className="w-7 h-7 md:w-8 md:h-8" />
+          </span>
+          <div>
+            <div className="font-bold text-lg mb-1">Lokalizacja</div>
+            <div className="text-gray-700 text-sm leading-relaxed">
+              Rynek Główny 28<br />31-010 Kraków
+            </div>
+          </div>
         </div>
-        <div className="flex-1 min-w-0">
-          <h3 className="text-lg md:text-2xl font-semibold text-gray-900 mb-2 break-words">Zadzwoń</h3>
-          <span className="text-gray-700 text-base md:text-lg break-words select-text">+48 515 235 550</span>
+        
+        {/* Map below info blocks on tablets and up (md and up) */}
+        <div className="hidden md:block mt-6">
+          <iframe
+            title="Our Office Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2561.3102761006026!2d19.933065976560357!3d50.061750615274825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b0dd93abfa3%3A0x89daa63b516ebd22!2zUnluZWsgR8WCw7N3bnkgMjgsIDMxLTAxMCBLcmFrw7N3!5e0!3m2!1spl!2spl!4v1750417674324!5m2!1spl!2spl"
+            width="100%"
+            height="300"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
-      </a>
-
-      <a
-        href="mailto:kontakt@emholding.pl"
-        className="bg-white p-4 md:p-6 rounded-lg shadow-md transition-shadow duration-300 ease-in-out flex items-center text-left min-w-0 group outline-none border-2 border-white hover:border-[#cda670] active:border-[#cda670]"
-        aria-label="Napisz na adres e-mail kontakt@emholding.pl"
-      >
-        <div className="mr-4 flex-shrink-0">
-          <Mail className="text-[#cda670] w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 group-hover:opacity-80 group-active:opacity-80 transition" />
-        </div>
-        <div className="flex-1 min-w-0">
-          <h3 className="text-lg md:text-2xl font-semibold text-gray-900 mb-2 break-words">Napisz</h3>
-          <span className="text-gray-700 text-base md:text-lg break-words select-text">kontakt@emholding.pl</span>
-        </div>
-      </a>
+      </div>
+      {/* Contact form column */}
+      <div className="flex-1">
+        <ContactForm />
+      </div>
     </div>
-
-    {/* Google Map Embed - Conditionally full width on large screens */}
-    <div className="mt-12 w-full lg:w-screen lg:relative lg:left-1/2 lg:-translate-x-1/2 pb-12">
+    {/* Map below both columns on mobile only */}
+    <div className="mt-12 w-full md:hidden pb-12">
       <iframe
         title="Our Office Location"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2561.3102761006026!2d19.933065976560357!3d50.061750615274825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b0dd93abfa3%3A0x89daa63b516ebd22!2zUnluZWsgR8WCw7N3bnkgMjgsIDMxLTAxMCBLcmFrw7N3!5e0!3m2!1spl!2spl!4v1750417674324!5m2!1spl!2spl"
         width="100%"
-        height="450"
+        height="350"
         style={{ border: 0 }}
         allowFullScreen=""
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       ></iframe>
-    </div>
-
-    {/* The Contact Form component rendered below the map */}
-    <div className="mt-12 max-w-lg mx-auto">
-      <ContactForm />
     </div>
   </section>
 );
