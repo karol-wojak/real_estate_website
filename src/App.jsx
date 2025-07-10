@@ -15,6 +15,7 @@ import OffersPage from './pages/Offers.jsx';
 import ContactPage from './pages/Contact.jsx';
 import ProjectDetailPage from './pages/ProjectDetailPage.jsx';
 import Footer from './components/Footer.jsx';
+import ApiTest from './components/ApiTest.jsx';  // Add this import
 
 import { portfolioProjects as staticPortfolioProjects, currentOffers } from './data/portfolioData.js';
 import { fetchPortfolioProjects } from './api/strapi';
@@ -122,6 +123,7 @@ const App = () => {
                     <Route path="/contact" element={<ContactPage />} />
                     <Route path="/projects/:projectId" element={<ProjectDetailPage portfolioProjects={portfolioProjects} />} />
                     <Route path="/faq" element={<FAQ />} />
+                    <Route path="/api-test" element={<ApiTest />} /> {/* Add test route */}
                     <Route path="*" element={<h2 className="text-center text-2xl mt-20">404: Strona nie znaleziona</h2>} />
                 </Routes>
             </main>
