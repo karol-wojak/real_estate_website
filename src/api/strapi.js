@@ -5,7 +5,7 @@ const STRAPI_URL = 'http://localhost:1337/api'; // Change to your Strapi URL if 
 
 export const fetchPortfolioProjects = async () => {
   try {
-    const res = await axios.get(`${STRAPI_URL}/portfolio-projects?populate=mainImage,galleryImages`);
+    const res = await axios.get(`${STRAPI_URL}/portfolio-projects?populate=*`);
     // Strapi v4 returns data in res.data.data
     return res.data.data;
   } catch (error) {

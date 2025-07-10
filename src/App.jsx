@@ -16,11 +16,13 @@ import ContactPage from './pages/Contact.jsx';
 import ProjectDetailPage from './pages/ProjectDetailPage.jsx';
 import Footer from './components/Footer.jsx';
 
-import { portfolioProjects, currentOffers } from './data/portfolioData.js';
+import { portfolioProjects as staticPortfolioProjects, currentOffers } from './data/portfolioData.js';
+import { fetchPortfolioProjects } from './api/strapi';
 
 
 const App = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [portfolioProjects, setPortfolioProjects] = useState(staticPortfolioProjects); // Use static as fallback
     const location = useLocation(); // To get current path for conditional rendering
 
     // Toggle mobile menu visibility
@@ -32,6 +34,48 @@ const App = () => {
     useEffect(() => {
         setIsMobileMenuOpen(false);
     }, [location.pathname, location.hash]); // Close on path or hash change
+
+    // Fetch portfolio projects from Strapi
+    useEffect(() => {
+        const loadStrapiProjects = async () => {
+            try {
+                const strapiData = await fetchPortfolioProjects();
+                if (strapiData && strapiData.length > 0) {
+                    // Map Strapi data to your frontend structure
+                    const mappedProjects = strapiData.map((item) => ({
+                        id: item.id,
+                        name: item.Title,
+                        description: Array.isArray(item.Description)
+                          ? item.Description.map(block =>
+                              block.children?.map(child => child.text).join(' ')
+                            ).join('\n')
+                          : '',
+                        location: item.Location,
+                        area: item.Area,
+                        mainImage: item.mainImage?.url
+                          ? (item.mainImage.url.startsWith('http')
+                              ? item.mainImage.url
+                              : `http://localhost:1337${item.mainImage.url}`)
+                          : '',
+                        // Add galleryImages for detail page
+                        galleryImages: Array.isArray(item.galleryImages)
+                          ? item.galleryImages.map(img => ({
+                              url: img.url?.startsWith('http') ? img.url : `http://localhost:1337${img.url}`
+                            }))
+                          : [],
+                        // Keep imageFolder for backward compatibility
+                        imageFolder: item.Slug || 'default'
+                    }));
+                    setPortfolioProjects(mappedProjects);
+                }
+            } catch (error) {
+                console.error('Error loading Strapi projects, using static data:', error);
+                // Keep static data as fallback
+            }
+        };
+
+        loadStrapiProjects();
+    }, []);
 
     return (
         <div className="min-h-screen flex flex-col overflow-x-hidden">

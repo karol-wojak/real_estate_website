@@ -44,12 +44,21 @@ const ProjectDetailPage = ({ portfolioProjects }) => {
             setProject(selectedProject);
 
             try {
-                // Get the glob import object for the specific project folder
-                // This triggers the dynamic import only for the images in this folder!
+                // First, try to use galleryImages from Strapi
+                if (selectedProject.galleryImages && selectedProject.galleryImages.length > 0) {
+                    const imageUrls = selectedProject.galleryImages
+                        .filter(img => img && img.url)
+                        .map(img => img.url);
+                    setImages(imageUrls);
+                    setLoading(false);
+                    return;
+                }
+
+                // Fallback to static image imports
                 const imageModules = importProjectImages(selectedProject.imageFolder);
                 
                 if (Object.keys(imageModules).length === 0) {
-                    throw new Error('Image imports not found for this project.');
+                    throw new Error('No images found for this project.');
                 }
 
                 // Use Promise.all to load all the image modules at once
@@ -59,7 +68,7 @@ const ProjectDetailPage = ({ portfolioProjects }) => {
                 // Extract the default export (the image URL) from each module
                 const imageUrls = loadedImageModules.map(module => module.default);
                 
-                // Sort the images by filename to ensure consistent order (e.g., image-1.jpg, image-2.jpg)
+                // Sort the images by filename to ensure consistent order
                 imageUrls.sort();
 
                 setImages(imageUrls);
