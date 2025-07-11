@@ -90,7 +90,7 @@ const App = () => {
             <main
                 className="w-full max-w-7xl mx-auto px-4 lg:px-8 flex-grow py-0">
                 <div className="relative left-1/2 right-1/2 w-screen -translate-x-1/2 mb-8">
-                    <HeroCarousel location={location} />
+                    <HeroCarousel portfolioProjects={portfolioProjects} />
                 </div>
                 <Routes>
                     <Route path="/" element={
