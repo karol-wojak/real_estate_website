@@ -1,9 +1,14 @@
 // src/api/strapi.js
 import axios from 'axios';
 
-// Use environment variable first, then proxy for dev, then fallback to direct URL
+// Use environment variable first, then production server, then fallback to local dev
 const STRAPI_URL = import.meta.env.VITE_STRAPI_URL || 
-                   (import.meta.env.DEV ? '/api' : 'http://localhost:1337/api');
+                   'https://sincere-pleasure-38a2367eeb.strapiapp.com/api';
+
+// Export the base URL without /api for image URLs
+export const STRAPI_BASE_URL = import.meta.env.VITE_STRAPI_URL ? 
+                               import.meta.env.VITE_STRAPI_URL.replace('/api', '') : 
+                               'https://sincere-pleasure-38a2367eeb.strapiapp.com';
 
 // Configure axios for better browser compatibility
 const apiClient = axios.create({

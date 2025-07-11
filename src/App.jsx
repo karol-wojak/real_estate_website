@@ -15,10 +15,9 @@ import OffersPage from './pages/Offers.jsx';
 import ContactPage from './pages/Contact.jsx';
 import ProjectDetailPage from './pages/ProjectDetailPage.jsx';
 import Footer from './components/Footer.jsx';
-import ApiTest from './components/ApiTest.jsx';  // Add this import
 
 import { portfolioProjects as staticPortfolioProjects, currentOffers } from './data/portfolioData.js';
-import { fetchPortfolioProjects } from './api/strapi';
+import { fetchPortfolioProjects, STRAPI_BASE_URL } from './api/strapi';
 
 
 const App = () => {
@@ -56,12 +55,12 @@ const App = () => {
                         mainImage: item.mainImage?.url
                           ? (item.mainImage.url.startsWith('http')
                               ? item.mainImage.url
-                              : `http://localhost:1337${item.mainImage.url}`)
+                              : `${STRAPI_BASE_URL}${item.mainImage.url}`)
                           : '',
                         // Add galleryImages for detail page
                         galleryImages: Array.isArray(item.galleryImages)
                           ? item.galleryImages.map(img => ({
-                              url: img.url?.startsWith('http') ? img.url : `http://localhost:1337${img.url}`
+                              url: img.url?.startsWith('http') ? img.url : `${STRAPI_BASE_URL}${img.url}`
                             }))
                           : [],
                         // Keep imageFolder for backward compatibility
@@ -71,6 +70,7 @@ const App = () => {
                 }
             } catch (error) {
                 console.error('Error loading Strapi projects, using static data:', error);
+                console.warn('Failed to load data from production server. Check console for details.');
                 // Keep static data as fallback
             }
         };
@@ -123,7 +123,6 @@ const App = () => {
                     <Route path="/contact" element={<ContactPage />} />
                     <Route path="/projects/:projectId" element={<ProjectDetailPage portfolioProjects={portfolioProjects} />} />
                     <Route path="/faq" element={<FAQ />} />
-                    <Route path="/api-test" element={<ApiTest />} /> {/* Add test route */}
                     <Route path="*" element={<h2 className="text-center text-2xl mt-20">404: Strona nie znaleziona</h2>} />
                 </Routes>
             </main>

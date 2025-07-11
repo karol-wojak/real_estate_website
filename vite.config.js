@@ -14,14 +14,15 @@ export default defineConfig({
     host: 'localhost',
     port: 5173,
     cors: true,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:1337',
-        changeOrigin: true,
-        secure: false,
-        rewrite: (path) => path.replace(/^\/api/, '/api'),
-      },
-    },
+    // Proxy disabled - using production Strapi server
+    // proxy: {
+    //   '/api': {
+    //     target: 'http://localhost:1337',
+    //     changeOrigin: true,
+    //     secure: false,
+    //     rewrite: (path) => path.replace(/^\/api/, '/api'),
+    //   },
+    // },
   },
   preview: {
     host: 'localhost',
