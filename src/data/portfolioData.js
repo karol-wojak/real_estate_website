@@ -106,7 +106,7 @@ export const portfolioProjects = [
         id: 7,
         name: "Wieliczka Park",
         description: "Na sprzedaż | Urządzenie ze stanu deweloperskiego\nWnętrze dopasowane do potrzeb rynku – skutecznie sprzedane.",
-        location: "Wieliczka",
+        location: "Kraków",
         imageFolder: 'wieliczka',
         mainImage: wieliczkaMain,
         area: 51,
