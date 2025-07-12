@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 
@@ -14,6 +14,87 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 import { importProjectImages } from '../data/portfolioData';
+
+// Lazy Image Component for better performance
+const LazyImage = ({ src, alt, className, onClick, index }) => {
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [isInView, setIsInView] = useState(false);
+    const [hasError, setHasError] = useState(false);
+    const imgRef = useRef();
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsInView(true);
+                    observer.disconnect();
+                }
+            },
+            { 
+                threshold: 0.1,
+                rootMargin: '50px' // Start loading 50px before the image comes into view
+            }
+        );
+
+        if (imgRef.current) {
+            observer.observe(imgRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
+    const handleLoad = useCallback(() => {
+        setIsLoaded(true);
+    }, []);
+
+    const handleError = useCallback(() => {
+        setHasError(true);
+        setIsLoaded(true);
+    }, []);
+
+    return (
+        <div
+            ref={imgRef}
+            className={`${className} relative overflow-hidden rounded-lg shadow-md cursor-pointer`}
+            onClick={onClick}
+        >
+            {!isInView && (
+                <div className="w-full h-64 bg-gray-200 animate-pulse flex items-center justify-center">
+                    <div className="text-gray-500 text-sm">Loading...</div>
+                </div>
+            )}
+            
+            {isInView && !hasError && (
+                <>
+                    <img
+                        src={src}
+                        alt={alt}
+                        className={`w-full h-full object-cover transition-all duration-300 hover:scale-105 ${
+                            isLoaded ? 'opacity-100' : 'opacity-0'
+                        }`}
+                        onLoad={handleLoad}
+                        onError={handleError}
+                        loading="lazy"
+                    />
+                    {!isLoaded && (
+                        <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
+                            <div className="text-gray-500 text-sm">Loading...</div>
+                        </div>
+                    )}
+                </>
+            )}
+            
+            {hasError && (
+                <div className="w-full h-64 bg-gray-100 flex items-center justify-center border border-gray-300">
+                    <div className="text-gray-500 text-sm text-center">
+                        <div>⚠️</div>
+                        <div>Failed to load image</div>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
 
 const ProjectDetailPage = ({ portfolioProjects }) => {
     const { projectId } = useParams();
@@ -163,18 +244,14 @@ const ProjectDetailPage = ({ portfolioProjects }) => {
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto mb-12">
                 {images.map((imgSrc, idx) => (
-                    <div
+                    <LazyImage
                         key={idx}
-                        className="w-full h-auto overflow-hidden rounded-lg shadow-md cursor-pointer"
+                        src={imgSrc}
+                        alt={`${project.name} - Obraz ${idx + 1}`}
+                        className="w-full h-auto"
                         onClick={() => setIndex(idx)}
-                    >
-                        <img
-                            src={imgSrc}
-                            alt={`${project.name} - Obraz ${idx + 1}`}
-                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                            loading="lazy" // Add lazy loading for better performance
-                        />
-                    </div>
+                        index={idx}
+                    />
                 ))}
             </div>
 
